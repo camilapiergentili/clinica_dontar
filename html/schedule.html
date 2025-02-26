@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang='es-AR'>
+    <head>
+        <meta charset='utf-8'>
+        <title> CARGAR AGENDA </title>
+        <link rel="stylesheet" href="../css/style_login.css">
+    </head>
+    
+    <body>
+        <header>
+
+            <div class="logo">
+                <img src="../img/dontar_clinica_medica.png" alt="Dontar">
+            </div>
+
+        </header>
+        <main>
+            <div class="div__schedule">
+                <p>Seleccione dias y horarios en los que atendera el profesional en </p>
+                <p>Dontar Clinica Medica</p>
+            </div>
+            <div class="div__add_schedule">
+                <div class="div__select_day_time">
+                    <h3>Horarios de Atención</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Día</th>
+                                <th>Horarios</th>
+                                <th>Acción</th>
+                            </tr>
+                        </thead>
+                        <tbody id="horariosTable">
+                            <tr>
+                                <td>Lunes</td>
+                                <div class="horario-container">
+                                    <td>
+                                        <input type="time"> - <input type="time">
+                                    </td>
+                                </div>
+                                
+                                <td><button onclick="agregarHorario(this)">+</button></td>
+                            </tr>
+                            <tr>
+                                <td>Martes</td>
+                                <td>
+                                    <input type="time"> - <input type="time">
+                                </td>
+                                <td><button onclick="agregarHorario(this)">+</button></td>
+                            </tr>
+                            <tr>
+                                <td>Miércoles</td>
+                                <td>
+                                    <input type="time"> - <input type="time">
+                                </td>
+                                <td><button onclick="agregarHorario(this)">+</button></td>
+                            </tr>
+                            <tr>
+                                <td>Jueves</td>
+                                <td>
+                                    <input type="time"> - <input type="time">
+                                </td>
+                                <td><button onclick="agregarHorario(this)">+</button></td>
+                            </tr>
+                            <tr>
+                                <td>Viernes</td>
+                                <td>
+                                    <input type="time"> - <input type="time">
+                                </td>
+                                <td><button onclick="agregarHorario(this)">+</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="div__submit">
+                    <button class="button__add_schedule" onclick="guardarSeleccion()">FINALIZAR</button>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>
+
+<script>
+    function agregarHorario(btn) {
+        let td = btn.parentNode.previousElementSibling;
+        let nuevoHorario = document.createElement("div");
+        nuevoHorario.innerHTML = `<input type="time"> - <input type="time"> <button onclick="this.parentNode.remove()">🗑</button>`;
+        td.appendChild(nuevoHorario);
+    }
+
+    function guardarSeleccion() {
+        const profesional = document.getElementById("profesional").value;
+        const especialidad = document.getElementById("especialidad").value;
+        let dias = [];
+        
+        document.querySelectorAll("#horariosTable tr").forEach(tr => {
+            let dia = tr.children[0].textContent;
+            let horarios = [];
+            
+            tr.children[1].querySelectorAll("div, td").forEach(div => {
+                let inputs = div.querySelectorAll("input");
+                if (inputs.length === 2) {
+                    horarios.push(inputs[0].value + " - " + inputs[1].value);
+                }
+            });
+
+            if (horarios.length > 0) {
+                dias.push({ dia, horarios });
+            }
+        });
+
+        alert(`Profesional: ${profesional}\nEspecialidad: ${especialidad}\nHorarios:\n` + 
+              dias.map(d => `${d.dia}: ${d.horarios.join(", ")}`).join("\n"));
+    }
+</script>

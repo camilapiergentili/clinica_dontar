@@ -1,0 +1,74 @@
+/* ======= PALETA DE COLORES ======= */
+:root {
+    --color-principal: rgb(112, 30, 71);
+    --color-blanco: rgb(255, 255, 255);
+    --color-informativo: rgb(119, 119, 119);
+    --color-gris-intenso: rgb(51, 51, 51);
+    --color-negro: rgb(0, 0, 0);
+    --color-gris-claro: rgb(242, 242, 242);
+    --color-blanco-transparente: rgba(255, 255, 255, 0.8);
+    --color-principal-transparente: rgba(112, 30, 71, 0.5);
+}
+
+/* ======= PALETA DE COLORES ======= */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background: url('../img/clinica.png') no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* ======= PALETA DE COLORES ======= */
+header {
+    background-color: var(--color-blanco-transparente);
+    padding: 20px;
+}
+
+/* ======= PALETA DE COLORES ======= */
+.logo img {
+    max-width: 150px;
+}
+
+/* ======= MAIN ======= */
+main {
+    margin: 20px auto;
+    width: 60%;
+    background: var(--color-blanco);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* ======= TITULO ======= */
+h1 {
+    color: var(--color-principal);
+}
+
+/* ======= AGENDA ======= */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: var(--color-principal);
+    color: white;
+}
+
+/* ======= DIAS DE ATENCION ======= */
+.available {
+    background-color: var(--color-principal-transparente);
+    font-weight: bold;
+}

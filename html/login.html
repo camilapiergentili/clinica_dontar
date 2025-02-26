@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang='es-AR'>
+    <head>
+        <meta charset='utf-8'>
+        <title> INICIAR SESION </title>
+        <link rel="stylesheet" href="../css/style_login.css">
+    </head>
+    
+    <body>
+        <header>
+
+            <div class="logo">
+                <img src="../img/dontar_clinica_medica.png" alt="Dontar">
+            </div>
+
+        </header>
+
+        <main>
+            <div class="div__iniciar_sesion">
+                <p>Iniciar sesión</p>
+                <form action="#">
+                    <div class="div__email">
+                        <input type="text" class="input__email" data-type="email" name="email" value="" aria-required="true" placeholder="Correo electrónico" aria-label="Correo electrónico">
+                    </div>
+    
+                    <div class="div__password">
+                        <input type="password" class="input__password" data-type="password" name="password" value="" aria-required="true" placeholder="Contraseña" aria-label="Contraseña">
+                    </div>
+
+                    <div class="div__submit">
+                        <button type="submit" class="button__iniciar_sesion" >
+                            <a href="profile_patient.html"> INICIAR SESION </a>
+                        </button>
+                    </div>
+                </form>
+                
+                <a href="#">¿Olvidaste tu contraseña?</a>
+
+                <div class="div__remember">
+                    <input type="checkbox" id="remember" name="remember">  
+                    <label for="remember"> RECORDARME </label>
+                </div>  
+
+                <div class="div__register">
+                    <p> ¿Primera vez en Dontar? <a href="register_patient.html"> Registrate </a></p>
+                </div>
+
+                <div class="div__proteccion">
+                    <p> Esta pagina esta protegida por Google reCAPTCHA para comprobar que no eres un robot.
+                        <a href="https://developers.google.com/recaptcha?hl=es-419"> Mas info.</a>
+                    </p>
+                </div>
+            </div>
+        </main>
+    </body>
+    
+</html>

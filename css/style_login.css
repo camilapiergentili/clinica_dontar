@@ -1,0 +1,183 @@
+/* ======= PALETA DE COLORES ======= */
+:root {
+    --color-principal: rgb(112, 30, 71);
+    --color-blanco: rgb(255, 255, 255);
+    --color-informativo: rgb(119, 119, 119);
+    --color-gris-intenso: rgb(51, 51, 51);
+    --color-celeste: rgb(0, 123, 255);
+}
+
+/* ======= ESTILOS GENERALES ======= */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: var(--color-blanco);
+    overflow: auto;
+    justify-content: flex-start;
+
+    background: url('../img/clinica.png') no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* ======= LOGO ======= */
+.logo img {
+    display: block;
+    max-width: 350px;
+    margin: 5px;
+    padding-top: 20px;
+}
+
+/* ======= DIV Es facil y rapido ======= */
+.div__crea_cuenta, .div__register, .div__schedule, .div__information {
+    background-color: var(--color-blanco);
+    padding: 10px;
+    border-radius: 12px;
+    text-align: center;
+    width: 400px;
+    margin: 10px auto;
+    font-family: Arial, sans-serif;
+}
+
+.div__crea_cuenta p:first-child, .div__register p:first-child, .div__schedule p:first-child, .div__information p:first-child {
+    font-size: 16px;
+    color: var(--color-informativo);
+}
+
+.div__crea_cuenta p:last-child, .div__register p:last-child, .div__schedule p:last-child, .div__information p:last-child {
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--color-gris-intenso);
+    margin-bottom: 2px;   
+}
+
+/* ======= DIV Ingresar datos, en login(iniciar_sesion), r_patient(crea_cuenta) y r_professional (datos) ======= */
+.div__iniciar_sesion, .div__datos, .div__crea_cuenta, .div__register_speciality, .div__add_schedule, .div__personal_data{
+    background: var(--color-blanco);
+    padding: 30px;
+    border-radius: 10px;
+    width: 400px;
+    text-align: center;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4); 
+}
+
+.div__iniciar_sesion p {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+/* ======= INPUTS ======= */
+[class^="input__"] {
+    width: 300px;
+    padding: 15px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* ======= BUTTONS ======= */
+.div__submit {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Para centrar los elementos horizontalmente */
+    gap: 10px; /* Espacio entre los elementos */
+}
+
+[class^="button__"]{
+    width: 100%;
+    padding: 10px;
+    background-color: var(--color-principal);
+    border: none;
+    color: var(--color-blanco);
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.button__iniciar_sesion a, .button__register_patient a, .button__register_professional a, .button__register_speciality a {
+    color: var(--color-blanco);
+    text-decoration: none;
+    display: block;
+}
+
+/* ======= DIV Clikeable recordar contraseña ======= */
+.div__remember {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    margin: 15px 0;
+}
+
+/* ======= ENLACES Como: ¿Ya tienes una cuenta?, Registrarte y Mas info ======= */
+a {
+    color: var(--color-principal);
+    text-decoration: none;
+    font-size: 14px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* ======= MENSAJE DE PROTECCION DE DATOS RECAPTCHA ======= */
+.div__iniciar_sesion div:last-child {
+    font-size: 12px;
+    color: var(--color-informativo);
+    margin-top: 50px;
+    text-align: left;
+}
+
+/* ======= MENSAJE DE TERMINOS Y CONDICIONES ======= */
+.div__terms {
+    text-align: start;
+}
+
+/* ======= ESTILOS PARA SELECCIONAR DIAS Y HORARIOS ======= */
+.div__select_day_time {
+    border-radius: 8px;
+    background-color: var(--color-blanco);
+    font-family: Arial, sans-serif;
+}
+
+h3 {
+    text-align: center;
+    color: var(--color-gris-intenso);
+    margin-bottom: 15px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--color-blanco);
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: var(--color-celeste);
+    color: var(--color-blanco);
+}
+
+input[type="time"] {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 45%;
+    text-align: center;
+}
+
+
+

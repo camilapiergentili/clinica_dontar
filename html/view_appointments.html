@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario de Turnos</title>
+    <link rel="stylesheet" href="../css/style_view_appointments.css">
+</head>
+<body>
+    <header>    
+        <div class="logo">
+            <img src="../img/dontar_clinica_medica.png" alt="Dontar">
+        </div>
+    </header>
+    <div class="div__calendar_container">
+        <h1>Calendario de Turnos</h1>
+
+        <div class="div__weekdays">
+            <div>Dom</div><div>Lun</div><div>Mar</div><div>Mié</div><div>Jue</div><div>Vie</div><div>Sáb</div>
+        </div>
+        <div class="div__calendar" id="calendar"></div>
+    </div>
+    <div class="div__schedule" id="schedule">
+        <button onclick="closeSchedule()">Cerrar</button>
+    </div>
+
+    <script>
+        const scheduleData = {
+            "2025-02-26": [
+                { time: "09:00", available: true },
+                { time: "10:00", available: false, patient: "Juan Pérez" },
+                { time: "11:00", available: true }
+            ],
+            "2025-02-27": [
+                { time: "09:00", available: false, patient: "María Gómez" },
+                { time: "10:00", available: true },
+                { time: "11:00", available: false, patient: "Carlos López" }
+            ]
+        };
+
+        function generateCalendar() {
+            const calendar = document.getElementById("calendar");
+            for (let i = 1; i <= 30; i++) {
+                const day = document.createElement("div");
+                day.classList.add("div__day");
+                day.textContent = i;
+                day.onclick = () => showSchedule(`2025-02-${i.toString().padStart(2, '0')}`);
+                calendar.appendChild(day);
+            }
+        }
+
+        function showSchedule(date) {
+            const scheduleDiv = document.getElementById("schedule");
+            scheduleDiv.innerHTML = `<button onclick="closeSchedule()">Cerrar</button><h3>Turnos para ${date}</h3>`;
+            const schedule = scheduleData[date] || [];
+            if (schedule.length === 0) {
+                scheduleDiv.innerHTML += "<p>No hay turnos registrados.</p>";
+            } else {
+                schedule.forEach(slot => {
+                    const status = slot.available ? "Disponible" : `Ocupado - ${slot.patient}`;
+                    const statusClass = slot.available ? "div__available" : "div__unavailable";
+                    scheduleDiv.innerHTML += `<p class="${statusClass}">${slot.time} - ${status}</p>`;
+                });
+            }
+            scheduleDiv.style.display = "block";
+        }
+
+        function closeSchedule() {
+            document.getElementById("schedule").style.display = "none";
+        }
+
+        generateCalendar();
+    </script>
+</body>
+</html>

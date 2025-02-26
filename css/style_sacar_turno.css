@@ -1,0 +1,110 @@
+/* ======= PALETA DE COLORES ======= */
+:root {
+    --color-principal: rgb(112, 30, 71);
+    --color-blanco: rgb(255, 255, 255);
+    --color-informativo: rgb(119, 119, 119);
+    --color-gris-intenso: rgb(51, 51, 51);
+    --color-negro: rgb(0, 0, 0);
+    --color-gris-claro: rgb(242, 242, 242);
+    --color-blanco-transparente: rgba(255, 255, 255, 0.8);
+    --color-celeste: rgb(0, 123, 255);
+}
+
+/* ====== RESET ====== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ====== BODY ====== */
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    
+    background: url('../img/clinica.png') no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* ====== DIV PRINCIPAL ====== */
+.container {
+    background-color: var(--color-blanco);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+    margin: 10px;
+}
+
+/* ====== TITULOS ====== */
+h1 {
+    color: var(--color-principal);
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* ====== NOMBRE DE CADA DATO ====== */
+label {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: left;
+    margin-bottom: 8px;
+    display: block;
+    color: var(--color-gris-intenso);
+}
+
+select, input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    background-color: #fff;
+    color: var(--color-gris-intenso);
+    transition: all 0.3s ease;
+}
+
+select:focus, input[type="text"]:focus {
+    border-color: var(--color-celeste);
+    outline: none;
+}
+
+select:disabled, input:disabled {
+    background-color: var(--color-blanco);
+    cursor: not-allowed;
+}
+
+/* ====== BUTTON DE RESERVA ====== */
+.btn-reservar {
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    background-color: var(--color-celeste);
+    color: var(--color-blanco);
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-reservar:hover {
+    background-color: var(--color-blanco);
+}
+
+.btn-reservar:disabled {
+    background-color: var(--color-informativo);
+    cursor: not-allowed;
+}
+
+/* ====== ESTILOS DE INTERACCION ====== */
+select:focus, input[type="text"]:focus, .btn-reservar:focus {
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+

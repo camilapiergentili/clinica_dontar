@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> MI PERFIL </title>
+    <link rel="stylesheet" href="../css/style_profile.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="../img/dontar_clinica_medica.png" alt="Dontar">
+        </div>
+     
+        <div class="div__my_profile">
+            <a href="#">
+                <span class="userbutton">
+                    <span class="avatars">
+                        <img src="../img/avatars/hombre1.png" class="avatar" width="35" height="35" alt="">
+                    </span>
+                </span>
+            </a>
+        </div>
+    </header>
+    
+    <main>
+        <div class="div__sidebar">
+            <nav>
+                <ul>
+                    <li class="menu-title" onclick="toggleSubmenu('turnos')">PROFESIONALES</li>
+                    <ul class="submenu" id="turnos">
+                        <li><a href="register_professional.html">Dar de alta</a></li>
+                        <li><a href="#">Actualizar perfil</a></li>
+                        <li><a href="#">Dar de baja</a></li>
+                    </ul>
+
+                    <li class="menu-title" onclick="toggleSubmenu('datos')">AGENDA</li>
+                    <ul class="submenu" id="datos">
+                        <li><a href="#">Crear turnos</a></li>
+                        <li><a href="#">Eliminar turnos</a></li>
+                    </ul>
+
+                    <li class="menu-title" onclick="toggleSubmenu('datos')">ESPECIALIDADES</li>
+                    <ul class="submenu" id="datos">
+                        <li><a href="register_especialidad.html">Crear especialidad</a></li>
+                        <li><a href="#">Eliminar especialidad</a></li>
+                    </ul>
+
+                    <li class="menu-title" onclick="toggleSubmenu('profesionales')">DATOS PERSONALES</li>
+                    <ul class="submenu" id="profesionales">
+                        <li><a href="view_data_administrator.html">Ver mis datos</a></li>
+                        <li><a href="#">Modificar mis datos</a></li>
+                        <li><a href="#">Cambiar contraseña</a></li>
+                    </ul>
+                    
+                    <li class="logout"><a href="index.html">CERRAR SESIÓN</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="div__main">
+            <div>
+                <p>Bienvenido a Tu Portal, </p>
+                <p>NOMBRE</p>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
+
+<script>
+    function toggleSubmenu(id) {
+        let submenu = document.getElementById(id);
+        submenu.style.display = submenu.style.display === "block" ? "none" : "block";
+
+        // Rotar la flecha del título del menú
+        let menuTitle = submenu.previousElementSibling;
+        menuTitle.classList.toggle("open");
+    }
+</script>

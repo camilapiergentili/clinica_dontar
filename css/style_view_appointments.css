@@ -1,0 +1,117 @@
+/* ======= PALETA DE COLORES ======= */
+:root {
+    --color-principal: rgb(112, 30, 71);
+    --color-blanco: rgb(255, 255, 255);
+    --color-informativo: rgb(119, 119, 119);
+    --color-gris-intenso: rgb(51, 51, 51);
+    --color-negro: rgb(0, 0, 0);
+    --color-gris-claro: rgb(242, 242, 242);
+    --color-blanco-transparente: rgba(255, 255, 255, 0.8);
+    --color-verde: rgb(0, 128, 0);
+    --color-rojo: rgb(255, 0, 0);
+}
+
+/* ======= BODY ======= */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+
+    background: url('../img/clinica.png') no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* ======= HEADER ======= */
+header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    position: fixed;
+    top: 0;
+    background: var(--color-blanco-transparente);
+    padding: 10px;
+    z-index: 1000;
+    border-bottom: 1px solid #ccc;
+}
+
+/* ======= LOGO ======= */
+.logo img {
+    max-width: 200px;
+}
+
+/* ======= TITULO ======= */
+h1{
+    display: flex;
+    justify-content: center;
+    color: var(--color-principal);
+}
+
+/* ======= DIV DEL CALENDARIO ======= */
+.div__calendar_container {
+    width: 80%;
+    max-width: 800px;
+    margin-top: 80px;
+}
+
+/* ======= DIAS DE LA SEMANA ======= */
+.div__weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* ======= DIV DE CALENDARIO ======= */
+.div__calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+
+/* ======= DIA POR DIA ======= */
+.div__day {
+    padding: 20px;
+    border: 1px solid #ccc;
+    text-align: center;
+    cursor: pointer;
+    background: var(--color-blanco);
+}
+
+.div__day:hover {
+    background: var(--color-blanco);
+}
+
+.div__schedule {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #000;
+    width: 50%;
+    background: var(--color-blanco);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    z-index: 1001;
+}
+
+.div__schedule button {
+    display: block;
+    margin: 10px auto;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+/* ======= AL MOSTRAR EL TURNO SI ESTA DISPONIBLE VERDE, SINO ROJO ======= */
+.div__available {
+    color: var(--color-verde);
+}
+
+.div__unavailable {
+    color: var(--color-rojo);
+}
