@@ -1,6 +1,7 @@
 /* ======= PALETA DE COLORES ======= */
 :root {
     --color-principal: rgb(112, 30, 71);
+    --color-principal-transparente: rgba(112, 30, 71, 0.5);
     --color-blanco: rgb(255, 255, 255);
     --color-informativo: rgb(119, 119, 119);
     --color-gris-intenso: rgb(51, 51, 51);
@@ -319,7 +320,8 @@ h1 {
 
 /* ======= FOOTER ======= */
 footer {
-    background-color: var(--color-gris-intenso); 
+    background-color: var(--color-principal-transparente); 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     color: var(--color-blanco); 
     padding: 40px 20px;
     text-align: center;
@@ -351,7 +353,7 @@ footer {
 
 .div__footer_info i {
     font-size: 20px;
-    color: var(--color-principal); 
+    color: var(--color-blanco); 
 }
 
 .div__footer_info p {
