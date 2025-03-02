@@ -30,15 +30,22 @@ body {
 
 /* ======= HEADER ======= */
 header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: var(--color-blanco-transparente);
-    padding: 20px;
-    text-align: center;
+    padding: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 /* ======= LOGO ======= */
 .logo img {
-    max-width: 200px;
+    display: block;
+    max-width: 60%;
     height: auto;
+    margin: 5px auto;
+    padding-top: 10px;
 }
 
 /* ======= CONTENEDOR PRINCIPAL ======= */
@@ -105,4 +112,31 @@ input:invalid, textarea:invalid {
 
 input:valid, textarea:valid {
     border-color: var(--color-verde);
+}
+
+
+/* ======= MEDIA QUERIES ======= */
+@media (max-width: 768px) {
+    .div__carga_historial {
+        width: 90%;
+        padding: 15px;
+    }
+    h1 {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .div__carga_historial {
+        padding: 10px;
+    }
+    h1 {
+        font-size: 1.2rem;
+    }
+    form input, form textarea {
+        font-size: 0.9rem;
+    }
+    form button {
+        font-size: 0.9rem;
+    }
 }

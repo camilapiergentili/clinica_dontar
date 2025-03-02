@@ -3,50 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calendario de Turnos</title>
+    <title> TURNOS - DONTAR </title>
     <link rel="stylesheet" href="../css/style_view_appointments.css">
 </head>
 <body>
     <header>    
         <div class="logo">
-            <img src="../img/dontar_clinica_medica.png" alt="Dontar">
+            <a href="../index.html">
+                <img src="../img/dontar_clinica_medica.png" alt="Dontar">
+            </a>
         </div>
     </header>
+    
     <div class="div__calendar_container">
         <h1>Calendario de Turnos</h1>
+        
+        <div class="div__month_controls">
+            <button onclick="changeMonth(-1)">Anterior</button>
+            <h2 id="currentMonth"></h2>
+            <button onclick="changeMonth(1)">Siguiente</button>
+        </div>
 
         <div class="div__weekdays">
             <div>Dom</div><div>Lun</div><div>Mar</div><div>Mié</div><div>Jue</div><div>Vie</div><div>Sáb</div>
         </div>
         <div class="div__calendar" id="calendar"></div>
     </div>
+
     <div class="div__schedule" id="schedule">
         <button onclick="closeSchedule()">Cerrar</button>
     </div>
 
     <script>
         const scheduleData = {
-            "2025-02-26": [
-                { time: "09:00", available: true },
-                { time: "10:00", available: false, patient: "Juan Pérez" },
-                { time: "11:00", available: true }
-            ],
-            "2025-02-27": [
-                { time: "09:00", available: false, patient: "María Gómez" },
-                { time: "10:00", available: true },
-                { time: "11:00", available: false, patient: "Carlos López" }
-            ]
+            "2025-02-26": [{ time: "09:00", available: true }, { time: "10:00", available: false, patient: "Juan Pérez" }, { time: "11:00", available: true }],
+            "2025-03-15": [{ time: "09:00", available: false, patient: "María Gómez" }, { time: "10:00", available: true }, { time: "11:00", available: false, patient: "Carlos López" }]
         };
 
+        let currentDate = new Date();
+        let currentMonth = currentDate.getMonth();
+        let currentYear = currentDate.getFullYear();
+
+        const monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+
         function generateCalendar() {
+            document.getElementById("currentMonth").textContent = `${monthNames[currentMonth]} ${currentYear}`;
             const calendar = document.getElementById("calendar");
-            for (let i = 1; i <= 30; i++) {
+            calendar.innerHTML = "";
+
+            let firstDay = new Date(currentYear, currentMonth, 1).getDay();
+            let daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+
+            for (let i = 0; i < firstDay; i++) {
+                const emptyCell = document.createElement("div");
+                emptyCell.classList.add("div__empty_day");
+                calendar.appendChild(emptyCell);
+            }
+
+            for (let i = 1; i <= daysInMonth; i++) {
                 const day = document.createElement("div");
                 day.classList.add("div__day");
                 day.textContent = i;
-                day.onclick = () => showSchedule(`2025-02-${i.toString().padStart(2, '0')}`);
+                day.onclick = () => showSchedule(`${currentYear}-${(currentMonth + 1).toString().padStart(2, '0')}-${i.toString().padStart(2, '0')}`);
                 calendar.appendChild(day);
             }
+        }
+
+        function changeMonth(direction) {
+            currentMonth += direction;
+            if (currentMonth < 0) {
+                currentMonth = 11;
+                currentYear--;
+            } else if (currentMonth > 11) {
+                currentMonth = 0;
+                currentYear++;
+            }
+            generateCalendar();
         }
 
         function showSchedule(date) {

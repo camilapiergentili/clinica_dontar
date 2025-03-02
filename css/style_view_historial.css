@@ -22,22 +22,28 @@
 /* ======= ESTILOS GENERALES ======= */
 body {
     font-family: Arial, sans-serif;
-    
     background: url('../img/clinica.png') no-repeat center center fixed;
     background-size: cover;
 }
 
 /* ======= HEADER ======= */
 header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: var(--color-blanco-transparente);
-    padding: 20px;
-    text-align: center;
+    padding: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 /* ======= LOGO ======= */
 .logo img {
-    max-width: 200px;
+    display: block;
+    max-width: 60%;
     height: auto;
+    margin: 5px auto;
+    padding-top: 10px;
 }
 
 /* ======= MAIN ======= */
@@ -54,7 +60,7 @@ header {
 
 /* ======= INPUT DNI ======= */
 input {
-    width: calc(100% - 20px);
+    width: 90%;
     padding: 10px;
     margin: 10px 0;
     border: 1px solid #ccc;
@@ -107,4 +113,40 @@ th {
 
 .close-btn:hover {
     background-color: var(--color-principal);
+}
+
+/* ======= MEDIA QUERIES ======= */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        padding: 15px;
+    }
+    input {
+        width: 90%;
+    }
+    button {
+        width: 40%;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 95%;
+        padding: 10px;
+    }
+    .logo img {
+        max-width: 150px;
+    }
+    input {
+        width: 90%;
+        font-size: 14px;
+    }
+    button {
+        width: 40%;
+        font-size: 0.9rem;
+    }
+    th, td {
+        padding: 8px;
+        font-size: 14px;
+    }
 }

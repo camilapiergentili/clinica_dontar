@@ -3,40 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reservar Turno Médico</title>
+    <title> TURNOS - DONTAR </title>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link rel="stylesheet" href="../css/style_sacar_turno.css">
 </head>
 <body>
+    <header>
 
-    <h1>Reservar Turno Médico</h1>
+        <div class="logo">
+            <a href="../index.html">
+                <img src="../img/dontar_clinica_medica.png" alt="Dontar">
+            </a>
+        </div>
 
-    <!-- Selección de Especialidad -->
-    <label for="especialidad">Especialidad:</label>
-    <select id="especialidad" onchange="cargarProfesionales()">
-        <option value="">Selecciona una especialidad</option>
-        <option value="cardiologia">Cardiología</option>
-        <option value="dermatologia">Dermatología</option>
-        <option value="pediatria">Pediatría</option>
-    </select>
+    </header>
+    <main>
+        <div class="container">
+            <h1>Reservar Turno Médico</h1>
 
-    <!-- Selección de Profesional -->
-    <label for="profesional">Profesional:</label>
-    <select id="profesional" onchange="configurarCalendario()" disabled>
-        <option value="">Selecciona un profesional</option>
-    </select>
+            <!-- Ingreso de DNI -->
+            <label for="dni">DNI:</label>
+            <input type="text" id="dni" placeholder="Ingrese su DNI" oninput="buscarPaciente()">
+            
+            <!-- Nombre y Apellido -->
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" disabled>
+            <label for="apellido">Apellido</label>
+            <input type="text" id="apellido" disabled>
 
-    <!-- Selección de Fecha -->
-    <label for="fecha">Fecha:</label>
-    <input type="text" id="fecha" placeholder="Selecciona un día" disabled>
+            <!-- Especialidad -->
+            <label for="especialidad">Especialidad:</label>
+            <select id="especialidad" onchange="cargarProfesionales()">
+                <option value="">Selecciona una especialidad</option>
+                <option value="cardiologia">Cardiología</option>
+                <option value="dermatologia">Dermatología</option>
+                <option value="pediatria">Pediatría</option>
+            </select>
 
-    <!-- Selección de Hora -->
-    <label for="hora">Hora:</label>
-    <select id="hora" disabled>
-        <option value="">Selecciona una hora</option>
-    </select>
+            <!-- Profesional -->
+            <label for="profesional">Profesional:</label>
+            <select id="profesional" onchange="configurarCalendario()" disabled>
+                <option value="">Selecciona un profesional</option>
+            </select>
 
+            <!-- Fecha -->
+            <label for="fecha">Fecha:</label>
+            <input type="text" id="fecha" placeholder="Selecciona un día" disabled>
+
+            <!-- Hora -->
+            <label for="hora">Hora:</label>
+            <select id="hora" disabled>
+                <option value="">Selecciona una hora</option>
+            </select>
+
+            <label>
+                <input type="checkbox" id="primeraConsulta"> Es primera consulta
+            </label>
+
+            <button id="confirmarTurno">SACAR TURNO</button>
+
+            <div id="alert">
+                Turno confirmado correctamente
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
+
+    <script>
+        const pacientes = {
+                '12345678': { nombre: 'Juan', apellido: 'Pérez' },
+                '87654321': { nombre: 'María', apellido: 'Gómez' }
+            };
+
+        function buscarPaciente() {
+            let dni = document.getElementById("dni").value;
+            document.getElementById("nombre").value = pacientes[dni].nombre || "";
+            document.getElementById("apellido").value = pacientes[dni].apellido || "";            
+        }
+        document.getElementById("confirmarTurno").addEventListener("click", function() {
+            document.getElementById("alert").style.display = "block";
+            setTimeout(() => {
+                window.location.href = "profile_administrator.html";
+            }, 2000);
+        });
+
+        document.getElementById("cerrar").addEventListener("click", function() {
+            document.getElementById("alert").style.display = "none";
+        });
+    </script>
     <script>
         // Base de datos simulada de profesionales con días y horarios
         const profesionales = {

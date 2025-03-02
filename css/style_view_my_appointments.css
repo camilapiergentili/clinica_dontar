@@ -22,28 +22,34 @@
 /* ======= ESTILOS GENERALES ======= */
 body {
     font-family: Arial, sans-serif;
-
     background: url('../img/clinica.png') no-repeat center center fixed;
     background-size: cover;
 }
 
-/* ======= MAIN ======= */
+/* ======= HEADER ======= */
 header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: var(--color-blanco-transparente);
-    padding: 20px;
-    text-align: center;
+    padding: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 /* ======= LOGO ======= */
 .logo img {
-    max-width: 200px;
+    display: block;
+    max-width: 60%;
     height: auto;
+    margin: 5px auto;
+    padding-top: 10px;
 }
 
-/* ======= HISTORIAL ======= */
+/* ======= MAIN ======= */
 .container {
-    width: 90%;
-    max-width: 800px;
+    width: 80%;
+    max-width: 600px;
     margin: 30px auto;
     padding: 20px;
     background-color: var(--color-blanco);
@@ -52,7 +58,32 @@ header {
     text-align: center;
 }
 
-/* ======= TABLA DE HISTORIAL ======= */
+/* ======= INPUT DNI ======= */
+input {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* ======= BUTTON ACEPTAR ======= */
+button {
+    padding: 12px;
+    background-color: var(--color-principal);
+    color: var(--color-blanco);
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--color-principal);
+}
+
+/* ======= HISTORIAL ======= */
 table {
     width: 100%;
     margin-top: 20px;
@@ -70,3 +101,61 @@ th {
     color: var(--color-blanco);
 }
 
+.hidden {
+    display: none;
+}
+
+/* ======= BUTTON CERRAR ======= */
+.close-btn {
+    margin-top: 15px;
+    background-color: var(--color-principal);
+}
+
+.close-btn:hover {
+    background-color: var(--color-principal);
+}
+
+/* ======= MEDIA QUERIES ======= */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        padding: 15px;
+    }
+    input {
+        width: 90%;
+    }
+    button {
+        width: 100%;
+    }
+    table {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 95%;
+        padding: 10px;
+    }
+    .logo img {
+        max-width: 150px;
+    }
+    input {
+        width: 100%;
+        font-size: 14px;
+    }
+    button {
+        width: 100%;
+        font-size: 0.9rem;
+    }
+    th, td {
+        padding: 6px;
+        font-size: 12px;
+        word-wrap: break-word;
+    }
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}

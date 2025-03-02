@@ -10,7 +10,7 @@
     --color-principal-transparente: rgba(112, 30, 71, 0.5);
 }
 
-/* ======= PALETA DE COLORES ======= */
+/* ======= BODY ======= */
 body {
     font-family: Arial, sans-serif;
     text-align: center;
@@ -20,15 +20,24 @@ body {
     background-size: cover;
 }
 
-/* ======= PALETA DE COLORES ======= */
+/* ======= HEADER ======= */
 header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: var(--color-blanco-transparente);
-    padding: 20px;
+    padding: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* ======= PALETA DE COLORES ======= */
+/* ======= LOGO ======= */
 .logo img {
-    max-width: 150px;
+    display: block;
+    max-width: 60%;
+    height: auto;
+    margin: 5px auto;
+    padding-top: 10px;
 }
 
 /* ======= MAIN ======= */
@@ -64,11 +73,56 @@ th, td {
 
 th {
     background-color: var(--color-principal);
-    color: white;
+    color: var(--color-blanco);
 }
 
 /* ======= DIAS DE ATENCION ======= */
 .available {
     background-color: var(--color-principal-transparente);
     font-weight: bold;
+}
+
+
+/* ======= MEDIA QUERIES ======= */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        padding: 15px;
+    }
+    input {
+        width: 90%;
+    }
+    button {
+        width: 100%;
+    }
+    table {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 95%;
+        padding: 10px;
+    }
+    .logo img {
+        max-width: 150px;
+    }
+    input {
+        width: 100%;
+        font-size: 14px;
+    }
+    button {
+        width: 100%;
+        font-size: 0.9rem;
+    }
+    th, td {
+        padding: 6px;
+        font-size: 12px;
+    }
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
 }

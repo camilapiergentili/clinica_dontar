@@ -17,7 +17,6 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-
     background: url('../img/clinica.png') no-repeat center center fixed;
     background-size: cover;
 }
@@ -36,39 +35,40 @@ header {
 /* ======= LOGO ======= */
 .logo img {
     display: block;
-    max-width: 350px;
-    margin: 5px;
-    padding-top: 20px;
+    max-width: 60%;
+    height: auto;
+    margin: 5px auto;
+    padding-top: 10px;
 }
 
 /* ======= SECCIÓN INFORMACIÓN ======= */
 .div__information {
-    width: 100%;
-    max-width: 410px;
-    background: white;
+    width: 90%;
+    max-width: 400px;
+    background: var(--color-blanco);
     padding: 15px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     text-align: center;
     font-size: 18px;
     font-weight: bold;
-    margin: 20px 0;
+    margin: 20px auto;
 }
 
 /* ======= DATOS PERSONALES ======= */
 .div__personal_data {
-    width: 100%;
+    width: 90%;
     max-width: 400px;
-    background: white;
+    background: var(--color-blanco);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 20px auto;
 }
 
 /* ======= DATO (uno por uno) ======= */
 .div__field {
     margin-bottom: 15px;
-    padding-right: 15px;
 }
 
 /* ======= DATO QUE SE INGRESA ======= */
@@ -80,11 +80,11 @@ label {
 
 /* ======= INPUT ======= */
 input {
-    width: 100%;
+    width: 90%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: #f9f9f9;
+    background-color: var(--color-blanco);
     font-size: 16px;
     text-align: center;
     cursor: not-allowed;
@@ -93,9 +93,43 @@ input {
 /* ======= FECHA DE NACIMIENTO ======= */
 .div__birthdate {
     display: flex;
-    gap: 10px;
+    gap: 5%;
 }
 
 .div__birthdate input {
     width: 30%;
+}
+
+/* ======= RESPONSIVE DESIGN ======= */
+@media (max-width: 768px) {
+    .div__information, .div__personal_data {
+        width: 95%;
+    }
+
+    .div__birthdate {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .div__birthdate input {
+        width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 5px 0;
+    }
+
+    .logo img {
+        max-width: 70%;
+    }
+
+    .div__information, .div__personal_data {
+        padding: 10px;
+    }
+
+    input {
+        font-size: 14px;
+    }
 }

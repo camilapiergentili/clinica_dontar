@@ -7,6 +7,8 @@
     --color-negro: rgb(0, 0, 0);
     --color-gris-claro: rgb(242, 242, 242);
     --color-blanco-transparente: rgba(255, 255, 255, 0.8);
+    --color-rojo: rgb(255, 0, 0);
+    --color-rojo-oscuro: rgb(139, 0, 0);
 }
 
 /* ======= RESET BASICO ======= */

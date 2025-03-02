@@ -1,6 +1,7 @@
 /* ======= PALETA DE COLORES ======= */
 :root {
     --color-principal: rgb(112, 30, 71);
+    --color-principal-transparente: rgba(112, 30, 71, 0.9);
     --color-blanco: rgb(255, 255, 255);
     --color-informativo: rgb(119, 119, 119);
     --color-gris-intenso: rgb(51, 51, 51);
@@ -16,95 +17,112 @@
     padding: 0;
     box-sizing: border-box;
 }
-
-/* ====== BODY ====== */
+/* ======= ESTILOS GENERALES ======= */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    min-height: 100vh;
-    
+    justify-content: center;
+    height: 100vh;
+    background-color: var(--color-blanco);
+    overflow: auto;
+    justify-content: flex-start;
+
     background: url('../img/clinica.png') no-repeat center center fixed;
     background-size: cover;
 }
 
-/* ====== DIV PRINCIPAL ====== */
+/* ======= HEADER ======= */
+header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-blanco-transparente);
+    padding: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* ======= LOGO ======= */
+.logo img {
+    display: block;
+    max-width: 60%;
+    height: auto;
+    margin: 5px auto;
+    padding-top: 10px;
+}
+
+/* ======= DIV PRINCIPAL ======= */
 .container {
-    background-color: var(--color-blanco);
+    background: var(--color-blanco);
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 450px;
-    text-align: center;
-    margin: 10px;
+    max-width: 400px;
+    margin: 30px auto;
+    padding: 20px;
 }
 
-/* ====== TITULOS ====== */
+/* ======= TITULO ======= */
 h1 {
+    text-align: center;
     color: var(--color-principal);
-    font-size: 24px;
-    margin-bottom: 20px;
 }
 
-/* ====== NOMBRE DE CADA DATO ====== */
+/* ======= NOMBRE DE DATOS ======= */
 label {
-    font-size: 16px;
-    font-weight: bold;
-    text-align: left;
-    margin-bottom: 8px;
     display: block;
-    color: var(--color-gris-intenso);
+    margin-top: 10px;
+    font-weight: bold;
 }
 
-select, input[type="text"] {
+/* ======= DATOS ======= */
+input, select {
     width: 100%;
-    padding: 12px;
-    margin: 8px 0;
-    border-radius: 5px;
+    padding: 10px;
+    margin-top: 5px;
     border: 1px solid #ccc;
+    border-radius: 5px;
     font-size: 16px;
-    background-color: #fff;
-    color: var(--color-gris-intenso);
-    transition: all 0.3s ease;
 }
 
-select:focus, input[type="text"]:focus {
-    border-color: var(--color-celeste);
-    outline: none;
-}
-
-select:disabled, input:disabled {
+input:disabled, select:disabled {
     background-color: var(--color-blanco);
     cursor: not-allowed;
 }
 
-/* ====== BUTTON DE RESERVA ====== */
-.btn-reservar {
+/* ======= BUTTON ======= */
+button {
     width: 100%;
-    padding: 12px;
-    margin-top: 20px;
-    background-color: var(--color-celeste);
+    padding: 10px;
+    background-color: var(--color-principal);
     color: var(--color-blanco);
-    font-size: 18px;
     border: none;
     border-radius: 5px;
+    font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    margin-top: 15px;
 }
 
-.btn-reservar:hover {
-    background-color: var(--color-blanco);
+label input[type="checkbox"] {
+    width: auto;
+    margin-right: 5px;
 }
 
-.btn-reservar:disabled {
-    background-color: var(--color-informativo);
-    cursor: not-allowed;
+/* ======= CARTEL ======= */
+#alert {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--color-principal-transparente);
+    color: var(--color-blanco);
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
 }
-
-/* ====== ESTILOS DE INTERACCION ====== */
-select:focus, input[type="text"]:focus, .btn-reservar:focus {
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
-}
-

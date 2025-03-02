@@ -2,7 +2,7 @@
 <html lang='es-AR'>
     <head>
         <meta charset='utf-8'>
-        <title> INICIAR SESION </title>
+        <title> INICIAR SESION - DONTAR </title>
         <link rel="stylesheet" href="../css/style_login.css">
     </head>
     
@@ -10,7 +10,9 @@
         <header>
 
             <div class="logo">
-                <img src="../img/dontar_clinica_medica.png" alt="Dontar">
+                <a href="../index.html">
+                    <img src="../img/dontar_clinica_medica.png" alt="Dontar">
+                </a>
             </div>
 
         </header>
@@ -34,7 +36,12 @@
                     </div>
                 </form>
                 
-                <a href="#">¿Olvidaste tu contraseña?</a>
+                <a class="a__olvidar_contraseña" onclick="mostrarAlerta()">¿Olvidaste tu contraseña?</a>
+
+                <div id="alert">
+                    SU CONTRASEÑA FUE RESETEADA CON SU NUMERO DE DNI
+                    <button id="cerrar" onclick="cerrarAlerta()">X</button>
+                </div>
 
                 <div class="div__remember">
                     <input type="checkbox" id="remember" name="remember">  
@@ -55,3 +62,13 @@
     </body>
     
 </html>
+
+<script>
+    function mostrarAlerta() {
+        let alerta = document.getElementById("alert");
+        alerta.style.display = "block";
+    }
+    function cerrarAlerta() {
+        document.getElementById("alert").style.display = "none";
+    }
+</script>

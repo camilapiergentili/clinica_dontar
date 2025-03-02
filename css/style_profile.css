@@ -27,17 +27,23 @@ body {
 
 /* ======= HEADER ======= */
 header {
+    width: 100%;
+    height: 180px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    background-color: var(--color-blanco);
-    padding: 15px 20px;
+    background-color: var(--color-blanco-transparente);
+    padding: 10px 0;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 /* ======= LOGO ======= */
 .logo img {
-    height: 50px;
+    display: block;
+    max-width: 60%;
+    height: auto;
+    margin: 5px auto;
+    padding-top: 10px;
 }
 
 /* ======= IMG DE PERFIL Y NOMBRE ======= */
@@ -104,7 +110,7 @@ header {
 }
 
 .menu-title.open::after {
-    content: ' ▼'; /* Indica que el menú está abierto */
+    content: ' ▼'; 
 }
 
 /* ======= OPCION CERRAR SESION ======= */
@@ -129,7 +135,6 @@ p {
 /* ======= ESTILOS PARA EL RESTO DEL MAIN (sin el nav) ======= */
 .div__main {
     margin-left: 250px;
-
 }
 
 /* ======= CONSEJO PERFIL ACTUALIZADO ======= */
@@ -155,27 +160,69 @@ p {
     margin: 0;
 }
 
-/* ======= DIA, HORA Y TEMPERATURA ======= */
-.div__weather {
-    display: flex;
-    justify-content: center;
+
+.menu-toggle {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: var(--color-principal);
+    position: absolute;
+    top: 15px;
+    right: 15px;
 }
 
-.weather-box {
-    background-color: var(--color-blanco);
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    width: 250px;
+
+/* ======= MEDIA QUERIES ======= */
+@media (max-width: 768px) {
+    .div__sidebar {
+        width: 200px;
+    }
+    .div__main {
+        margin-left: 200px;
+    }
+    .logo img {
+        max-width: 50%;
+    }
+    .div__advise {
+        flex-direction: column;
+        text-align: center;
+    }
+    .div__advise img {
+        margin-bottom: 10px;
+    }
 }
 
-.weather-box p {
-    margin: 5px 0;
-    font-size: 16px;
-    font-weight: bold;
-}
-
-footer {
-    margin-left: 250px;
+@media (max-width: 480px) {
+    
+    .menu-toggle {
+        display: block;
+        font-size: 30px;
+        cursor: pointer;
+        color: var(--color-principal);
+        position: absolute;
+        top: 120px;
+        left: 15px; 
+    }
+    .div__sidebar {
+        width: 100%;
+        height: calc(100vh - 180px);
+        position: absolute;
+        top: 180px;
+        left: -100%;
+        transition: left 0.3s;
+        overflow-y: auto;
+    }
+    .div__sidebar.open {
+        left: 0;
+    }
+    .div__main {
+        margin-left: 0;
+        display: none;
+    }
+    .div__main.hidden {
+        display: block;
+    }
+    body.menu-open {
+        overflow: hidden;
+    }
 }
