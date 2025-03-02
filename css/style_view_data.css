@@ -41,6 +41,11 @@ header {
     padding-top: 10px;
 }
 
+/* ======= MAIN ======= */
+main {
+    display: contents;
+}
+
 /* ======= SECCIÓN INFORMACIÓN ======= */
 .div__information {
     width: 90%;
@@ -71,7 +76,7 @@ header {
     margin-bottom: 15px;
 }
 
-/* ======= DATO QUE SE INGRESA ======= */
+/* ======= DATO QUE SE LEE ======= */
 label {
     font-weight: bold;
     display: block;

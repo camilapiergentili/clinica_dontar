@@ -113,6 +113,12 @@ label input[type="checkbox"] {
     margin-right: 5px;
 }
 
+/* ======= FECHA DE NACIMIENTO ======= */
+.div__birthdate {
+    display: flex;
+    gap: 5%;
+}
+
 /* ======= CARTEL ======= */
 #alert {
     display: none;

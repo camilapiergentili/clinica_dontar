@@ -2,6 +2,7 @@
 :root {
     --color-principal: rgb(112, 30, 71);
     --color-blanco: rgb(255, 255, 255);
+    --color-blanco-transparente: rgba(255, 255, 255, 0.8);
     --color-informativo: rgb(119, 119, 119);
     --color-gris-intenso: rgb(51, 51, 51);
     --color-celeste: rgb(0, 123, 255);
@@ -28,12 +29,25 @@ body {
     background-size: cover;
 }
 
+/* ======= HEADER ======= */
+header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-blanco-transparente);
+    padding: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+}
+
 /* ======= LOGO ======= */
 .logo img {
     display: block;
-    max-width: 350px;
-    margin: 5px;
-    padding-top: 20px;
+    max-width: 60%;
+    height: auto;
+    margin: 5px auto;
+    padding-top: 10px;
 }
 
 /* ======= DIV Es facil y rapido ======= */
@@ -67,6 +81,7 @@ body {
     width: 400px;
     text-align: center;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4); 
+    margin: 10px;
 }
 
 .div__iniciar_sesion p {
@@ -94,7 +109,7 @@ body {
     gap: 10px;
 }
 
-[class^="button__"]{
+[class^="button__"] {
     width: 100%;
     padding: 10px;
     background-color: var(--color-principal);
@@ -106,7 +121,7 @@ body {
     margin-top: 15px;
 }
 
-.button__iniciar_sesion a, .button__register_patient a, .button__register_professional a, .button__register_speciality a {
+.button__iniciar_sesion a, .button__register_patient a, .button__register_professional a, .button__register_speciality a, .button__add_schedule a {
     color: var(--color-blanco);
     text-decoration: none;
     display: block;

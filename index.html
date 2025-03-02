@@ -13,13 +13,16 @@
             <div class="logo">
                 <img src="img/dontar_clinica_medica.png" alt="DONTAR - CLÍNICA MÉDICA" loading="lazy">
             </div>
-            <div>
+            <div class="div__sidebar">
                 <ul class="nav__links">
                     <li><a href="#">HOME</a></li>
                     <li><a href="#">STAFF</a></li>
                     <li><a href="#">CLÍNICA</a></li>
                     <li><a href="#">TECNOLOGÍA</a></li>
                 </ul>
+
+                <button class="menu-toggle" aria-label="Toggle Menu">&#9776;</button>
+
             </div>
             <div>
                 <div class="div__social_links">
@@ -229,7 +232,7 @@
         <div class="div__footer">
             <div class="div__footer_logo">
                 <div class="logo">
-                    <img src="../img/dontar_clinica_medica.png" alt="DONTAR - CLÍNICA MÉDICA" loading="lazy">
+                    <img src="img/dontar_clinica_medica.png" alt="DONTAR - CLÍNICA MÉDICA" loading="lazy">
                 </div>
             </div>
             <div class="div__footer_info">
@@ -271,5 +274,16 @@
             modal.style.display = "none";
             contenido.classList.remove("hidden"); // Muestra el contenido
         });
+    });
+</script>
+
+<script>
+    // Obtener los elementos del menú y el botón
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav__links');
+
+    // Agregar el evento de clic al botón
+    menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
     });
 </script>

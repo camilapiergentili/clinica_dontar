@@ -22,14 +22,7 @@
         <div class="container">
             <h1>Reservar Turno Médico</h1>
 
-            <label for="dni">DNI:</label>
-            <input type="text" id="dni" placeholder="Ingrese su DNI" oninput="buscarPaciente()">
-            
-            <label for="nombre">Nombre</label>
-            <input type="text" id="nombre" disabled>
-            <label for="apellido">Apellido</label>
-            <input type="text" id="apellido" disabled>
-
+            <!-- Especialidad -->
             <label for="especialidad">Especialidad:</label>
             <select id="especialidad" onchange="cargarProfesionales()">
                 <option value="">Selecciona una especialidad</option>
@@ -38,14 +31,17 @@
                 <option value="pediatria">Pediatría</option>
             </select>
 
+            <!-- Profesional -->
             <label for="profesional">Profesional:</label>
             <select id="profesional" onchange="configurarCalendario()" disabled>
                 <option value="">Selecciona un profesional</option>
             </select>
 
+            <!-- Fecha -->
             <label for="fecha">Fecha:</label>
             <input type="text" id="fecha" placeholder="Selecciona un día" disabled>
 
+            <!-- Hora -->
             <label for="hora">Hora:</label>
             <select id="hora" disabled>
                 <option value="">Selecciona una hora</option>
@@ -80,7 +76,7 @@
         document.getElementById("confirmarTurno").addEventListener("click", function() {
             document.getElementById("alert").style.display = "block";
             setTimeout(() => {
-                window.location.href = "profile_administrator.html";
+                window.location.href = "profile_patient.html";
             }, 2000);
         });
 

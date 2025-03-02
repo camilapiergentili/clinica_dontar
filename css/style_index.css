@@ -53,6 +53,10 @@ header {
     z-index: 1000; 
 }
 
+.menu-toggle {
+    display: none;
+}
+
 .nav__links {
     list-style: none;
     display: flex;
@@ -73,7 +77,7 @@ header {
 .div__social_links ul {
     list-style: none;
     display: flex;
-    gap: 35px; /* Espaciado entre los iconos */
+    gap: 35px;
     padding-bottom: 6px;
     margin: 0;
     align-content: space-between;
@@ -83,7 +87,6 @@ header {
     display: flex;
     align-items: center;
 }
-
 
 /* ======= LOGOS REDES SOCIALES ======= */
 .social_links ul {
@@ -121,7 +124,6 @@ header {
 /* ======= VIDEO ======= */
 .div__header_tittle {
     background-color: var(--color-blanco-transparente);
-    height: 380px;
 }
 video {
     width: 100%;
@@ -356,3 +358,41 @@ footer {
     margin: 0;
     font-size: 16px;
 }
+
+/* ======= MENU DESPLEGABLE PARA @media 480px ======= */
+@media (max-width: 480px) {
+    .nav__links {
+        display: none;
+        flex-direction: column;
+        gap: 15px;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        background-color: var(--color-blanco);
+        width: 100%;
+        padding: 20px 0;
+    }
+
+    .nav__links.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+        background: none;
+        border: none;
+        font-size: 30px;
+        color: var(--color-gris-intenso);
+        cursor: pointer;
+        z-index: 2000;
+    }
+
+    .menu-toggle:focus {
+        outline: none;
+    }
+
+    .div__header_tittle {
+        margin-top: 90px;
+    }
+}
+

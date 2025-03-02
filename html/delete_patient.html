@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> PACIENTE - DONTAR </title>
+    <link rel="stylesheet" href="../css/style_show_data.css">
+</head>
+<body>
+    <header>
+
+        <div class="logo">
+            <a href="../index.html">
+                <img src="../img/dontar_clinica_medica.png" alt="Dontar">
+            </a>
+        </div>
+
+    </header>
+    <main>
+        <div class="container">
+            <h1>Buscar Paciente</h1>
+            <label for="dni">Ingrese DNI:</label>
+            <input type="text" id="dni" oninput="buscarProfesional()">
+            
+            <div id="resultado">
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" disabled>
+
+                <label for="apellido">Apellido</label>
+                <input type="text" id="apellido" disabled>
+
+                <label for="fecha_nacimiento">Fecha de Nacimiento</label>
+                <div class="div__birthdate">
+                    <input type="text" id="dia" disabled>
+                    <input type="text" id="mes" disabled>
+                    <input type="text" id="año" disabled>
+                </div>    
+
+                <label for="obra_social">Obra Social</label>
+                <input type="text" id="obra_social" disabled>
+
+                <label for="telefono">Telefono</label>
+                <input type="text" id="telefono" disabled>
+
+                <label for="email">Correo Electronico</label>
+                <input type="email" id="email" disabled>
+            </div>
+            
+            <button id="eliminarPatient" onclick="eliminarProfesional()">ELIMINAR</button>
+
+            <div id="alert">
+                Paciente eliminado correctamente
+            </div>
+        </div>
+    </main>    
+</body>
+</html>
+<script>
+    // Base de datos simulada de pacientes
+const pacientes = {
+    "12345678": {
+        nombre: "Juan",
+        apellido: "Pérez",
+        obra_social: "IOSFA",
+        correo: "juanperez@mail.com",
+        telefono: "2932405452",
+        fecha_nacimiento: "03/01/2005"
+    },
+    "87654321": {
+        nombre: "Alberto",
+        apellido: "Juarez",
+        obra_social: "DIBA",
+        correo: "albertJu@mail.com",
+        telefono: "2932405452",
+        fecha_nacimiento: "15/07/1990"
+    }
+};
+
+// Función para buscar el paciente por DNI
+function buscarProfesional() {
+    const dni = document.getElementById("dni").value;
+    const paciente = pacientes[dni];
+
+    if (paciente) {
+        document.getElementById("nombre").value = paciente.nombre;
+        document.getElementById("apellido").value = paciente.apellido;
+        document.getElementById("obra_social").value = paciente.obra_social;
+        document.getElementById("email").value = paciente.correo;
+        document.getElementById("telefono").value = paciente.telefono;
+
+        // Separar la fecha de nacimiento (Día, Mes, Año)
+        const fecha = paciente.fecha_nacimiento.split("/");
+        document.getElementById("dia").value = fecha[0];
+        document.getElementById("mes").value = fecha[1];
+        document.getElementById("año").value = fecha[2];
+    } else {
+        limpiarCampos();
+    }
+
+    document.getElementById("eliminarPatient").addEventListener("click", function() {
+            document.getElementById("alert").style.display = "block";
+            setTimeout(() => {
+                window.location.href = "profile_administrator.html";
+            }, 2000);
+        });
+
+        document.getElementById("cerrar").addEventListener("click", function() {
+            document.getElementById("alert").style.display = "none";
+        });
+}
+
+// Función para eliminar un paciente
+function eliminarProfesional() {
+    const dni = document.getElementById("dni").value;
+}
+
+// Función para limpiar los campos cuando no hay coincidencias
+function limpiarCampos() {
+    document.getElementById("nombre").value = "";
+    document.getElementById("apellido").value = "";
+    document.getElementById("obra_social").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("telefono").value = "";
+    document.getElementById("dia").value = "";
+    document.getElementById("mes").value = "";
+    document.getElementById("año").value = "";
+}
+
+</script>

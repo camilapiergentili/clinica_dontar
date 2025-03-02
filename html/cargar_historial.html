@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> HISTORIAL MEDICO - DONTAR </title>
-    <link rel="stylesheet" href="../css/style_cargar_historial.css">
+    <link rel="stylesheet" href="../css/style_show_data.css">
 </head>
 <body>
     <header>
@@ -17,20 +17,20 @@
 
     </header>
     <main>
-        <div class="div__carga_historial">
+        <div class="container">
             <h1>Ingreso de Historial Medico</h1>
             <form id="historial-form">
                 <label for="dni">DNI del paciente:</label>
                 <input type="text" id="dni" name="dni" required>
                 
                 <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" name="nombre" readonly>
+                <input type="text" id="nombre" name="nombre" disabled>
                 
                 <label for="apellido">Apellido:</label>
-                <input type="text" id="apellido" name="apellido" readonly>
+                <input type="text" id="apellido" name="apellido" disabled>
                 
                 <label for="obraSocial">Obra Social:</label>
-                <input type="text" id="obraSocial" name="obraSocial" readonly>
+                <input type="text" id="obraSocial" name="obraSocial" disabled>
                 
                 <label for="fecha">Fecha:</label>
                 <input type="date" id="fecha" name="fecha" required>
@@ -38,7 +38,7 @@
                 <label for="historial">Historial Médico:</label>
                 <textarea id="historial" name="historial" rows="4" required></textarea>
                 
-                <button type="submit">Guardar</button>
+                <button type="submit">GUARDAR</button>
             </form>
         </div>
     </main>
