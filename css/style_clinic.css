@@ -12,8 +12,6 @@
     --color-rojo-oscuro: rgb(139, 0, 0);
 }
 
-
-
 /* ======= ESTILOS PARA LOS DIV ======= */
 main div {
     width: 70%; 
@@ -42,7 +40,7 @@ p {
 }
 
 /* ======= IMAGENES ======= */
-img {
+main img {
     display: block;
     max-width: 100%;
     height: auto;
@@ -51,7 +49,7 @@ img {
 }
 
 /* ======= LISTA DE SERVICIOS ======= */
-ul {
+main ul {
     list-style-type: none;
     padding: 0;
     display: flex;
@@ -99,7 +97,10 @@ main ul li {
     transform: scale(1.05); 
 }
 
+/* ======= MEDIA QUERY ======= */
+
 @media (max-width: 768px) {
+    /* ======= DIVS DEL MAIN DE CLINICA ======= */
     main div {
         width: 100%;
     }
@@ -108,6 +109,7 @@ main ul li {
         padding: 15px;
     }
 
+    /* ======= TITULOS ======= */
     h1 {
         font-size: 1.8em;
     }
@@ -127,12 +129,11 @@ main ul li {
     }
 
     .div__pictures img {
-        width: 48%; /* Dos imágenes por fila */
+        width: 48%; 
         margin-bottom: 10px;
     }
 }
 
-/* Estilos para pantallas de 480px */
 @media (max-width: 480px) {
     .div__introduccion h1 {
         font-size: 1.6em;
@@ -147,6 +148,6 @@ main ul li {
     }
 
     .div__pictures img {
-        width: 100%; /* Una imagen por fila */
+        width: 100%; 
     }
 }

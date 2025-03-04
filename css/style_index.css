@@ -29,7 +29,6 @@ body {
 
 /* ======= HEADER ======= */
 header {
-    background-color: var(--color-blanco);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     padding: 10px 20px;
 }
@@ -45,7 +44,7 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: var(--color-blanco);
+    background-color: var(--color-blanco-transparente);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -73,6 +72,7 @@ header {
 
 .nav__links a:hover {
     color: var(--color-principal);
+    border-bottom: 2px solid rgb(112, 30, 71);
 }
 
 .div__social_links ul {
@@ -319,7 +319,7 @@ video {
     font-size: 16px;
     color: var(--color-gris-intenso); 
     line-height: 1.6;
-    text-align: left;
+    text-align: justify;
     margin: 10px 0;
 }
 
@@ -380,6 +380,8 @@ footer {
     font-size: 16px;
 }
 
+/* ======= MEDIA QUERY ======= */
+
 @media (max-width: 768px) {
     /* ======= MENUES (PARA HOME, CLINICA, STAFF, TECNOLOGIA) ======= */
     .nav__links {
@@ -391,6 +393,7 @@ footer {
     main {
         margin-top: 150px;
     }
+
     /* ======= DIVS DE HISTORIAS DE PACIENTES ======= */
     .div__header h5 {
         font-size: 20px;
@@ -405,12 +408,10 @@ footer {
         padding: 10px;
     }
 }
-
-/* ======= MENU DESPLEGABLE PARA @media 480px ======= */
 @media (max-width: 480px) {
     /* ======= MAINS (PARA HOME, CLINICA, STAFF Y TECNOLOGIA) ======= */
     main {
-        margin-top: 100px;
+        margin-top: 50px;
     }
 
     /* ======= MENU DESPLEGABLE (PARA HOME, CLINICA, STAFF Y TECNOLOGIA) ======= */
@@ -419,9 +420,9 @@ footer {
         flex-direction: column;
         gap: 15px;
         position: absolute;
-        top: 108px;
+        top: 70px;
         left: 0;
-        background-color: var(--color-blanco);
+        background-color: var(--color-blanco-transparente);
         width: 100%;
         padding: 20px 0;
     }
@@ -455,7 +456,7 @@ footer {
     }
 
     .div__patient {
-        width: 100%; /* 1 por fila */
+        width: 100%; 
         padding: 10px;
     }
 
@@ -467,5 +468,27 @@ footer {
     .patient-info p {
         font-size: 12px;
     }
-}
 
+    /* ======= AJUSTES PARA CENTRAR div__contacto Y MOVER div__sidebar ======= */
+    .nav__menu {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        align-items: center;
+        position: fixed;
+        padding: 10px;
+    }
+
+    .div__contacto {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .div__sidebar {
+        margin-left: auto;
+    }
+}

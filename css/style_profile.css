@@ -175,33 +175,49 @@ p {
 }
 
 footer {
-    background-color: #f8f9fa; /* Fondo claro */
-    color: #333; /* Color de texto */
-    padding: 20px;
-    font-family: Arial, sans-serif;
-    border-top: 3px solid #007bff; /* Borde superior azul */
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
+    background-color: #2C3E50; /* Color de fondo oscuro */
+    color: #ECF0F1; /* Texto en color claro */
+    padding: 20px 0;
+    text-align: center;
     margin-left: 250px;
 }
 
-footer p {
+.div__footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.div__img img {
+    width: 150px; /* Ajusta el tamaño del logo */
+    height: auto;
+}
+
+.div__contacto {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.div__contacto i {
+    font-size: 20px;
+    margin-right: 5px;
+}
+
+.div__contacto p {
     margin: 5px 0;
     font-size: 16px;
 }
 
-footer .material-icons {
-    font-size: 20px;
-    color: #007bff; /* Color azul */
-    vertical-align: middle;
-    margin-right: 5px;
+.div__telephone, .div__email {
+    display: flex;
+    flex-direction: row;
 }
-
-footer .logo {
-    max-width: 150px;
-    margin-left: auto;
-    margin-right: 50px; /* Ajuste para que no quede pegado */
+.div__extra {
+    font-size: 14px;
 }
 
 /* ======= MEDIA QUERIES ======= */
@@ -221,6 +237,23 @@ footer .logo {
     }
     .div__advise img {
         margin-bottom: 10px;
+    }
+
+    footer {
+        margin-left: 230px;
+    }
+
+    .div__footer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .div__img img {
+        width: 120px;
+    }
+
+    .div__extra {
+        margin-top: 10px;
     }
 }
 

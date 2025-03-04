@@ -4,7 +4,7 @@
         <meta charset='utf-8'>
         <title> CLINICA - DONTAR </title>
         <link rel="stylesheet" href="../css/style_index.css">
-        <link rel="stylesheet" href="../css/style_clinic.css">
+        <link rel="stylesheet" href="../css/style_technology.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     </head>
     
@@ -19,13 +19,13 @@
                         <li><a href="../index.html">HOME</a></li>
                         <li><a href="staff.html">STAFF</a></li>
                         <li><a href="clinic.html">CLÍNICA</a></li>
-                        <li><a href="technology.html">TECNOLOGÍA</a></li>
+                        <li><a href="technology.html ">TECNOLOGÍA</a></li>
                     </ul>
     
                     <button class="menu-toggle" aria-label="Toggle Menu">&#9776;</button>
     
                 </div>
-                <div class="div__contacto">
+                <div>
                     <div class="div__social_links">
                         <ul>
                             <li>
@@ -58,65 +58,37 @@
                         </ul>
                     </div>
                     <div class="turno">
-                        <a href="login.html">Sacá tu turno</a>
+                        <a href="html/login.html" target="_blank" rel="noopener noreferrer">Sacá tu turno</a>
                     </div>
                 </div>
             </nav>
         </header>
-
         <main>
-            <div class="div__introduccion">
-                <h1>Conoce nuestra Clinica</h1>
-                <p>Ubicada estratégicamente en Acoyte 454, 1°A, barrio de Caballito, en la Ciudad Autónoma de Buenos Aires, rodeada de decenas de medios de transporte para que nuestros pacientes puedan llegar fácilmente a nuestras instalaciones.</p>
-                <img src="../img/clinica.png" alt="Sala de espera">
+            <div class="div__introduction">
+                <h1>Trabajamos con tecnologia de ultima generacion</h1>
+                <p>Contamos con la tecnología más avanzada para el cuidado de tu salud. Consultorios modernos, cómodos, y cálidos para brindar a nuestros pacientes, la atención que merecen</p>
             </div>
-
-
-            <div class="div__about">
-                <h2>Acerca de la Clinica</h2>
-                <p>Con más de 25 años de trayectoria, la Clinica Medica Dontar es un centro de alta complejidad referente en la Ciudad de Buenos Aires.</p>
-                <p>El Hospital Alemán se destaca por su plantel de profesionales altamente calificados, su constante innovación tecnológica y su equipamiento de última generación, garantizando servicios de primer nivel para pacientes de Argentina y del exterior.</p>
-            </div>
-
-            <div class="div__history">
-                <h2>Historia de la Clinica</h2>
-                <p>Nuestros comienzos</p>
-                <p>La historia de la Clinica Dontar comenzó el 26 de agosto del 2000. Ese día, nuestra Directora la Dra. Cassataro, se reunió en el Colegio de Medicos de la Ciudad de Buenos Aires y determinó que debía existir en Buenos Aires un centro donde las personas de este país, pudieran ser atendidos.</p>
-                <img src="../img/profesionales/Betiana.png" alt="Dra. Cassataro">
-            </div>
-
-            <div class="div__services">
-                <h2>Nuestros Servicios</h2>
-                <p>Explorá nuestra amplia gama de servicios médicos, que incluyen atención de alta complejidad junto con otras especialidades variadas. Con un enfoque en la excelencia médica, tecnología de avanzada y un equipo de profesionales con capacitación de primer nivel, ofrecemos cuidados integrales adaptados a las necesidades de cada paciente.</p>
-                <img src="../img/Especialistas1.png" alt="Staff">
-                <p>Contando con mas de 15 especialidades para darle a tu salud la atencion mas completa...</p>
-                <ul>
-                    <li>Odontologia</li>
-                    <li>Cardiologia</li>
-                    <li>Neurologia</li>
-                    <li>Nutricion</li>
-                    <li>Endocrinologia</li>
-                    <li>Psiquiatria</li>
-                    <li>Oftalmologia</li>
-                    <li>Oncologia</li>
-                    <li>Urologia</li>
-                    <li>Ginecologia</li>
-                    <li>Dermatologia</li>
-                    <li>Pediatria</li>
-                    <li>Flebologia</li>
-                    <li>Nefrologia</li>
-                    <li>Gastroenterologia</li>
-                </ul>
-            </div>
-            
-            <div class="div__pictures">
-                <h2>Nuestras instalaciones</h2>
-                <img src="../img/clinic/clinica1.png" alt="">
-                <img src="../img/clinic/clinica2.png" alt="">
-                <img src="../img/clinic/clinica3.png" alt="">
-                <img src="../img/clinic/clinica4.png" alt="">
-                <img src="../img/clinic/clinica5.png" alt="">
-                <img src="../img/clinic/clinica6.png" alt="">
+            <div class="imagenes">
+                <div class="div__equipo_imagen">
+                    <p>Equipos de diagnóstico por imágenes, brindando precisión en cada consulta.</p>
+                    <div class="div__picture">
+                        <img src="../img/technology/tecnologia1.png" alt="Tecnología en diagnóstico" class="img__technology">
+                        <img src="../img/technology/tecnologia2.png" alt="Tecnología en diagnóstico" class="img__technology">
+                    </div>
+                </div>
+                <div class="div__consultorios">
+                    <p>Consultorios modernos y equipados con la última tecnología para una atención de calidad.</p>
+                    <div class="div__picture">
+                        <img src="../img/technology/tecnologia3.png" alt="Consultorios modernos" class="img__technology">
+                        <img src="../img/technology/tecnologia4.png" alt="Consultorios modernos" class="img__technology">
+                    </div>
+                </div>
+                <div class="div__monitores">
+                    <p>Monitores de salud avanzados para un seguimiento en tiempo real del bienestar del paciente.</p>
+                    <div class="div__picture">
+                        <img src="../img/technology/tecnologia5.png" alt="Monitores avanzados" class="img__technology">
+                    </div>
+                </div>
             </div>
         </main>
         <footer>
@@ -146,17 +118,4 @@
             </div>
         </footer>
     </body>
-    
 </html>
-
-
-<script>
-    // Obtener los elementos del menú y el botón
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav__links');
-
-    // Agregar el evento de clic al botón
-    menuToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-    });
-</script>
