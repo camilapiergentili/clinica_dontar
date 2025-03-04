@@ -235,6 +235,7 @@ footer .logo {
         top: 120px;
         left: 15px; 
     }
+
     .div__sidebar {
         width: 100%;
         height: calc(100vh - 180px);
@@ -244,19 +245,24 @@ footer .logo {
         transition: left 0.3s;
         overflow-y: auto;
     }
+
     .div__sidebar.open {
         left: 0;
     }
+
     .div__main {
         margin-left: 0;
         width: 100%;
     }
+
     .div__main.hidden {
         display: block;
     }
+
     body.menu-open {
         overflow: hidden;
     }
+    
     footer {
         margin-left: 0;
         width: 100%;

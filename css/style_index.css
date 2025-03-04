@@ -122,18 +122,36 @@ header {
     background-color: var(--color-principal);
 }
 
+/* ======= MAIN ======= */
+main {
+    max-width: 1200px;
+    margin: 100px auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
+    margin-bottom: 10px;
+}
+
+/* ======= SLOGAN ======= */
+h1 {
+    margin-top: 10px;
+    text-align: center;
+    color: var(--color-principal);
+}
+
 /* ======= VIDEO ======= */
 .div__header_tittle {
     background-color: var(--color-blanco-transparente);
-}
-video {
-    width: 100%;
+    border-radius: 12px;
 }
 
-h1 {
-    margin-top: 88px;
-    text-align: center;
-    color: var(--color-principal);
+video {
+    width: 100%;
+    padding: 10px;
 }
 
 /* ======= HISTORIAS DE NUESTROS PACIENTES ======= */
@@ -207,7 +225,7 @@ h1 {
     flex-direction: column;
     align-items: center;
     gap: 20px;
-    padding: 40px;
+    padding: 0px;
     text-align: center;
 }
 
@@ -221,6 +239,7 @@ h1 {
     color: var(--color-principal);
     max-width: 100%;
     line-height: 1.5;
+    padding: 10px;
 }
 
 .div__cards {
@@ -361,14 +380,46 @@ footer {
     font-size: 16px;
 }
 
+@media (max-width: 768px) {
+    /* ======= MENUES (PARA HOME, CLINICA, STAFF, TECNOLOGIA) ======= */
+    .nav__links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* ======= MAINS (PARA HOME, CLINICA, STAFF Y TECNOLOGIA) ======= */
+    main {
+        margin-top: 150px;
+    }
+    /* ======= DIVS DE HISTORIAS DE PACIENTES ======= */
+    .div__header h5 {
+        font-size: 20px;
+    }
+
+    .div__patients_wrapper {
+        justify-content: center;
+    }
+
+    .div__patient {
+        width: calc(50% - 20px); /* 2 por fila */
+        padding: 10px;
+    }
+}
+
 /* ======= MENU DESPLEGABLE PARA @media 480px ======= */
 @media (max-width: 480px) {
+    /* ======= MAINS (PARA HOME, CLINICA, STAFF Y TECNOLOGIA) ======= */
+    main {
+        margin-top: 100px;
+    }
+
+    /* ======= MENU DESPLEGABLE (PARA HOME, CLINICA, STAFF Y TECNOLOGIA) ======= */
     .nav__links {
         display: none;
         flex-direction: column;
         gap: 15px;
         position: absolute;
-        top: 80px;
+        top: 108px;
         left: 0;
         background-color: var(--color-blanco);
         width: 100%;
@@ -377,6 +428,7 @@ footer {
 
     .nav__links.active {
         display: flex;
+        align-items: center;
     }
 
     .menu-toggle {
@@ -393,8 +445,27 @@ footer {
         outline: none;
     }
 
-    .div__header_tittle {
-        margin-top: 90px;
+    /* ======= DIVS DE HISTORIAS DE PACIENTES ======= */
+    .div__header h5 {
+        font-size: 18px;
+    }
+
+    .div__patients_wrapper {
+        justify-content: center;
+    }
+
+    .div__patient {
+        width: 100%; /* 1 por fila */
+        padding: 10px;
+    }
+
+    .div__patient img {
+        max-width: 150px;
+        margin: 0 auto;
+    }
+
+    .patient-info p {
+        font-size: 12px;
     }
 }
 
