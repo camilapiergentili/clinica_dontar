@@ -1,6 +1,7 @@
 /* ======= PALETA DE COLORES ======= */
 :root {
     --color-principal: rgb(112, 30, 71);
+    --color-principal-transparente: rgba(112, 30, 71, 0.5);
     --color-blanco: rgb(255, 255, 255);
     --color-informativo: rgb(119, 119, 119);
     --color-gris-intenso: rgb(51, 51, 51);
@@ -21,8 +22,15 @@
 
 /* ======= ESTILOS GENERALES ======= */
 body {
-    background-color: var(--color-blanco);
     color: var(--color-gris-intenso);
+    background-color: var(--color-blanco);
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 /* ======= HEADER ======= */
@@ -50,6 +58,7 @@ header {
 .div__my_profile {
     display: flex;
     align-items: center;
+
 }
 
 .userbutton {
@@ -65,12 +74,11 @@ header {
 /* ======= NAV PERMANENTE A LA IZQUIERDA ======= */
 .div__sidebar {
     width: 250px;
-    background-color: var(--color-gris-intenso);
+    background-color: var(--color-principal);
     color: var(--color-blanco);
     position: fixed;
     padding-top: 20px;
     height: calc(100vh - 180px);
-    top: 180px;
     overflow-y: auto;
 
 }
@@ -88,13 +96,13 @@ header {
 }
 
 .menu-title:hover {
-    background: var(--color-gris-intenso);
+    background: var(--color-principal-transparente);
 }
 
 /* ======= SUBMENUES ======= */
 .submenu {
     display: none;
-    background: var(--color-gris-claro);
+    background: var(--color-blanco-transparente);
     padding-left: 20px;
 }
 
@@ -102,10 +110,17 @@ header {
     padding: 10px;
     cursor: pointer;
     transition: background 0.3s;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.submenu a {
+    text-decoration: none;
 }
 
 .submenu li:hover {
-    background: var(--color-gris-intenso);
+    background: var(--color-principal-transparente);
 }
 
 .submenu.open {
@@ -129,13 +144,17 @@ header {
 
 /* ======= OPCION CERRAR SESION ======= */
 .logout {
+    border-top: 2px solid white;
     padding: 15px;
-    background: var(--color-rojo);
-    text-align: center;
     cursor: pointer;
     font-weight: bold;
     margin-top: 20px;
     transition: background 0.3s;
+}
+
+.logout a {
+    text-decoration: none;
+    color: var(--color-blanco);
 }
 
 .logout:hover {
@@ -147,8 +166,35 @@ p {
 }
 
 /* ======= ESTILOS PARA EL RESTO DEL MAIN (sin el nav) ======= */
+main {
+    flex: 1; 
+}
 .div__main {
     margin-left: 250px;
+    height: 100%;
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    flex-direction: column;
+    background: url('../img/technology/tecnologia4.png') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.div__welcome {
+    background-color: var(--color-blanco-transparente);
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.div__welcome p {
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    color: var(--color-negro);
+}
+
+.div__welcome p:last-child {
+    margin-top: 20px;
 }
 
 /* ======= CONSEJO PERFIL ACTUALIZADO ======= */
@@ -160,12 +206,12 @@ p {
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     margin-bottom: 20px;
+    margin-top: 50px;
 }
 
 .div__advise img {
     width: 50px;
-    height: 50px;
-    margin-right: 15px;
+    height: auto;
 }
 
 .div__advise p {
@@ -175,8 +221,8 @@ p {
 }
 
 footer {
-    background-color: #2C3E50; /* Color de fondo oscuro */
-    color: #ECF0F1; /* Texto en color claro */
+    background-color: var(--color-gris-intenso);
+    color: var(--color-blanco); 
     padding: 20px 0;
     text-align: center;
     margin-left: 250px;
@@ -216,46 +262,79 @@ footer {
     display: flex;
     flex-direction: row;
 }
+
 .div__extra {
     font-size: 14px;
 }
 
 /* ======= MEDIA QUERIES ======= */
+/* ======= ESTILOS RESPONSIVOS ======= */
 @media (max-width: 768px) {
+    /* Ajuste del sidebar */
     .div__sidebar {
-        width: 230px;
+        width: 200px;
+        height: 100vh;
+        position: absolute;
+        left: -200px; /* Oculto por defecto */
+        transition: left 0.3s ease;
     }
+
+    .div__sidebar.open {
+        left: 0;
+    }
+
+    /* Botón para abrir/cerrar el menú */
+    .menu-toggle {
+        display: block;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        z-index: 10;
+    }
+
+    /* Ajuste del contenido principal */
     .div__main {
-        margin-left: 230px;
+        margin-left: 0;
+        padding: 20px;
+        height: auto;
+        min-height: 100vh;
     }
-    .logo img {
-        max-width: 50%;
+
+    .div__welcome {
+        width: 100%;
+        text-align: center;
+        padding: 15px;
     }
+
     .div__advise {
         flex-direction: column;
         text-align: center;
+        padding: 10px;
     }
+
     .div__advise img {
         margin-bottom: 10px;
     }
 
+    /* Ajuste del footer */
     footer {
-        margin-left: 230px;
+        margin-left: 0;
+        width: 100%;
+        padding: 15px;
+        text-align: center;
     }
 
     .div__footer {
         flex-direction: column;
+        align-items: center;
+    }
+
+    .div__contacto {
+        align-items: center;
         text-align: center;
     }
-
-    .div__img img {
-        width: 120px;
-    }
-
-    .div__extra {
-        margin-top: 10px;
-    }
 }
+
 
 @media (max-width: 480px) {
     
@@ -265,7 +344,7 @@ footer {
         cursor: pointer;
         color: var(--color-principal);
         position: absolute;
-        top: 120px;
+        top: 20px;
         left: 15px; 
     }
 
@@ -273,7 +352,6 @@ footer {
         width: 100%;
         height: calc(100vh - 180px);
         position: absolute;
-        top: 180px;
         left: -100%;
         transition: left 0.3s;
         overflow-y: auto;
@@ -294,6 +372,10 @@ footer {
 
     body.menu-open {
         overflow: hidden;
+    }
+
+    .div__welcome, .div__advise {
+        margin: 10px;
     }
     
     footer {

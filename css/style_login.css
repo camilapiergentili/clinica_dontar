@@ -109,9 +109,7 @@ header {
     gap: 10px;
 }
 
-[class^="button__"] {
-    width: 100%;
-    padding: 10px;
+[id^="button__"] {
     background-color: var(--color-principal);
     border: none;
     color: var(--color-blanco);
@@ -119,15 +117,20 @@ header {
     border-radius: 5px;
     cursor: pointer;
     margin-top: 15px;
+    width: 100%;
 }
 
-.button__iniciar_sesion a, .button__register_patient a, .button__register_professional a, .button__register_speciality a, .button__add_schedule a {
+#button__iniciar_sesion a, #button__change_password a, #button__register_patient a, #button__register_professional a, #button__register_speciality a, #button__add_schedule a {
     color: var(--color-blanco);
     text-decoration: none;
     display: block;
+    width: 100%; 
+    height: 100%; 
+    text-align: center; 
+    line-height: 40px; 
 }
 
-.a__olvidar_contraseña {
+.a__olvidar_contraseña, .a__tienes_cuenta {
     display: block; 
     margin-top: 20px;
     text-align: center;
@@ -257,7 +260,7 @@ input[type="time"] {
         gap: 5px;
     }
 
-    [class^="button__"] {
+    [id^="button__"] {
         font-size: 14px;
         padding: 8px;
     }
