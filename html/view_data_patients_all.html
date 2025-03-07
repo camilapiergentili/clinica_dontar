@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang='es-AR'>
+<head>
+    <meta charset='utf-8'>
+    <title> PACIENTES - DONTAR</title>
+    <link rel='icon' type='image/png' href='../img/dontar_clinica_medica.png'>
+    <link rel='stylesheet' href='../css/style_view_data.css'>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="../index.html">
+                <img src="../img/dontar_clinica_medica.png" alt="Dontar">
+            </a>
+        </div>
+    </header>
+    
+    <main>
+        <div class="div__information">
+            <p>Lista de Pacientes</p>
+        </div>
+        
+        <div  class="div__personal_data_all">
+            <table>
+                <thead>
+                    <tr>
+                        <th>DNI</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Correo Electrónico</th>
+                        <th>Fecha de Nacimiento</th>
+                        <th>Obra Social</th>
+                        <th>Teléfono</th>
+                    </tr>
+                </thead>
+                <tbody id="pacientes-body">
+                </tbody>
+            </table>
+        </div>
+        
+    </main>
+</body>
+</html>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const pacientes = [
+            { dni: "45889159", nombre: "BRUNO MARTIN", apellido: "DAHUA", email: "dahuabruno@gmail.com", nacimiento: "03/01/2005", obra_social: "IOSFA", telefono: "2932405452" },
+            { dni: "12345678", nombre: "JUAN", apellido: "PEREZ", email: "juanperez@gmail.com", nacimiento: "15/05/1990", obra_social: "OSDE", telefono: "1145678901" },
+            { dni: "87654321", nombre: "MARIA", apellido: "LOPEZ", email: "marialopez@gmail.com", nacimiento: "22/08/1985", obra_social: "PAMI", telefono: "2233344556" },
+            { dni: "11223344", nombre: "CARLOS", apellido: "GOMEZ", email: "carlosgomez@gmail.com", nacimiento: "10/12/1978", obra_social: "SWISS MEDICAL", telefono: "4455667788" },
+            { dni: "55667788", nombre: "ANA", apellido: "TORRES", email: "anatorres@gmail.com", nacimiento: "05/03/1992", obra_social: "MEDIFE", telefono: "6677889900" }
+        ];
+        
+        const tableBody = document.getElementById('pacientes-body');
+        pacientes.forEach(paciente => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${paciente.dni}</td>
+                <td>${paciente.nombre}</td>
+                <td>${paciente.apellido}</td>
+                <td>${paciente.email}</td>
+                <td>${paciente.nacimiento}</td>
+                <td>${paciente.obra_social}</td>
+                <td>${paciente.telefono}</td>
+            `;
+            tableBody.appendChild(row);
+        });
+    });
+</script>

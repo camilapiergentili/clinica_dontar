@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang='es-AR'>
+<head>
+    <meta charset='utf-8'>
+    <title> PROFESIONALES - DONTAR</title>
+    <link rel='icon' type='image/png' href='../img/dontar_clinica_medica.png'>
+    <link rel='stylesheet' href='../css/style_view_data.css'>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="../index.html">
+                <img src="../img/dontar_clinica_medica.png" alt="Dontar">
+            </a>
+        </div>
+    </header>
+    
+    <main>
+        <div class="div__information">
+            <p>Buscar Profesional</p>
+        </div>
+        
+        <div class="div__search">
+            <label for="dni">Ingrese el DNI</label>
+            <input class="input__dni" id="dni" type="text">
+            <button onclick="buscarProfesional()">Buscar</button>
+        </div>
+        
+        <div class="div__personal_data">
+            <div class="div__field">
+                <label>Nombre</label>
+                <input id="first_name" type="text" readonly>
+            </div>
+            
+            <div class="div__field">
+                <label>Apellido</label>
+                <input id="last_name" type="text" readonly>
+            </div>
+            
+            <div class="div__field">
+                <label>Correo Electrónico</label>
+                <input id="email" type="email" readonly>
+            </div>
+            
+            <div class="div__field">
+                <label>Matricula</label>
+                <input id="matricula" type="text" readonly>
+            </div>
+
+            <div class="div__field">
+                <label>Especialidad</label>
+                <input id="especialidad" type="text" readonly>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
+
+<script>
+    const profesionales = {
+        "45889159": { nombre: "BRUNO MARTIN", apellido: "DAHUA", email: "dahuabruno@gmail.com", matricula: "21470", especialidad: "Cardiologo" },
+        "12345678": { nombre: "JUAN", apellido: "PEREZ", email: "juanperez@gmail.com", matricula: "45896", especialidad: "Neurologo" }
+    };
+    
+    function buscarProfesional() {
+        const dni = document.getElementById('dni').value;
+        const datos = profesionales[dni];
+        
+        if (datos) {
+            document.getElementById('first_name').value = datos.nombre;
+            document.getElementById('last_name').value = datos.apellido;
+            document.getElementById('email').value = datos.email;
+            
+            document.getElementById('matricula').value = datos.matricula;
+            document.getElementById('especialidad').value = datos.especialidad;
+        } else {
+            alert('Profesional no encontrado');
+        }
+    }
+</script>

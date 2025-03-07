@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang='es-AR'>
+<head>
+    <meta charset='utf-8'>
+    <title> PACIENTES - DONTAR</title>
+    <link rel='icon' type='image/png' href='../img/dontar_clinica_medica.png'>
+    <link rel='stylesheet' href='../css/style_view_data.css'>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="../index.html">
+                <img src="../img/dontar_clinica_medica.png" alt="Dontar">
+            </a>
+        </div>
+    </header>
+    
+    <main>
+        <div class="div__information">
+            <p>Buscar Paciente</p>
+        </div>
+        
+        <div class="div__search">
+            <label for="dni">Ingrese el DNI</label>
+            <input class="input__dni" id="dni" type="text">
+            <button onclick="buscarPaciente()">Buscar</button>
+        </div>
+        
+        <div class="div__personal_data">
+            <div class="div__field">
+                <label>Nombre</label>
+                <input id="first_name" type="text" readonly>
+            </div>
+            
+            <div class="div__field">
+                <label>Apellido</label>
+                <input id="last_name" type="text" readonly>
+            </div>
+            
+            <div class="div__field">
+                <label>Correo Electrónico</label>
+                <input id="email" type="email" readonly>
+            </div>
+            
+            <div class="div__field">
+                <label>Fecha de Nacimiento</label>
+                <div class="div__birthdate">
+                    <input id="birth_day" type="text" readonly placeholder="Día">
+                    <input id="birth_month" type="text" readonly placeholder="Mes">
+                    <input id="birth_year" type="text" readonly placeholder="Año">
+                </div>
+            </div>
+            
+            <div class="div__field">
+                <label>Obra Social</label>
+                <input id="obra_social" type="text" readonly>
+            </div>
+            
+            <div class="div__field">
+                <label>Teléfono</label>
+                <input id="telephone" type="text" readonly>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
+
+<script>
+    const pacientes = {
+        "45889159": { nombre: "BRUNO MARTIN", apellido: "DAHUA", email: "dahuabruno@gmail.com", nacimiento: "03/01/2005", obra_social: "IOSFA", telefono: "2932405452" },
+        "12345678": { nombre: "JUAN", apellido: "PEREZ", email: "juanperez@gmail.com", nacimiento: "15/05/1990", obra_social: "OSDE", telefono: "1145678901" }
+    };
+    
+    function buscarPaciente() {
+        const dni = document.getElementById('dni').value;
+        const datos = pacientes[dni];
+        
+        if (datos) {
+            document.getElementById('first_name').value = datos.nombre;
+            document.getElementById('last_name').value = datos.apellido;
+            document.getElementById('email').value = datos.email;
+            
+            const [dia, mes, anio] = datos.nacimiento.split('/');
+            document.getElementById('birth_day').value = dia;
+            document.getElementById('birth_month').value = mes;
+            document.getElementById('birth_year').value = anio;
+            
+            document.getElementById('obra_social').value = datos.obra_social;
+            document.getElementById('telephone').value = datos.telefono;
+        } else {
+            alert('Paciente no encontrado');
+        }
+    }
+</script>

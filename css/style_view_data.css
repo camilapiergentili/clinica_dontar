@@ -60,6 +60,57 @@ main {
     margin: 20px auto;
 }
 
+/* ======= SECCIÓN BUSCAR UN PACIENTE/PROFESIONAL POR DNI ======= */
+.div__search {
+    width: 90%;
+    max-width: 400px;
+    background: var(--color-blanco);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 20px auto;
+}
+
+.div__search input {
+    width: 80%;
+    padding: 5px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.div__search button{
+    background-color: var(--color-principal);
+    color: var(--color-blanco);
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.div__search .input__dni {
+    cursor: unset;
+}
+
+/* ======= BOTON ACTUALIZAR DATOS ======= */
+.div__update button {
+    background-color: var(--color-principal);
+    color: var(--color-blanco);
+    border: none;
+    width: 90%;
+    padding: 10px;
+    margin: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#div__personal_data input {
+    cursor: unset;
+}
+
 /* ======= DATOS PERSONALES ======= */
 .div__personal_data {
     width: 90%;
@@ -71,7 +122,45 @@ main {
     margin: 20px auto;
 }
 
-/* ======= DATO (uno por uno) ======= */
+/* ======= SECCIÓN BUSCAR A TODOS LOS PACIENTES ======= */
+.div__personal_data_all {
+    width: 90%;
+    max-width: 900px;
+    background: var(--color-blanco);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 20px auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: var(--color-blanco);
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: var(--color-principal);
+    color: var(--color-blanco);
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: var(--color-blanco);
+}
+
+tr:hover {
+    background-color: var(--color-blanco);
+}
+
+/* ======= NOMBRE DATO (uno por uno) ======= */
 .div__field {
     margin-bottom: 15px;
 }
@@ -80,7 +169,8 @@ main {
 label {
     font-weight: bold;
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 /* ======= INPUT ======= */
@@ -136,5 +226,24 @@ input {
 
     input {
         font-size: 14px;
+    }
+}
+
+
+/* Responsivo para 480px */
+@media (max-width: 920px) {
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    th, td {
+        padding: 6px;
+        font-size: 12px;
+    }
+
+    th {
+        background-color: var(--color-principal);
     }
 }

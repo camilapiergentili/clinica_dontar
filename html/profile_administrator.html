@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title> MI PERFIL - DONTAR </title>
-    <link rel='icon' type='image' href='../img/dontar_clinica_medica.png'>
+    <link rel='icon' type='image/png' href='../img/dontar_clinica_medica.png'>
     <link rel="stylesheet" href="../css/style_profile.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
@@ -35,35 +35,40 @@
                     <li class="menu-title" onclick="toggleSubmenu('turnos')">PROFESIONALES</li>
                     <ul class="submenu" id="turnos">
                         <li><a href="register_professional.html">Dar de alta</a></li>
-                        <li><a href="#">Actualizar datos</a></li>
+                        <li><a href="update_professional_adm.html">Actualizar datos</a></li>
                         <li><a href="delete_professional.html">Dar de baja</a></li>
+                        <li><a href="view_data_professional_by_dni.html">Ver profesional</a></li>
+                        <li><a href="view_data_professionals_all.html">Ver profesionales</a></li>
                     </ul>
 
                     <li class="menu-title" onclick="toggleSubmenu('pacientes')">PACIENTES</li>
                     <ul class="submenu" id="pacientes">
                         <li><a href="register_patient.html">Dar de alta</a></li>
-                        <li><a href="">Actualizar datos</a></li>
+                        <li><a href="update_patient_adm.html">Actualizar datos</a></li>
                         <li><a href="delete_patient.html">Dar de baja</a></li>
+                        <li><a href="view_data_patient_by_dni.html">Ver paciente</a></li>
+                        <li><a href="view_data_patients_all.html">Ver pacientes</a></li>
                     </ul>
 
                     <li class="menu-title" onclick="toggleSubmenu('datos')">AGENDA</li>
                     <ul class="submenu" id="datos">
                         <li><a href="#">Crear turnos</a></li>
                         <li><a href="#">Eliminar turnos</a></li>
+                        <li><a href="#">Ver agenda de un profesional</a></li>
                         <li><a href="sacar_turno_administrator.html">Asignar turno</a></li>
                     </ul>
 
                     <li class="menu-title" onclick="toggleSubmenu('especialidades')">ESPECIALIDADES</li>
                     <ul class="submenu" id="especialidades">
-                        <li><a href="register_especialidad.html">Crear especialidad</a></li>
-                        <li><a href="">Ver especialidades</a></li>
+                        <li><a href="register_especiality.html">Crear especialidad</a></li>
+                        <li><a href="#">Ver especialidades</a></li>
                         <li><a href="#">Eliminar especialidad</a></li>
                     </ul>
 
                     <li class="menu-title" onclick="toggleSubmenu('profesionales')">DATOS PERSONALES</li>
                     <ul class="submenu" id="profesionales">
                         <li><a href="view_data_administrator.html">Ver mis datos</a></li>
-                        <li><a href="#">Modificar mis datos</a></li>
+                        <li><a href="update_administrator.html">Modificar mis datos</a></li>
                         <li><a href="new_password.html">Cambiar contraseña</a></li>
                     </ul>
                     

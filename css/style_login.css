@@ -9,6 +9,7 @@
     --color-principal-transparente: rgba(112, 30, 71, 0.9);
     --color-rojo: rgb(255, 0, 0);
     --color-rojo-oscuro: rgb(139, 0, 0);
+    --color-gris: rgb(128, 128, 128);
 }
 
 /* ======= ESTILOS GENERALES ======= */
@@ -74,7 +75,7 @@ header {
 }
 
 /* ======= DIV Ingresar datos, en login(iniciar_sesion), r_patient(crea_cuenta) y r_professional (datos) ======= */
-.div__iniciar_sesion, .div__datos, .div__crea_cuenta, .div__register_speciality, .div__add_schedule, .div__personal_data{
+.div__container {
     background: var(--color-blanco);
     padding: 30px;
     border-radius: 10px;
@@ -84,11 +85,20 @@ header {
     margin: 10px;
 }
 
-.div__iniciar_sesion p {
+#div__iniciar_sesion p {
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 5px;
     text-align: center;
+}
+
+.div__nacimiento, .div__speciality {
+    color: var(--color-gris);
+    margin-bottom: 20px;
+}
+
+.div__speciality select {
+    width: 100px;
 }
 
 /* ======= INPUTS ======= */
@@ -191,6 +201,11 @@ th, td {
     border: 1px solid #ddd;
     padding: 10px;
     text-align: center;
+}
+
+tr td:nth-child(2) {
+    display: flex;
+    align-items: center;
 }
 
 th {

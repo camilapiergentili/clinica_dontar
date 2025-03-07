@@ -3,11 +3,78 @@
     <head>
         <meta charset='utf-8'>
         <title> DATOS PERSONALES - DONTAR </title>
-        <link rel='icon' type='image' href='../img/dontar_clinica_medica.png'>
+        <link rel='icon' type='image/png' href='../img/dontar_clinica_medica.png'>
+        <link rel="stylesheet" href="../css/style_view_data.css">
     </head>
     
     <body>
+        <header>    
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="../img/dontar_clinica_medica.png" alt="Dontar">
+                </a>
+            </div>
+        </header>
+        <main>
+            <div class="div__personal_data">
+                <div id="div__personal_data">
+                    <h3>Datos del profesional</h3>
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" />
         
+                    <label for="apellido">Apellido:</label>
+                    <input type="text" id="apellido" />
+        
+                    <label for="matricula">Matricula:</label>
+                    <input type="text" id="matricula" />
+        
+                    <label for="especialidades">Especialidades:</label>
+                    <input type="especialidades" id="especialidades" />
+        
+                    <label for="email">Correo Electrónico:</label>
+                    <input type="email" id="email" />
+        
+                    <div class="div__update">
+                        <button onclick="guardarDatos()">ACTUALIZAR</button>
+                    </div>
+                </div>
+            </div>
+        </main>
     </body>
     
 </html>
+
+<script>
+    // Simulación de un único profesional cargado en la lista
+    const profesional = {
+            dni: '12345678',
+            nombre: 'Juan',
+            apellido: 'Pérez',
+            matricula: 'OSDE',
+            especialidades: '1123456789',
+            email: 'juan.perez@example.com'
+        };
+
+    // Función para cargar automáticamente los datos del profesional en el formulario
+    function cargarDatosProfesional() {
+        document.getElementById('nombre').value = profesional.nombre;
+        document.getElementById('apellido').value = profesional.apellido;
+        document.getElementById('matricula').value = profesional.matricula;
+        document.getElementById('especialidades').value = profesional.especialidades;
+        document.getElementById('email').value = profesional.email;
+    }
+
+    // Función para guardar los cambios
+    function guardarDatos() {
+        profesional.nombre = document.getElementById('nombre').value;
+        profesional.apellido = document.getElementById('apellido').value;
+        profesional.matricula = document.getElementById('matricula').value;
+        profesional.especialidades = document.getElementById('especialidades').value;
+        profesional.email = document.getElementById('email').value;
+        
+        alert('Datos actualizados correctamente.');
+    }
+
+    // Cargar automáticamente los datos al abrir la página
+    window.onload = cargarDatosProfesional;
+</script>
