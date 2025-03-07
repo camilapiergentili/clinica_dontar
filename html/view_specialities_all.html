@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang='es-AR'>
+<head>
+    <meta charset='utf-8'>
+    <title> especialidades - DONTAR</title>
+    <link rel='icon' type='image/png' href='../img/dontar_clinica_medica.png'>
+    <link rel='stylesheet' href='../css/style_view_data.css'>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="../index.html">
+                <img src="../img/dontar_clinica_medica.png" alt="Dontar">
+            </a>
+        </div>
+    </header>
+    
+    <main>
+        <div class="div__information">
+            <p>Lista de especialidades</p>
+        </div>
+        
+        <div  class="div__especialidad_data_all">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Especialidad</th>
+                    </tr>
+                </thead>
+                <tbody id="especialidades-body">
+                </tbody>
+            </table>
+        </div>
+        
+    </main>
+</body>
+</html>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const especialidades = [
+            { especialidad: "IOSFA" },
+            { especialidad: "OSDE" },
+            { especialidad: "PAMI" },
+            { especialidad: "SWISS MEDICAL" },
+            { especialidad: "MEDIFE" }
+        ];
+        
+        const tableBody = document.getElementById('especialidades-body');
+        especialidades.forEach(especialidad => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${especialidad.especialidad}</td>
+            `;
+            tableBody.appendChild(row);
+        });
+    });
+</script>

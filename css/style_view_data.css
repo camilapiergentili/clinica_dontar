@@ -123,7 +123,7 @@ main {
 }
 
 /* ======= SECCIÓN BUSCAR A TODOS LOS PACIENTES ======= */
-.div__personal_data_all {
+.div__personal_data_all, .div__especialidad_data_all {
     width: 90%;
     max-width: 900px;
     background: var(--color-blanco);
@@ -158,6 +158,12 @@ tr:nth-child(even) {
 
 tr:hover {
     background-color: var(--color-blanco);
+}
+
+/* ======= LISTA DE ESPECIALIDADES ======= */
+.div__especialidad_data_all th, .div__especialidad_data_all td {
+    display: flex;
+    justify-content: center;
 }
 
 /* ======= NOMBRE DATO (uno por uno) ======= */
@@ -232,18 +238,26 @@ input {
 
 /* Responsivo para 480px */
 @media (max-width: 920px) {
+    .div__personal_data_all {
+        width: 70%;
+    }
+
     table {
+        margin-top: 0px;
         display: block;
         overflow-x: auto;
         white-space: nowrap;
+        justify-items: center;
+    }
+    
+    .div__especialidad_data_all table {
+        width: 100%;
+        display: inline-table;
     }
 
     th, td {
         padding: 6px;
         font-size: 12px;
-    }
-
-    th {
-        background-color: var(--color-principal);
+        text-align: center; /* Centrar contenido sin flexbox */
     }
 }
