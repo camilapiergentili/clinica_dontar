@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <title> TURNOS - DONTAR </title>
@@ -7,7 +8,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link rel="stylesheet" href="../css/style_show_data.css">
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
 </head>
+
 <body>
     <header>
 
@@ -16,6 +20,7 @@
                 <img src="../img/dontar_clinica_medica.png" alt="Dontar">
             </a>
         </div>
+        
 
     </header>
     <main>
@@ -24,11 +29,8 @@
 
             <!-- Especialidad -->
             <label for="especialidad">Especialidad:</label>
-            <select id="especialidad" onchange="cargarProfesionales()">
+            <select id="especialidad">
                 <option value="">Selecciona una especialidad</option>
-                <option value="cardiologia">Cardiología</option>
-                <option value="dermatologia">Dermatología</option>
-                <option value="pediatria">Pediatría</option>
             </select>
 
             <!-- Profesional -->
@@ -60,9 +62,12 @@
     </main>
 
 </body>
+<script src="../js/axiosConfig.js"></script>
+<script src="../js/sacarTurnoPaciente.js"></script>
+
 </html>
 
-    <script>
+<!-- <script>
         const pacientes = {
                 '12345678': { nombre: 'Juan', apellido: 'Pérez' },
                 '87654321': { nombre: 'María', apellido: 'Gómez' }
@@ -199,7 +204,4 @@
             }
             return horas;
         }
-    </script>
-
-</body>
-</html>
+    </script> -->

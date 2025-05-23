@@ -1,128 +1,163 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title> MI PERFIL - DONTAR </title>
-    <link rel='icon' type='image/png' href='../img/dontar_clinica_medica.png'>
-    <link rel="stylesheet" href="../css/style_profile.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>MI PERFIL - DONTAR</title>
+    <link rel="icon" type="image/png" href="../img/dontar_clinica_medica.png" />
+    <link rel="stylesheet" href="../css/style_profile.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+  </head>
+  <body>
     <header>
-        <div class="logo">
-            <a href="../index.html">
-                <img src="../img/dontar_clinica_medica.png" alt="Dontar">
-            </a>
-        </div>
-     
-        <div class="div__my_profile">
-            <a href="#">
-                <span class="userbutton">
-                    <span class="avatars">
-                        <img src="../img/avatars/hombre1.png" class="avatar" width="35" height="35" alt="">
-                    </span>
-                </span>
-            </a>
-        </div>
+      <div class="logo">
+        <a href="../index.html">
+          <img src="../img/dontar_clinica_medica.png" alt="Dontar" />
+        </a>
+      </div>
+
+      <div class="div__my_profile">
+        <a href="#">
+          <span class="userbutton">
+            <span class="avatars">
+              <img
+                src="../img/avatars/hombre1.png"
+                class="avatar"
+                width="35"
+                height="35"
+                alt=""
+              />
+            </span>
+          </span>
+        </a>
+      </div>
     </header>
-    
+
     <main>
-        <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
+      <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
 
-        <div class="div__sidebar">
-            <nav>
-                <ul>
-                    <li class="menu-title" onclick="toggleSubmenu('turnos')">PROFESIONALES</li>
-                    <ul class="submenu" id="turnos">
-                        <li><a href="register_professional.html">Dar de alta</a></li>
-                        <li><a href="update_professional_adm.html">Actualizar datos</a></li>
-                        <li><a href="delete_professional.html">Dar de baja</a></li>
-                        <li><a href="view_data_professional_by_dni.html">Ver profesional</a></li>
-                        <li><a href="view_data_professionals_all.html">Ver profesionales</a></li>
-                    </ul>
+      <div class="div__sidebar">
+        <nav>
+          <ul>
+            <li class="menu-title" onclick="toggleSubmenu('turnos')">
+              PROFESIONALES
+            </li>
+            <ul class="submenu" id="turnos">
+              <li><a href="register_professional.html">Dar de alta</a></li>
+              <li>
+                <a href="update_professional_adm.html">Actualizar datos</a>
+              </li>
+              <li><a href="delete_professional.html">Dar de baja</a></li>
+              <li>
+                <a href="view_data_professional_by_dni.html">Ver profesional</a>
+              </li>
+              <li>
+                <a href="view_data_professionals_all.html">Ver profesionales</a>
+              </li>
+            </ul>
 
-                    <li class="menu-title" onclick="toggleSubmenu('pacientes')">PACIENTES</li>
-                    <ul class="submenu" id="pacientes">
-                        <li><a href="register_patient.html">Dar de alta</a></li>
-                        <li><a href="update_patient_adm.html">Actualizar datos</a></li>
-                        <li><a href="delete_patient.html">Dar de baja</a></li>
-                        <li><a href="view_data_patient_by_dni.html">Ver paciente</a></li>
-                        <li><a href="view_data_patients_all.html">Ver pacientes</a></li>
-                    </ul>
+            <li class="menu-title" onclick="toggleSubmenu('pacientes')">
+              PACIENTES
+            </li>
+            <ul class="submenu" id="pacientes">
+              <li><a href="register_patient.html">Dar de alta</a></li>
+              <li><a href="update_patient_adm.html">Actualizar datos</a></li>
+              <li><a href="delete_patient.html">Dar de baja</a></li>
+              <li><a href="view_data_patient_by_dni.html">Ver paciente</a></li>
+              <li><a href="view_data_patients_all.html">Ver pacientes</a></li>
+            </ul>
 
-                    <li class="menu-title" onclick="toggleSubmenu('datos')">AGENDA</li>
-                    <ul class="submenu" id="datos">
-                        <li><a href="#">Crear turnos</a></li>
-                        <li><a href="#">Eliminar turnos</a></li>
-                        <li><a href="view_schedule_professional.html">Ver agenda de un profesional</a></li>
-                        <li><a href="sacar_turno_administrator.html">Asignar turno</a></li>
-                    </ul>
+            <li class="menu-title" onclick="toggleSubmenu('datos')">AGENDA</li>
+            <ul class="submenu" id="datos">
+              <li><a href="#">Crear turnos</a></li>
+              <li><a href="#">Eliminar turnos</a></li>
+              <li>
+                <a href="view_schedule_professional.html"
+                  >Ver agenda de un profesional</a
+                >
+              </li>
+              <li>
+                <a href="sacar_turno_administrator.html">Asignar turno</a>
+              </li>
+            </ul>
 
-                    <li class="menu-title" onclick="toggleSubmenu('especialidades')">ESPECIALIDADES</li>
-                    <ul class="submenu" id="especialidades">
-                        <li><a href="register_especiality.html">Crear especialidad</a></li>
-                        <li><a href="view_specialities_all.html">Ver especialidades</a></li>
-                        <li><a href="#">Eliminar especialidad</a></li>
-                    </ul>
+            <li class="menu-title" onclick="toggleSubmenu('especialidades')">
+              ESPECIALIDADES
+            </li>
+            <ul class="submenu" id="especialidades">
+              <li>
+                <a href="register_especiality.html">Crear especialidad</a>
+              </li>
+              <li>
+                <a href="view_specialities_all.html">Ver especialidades</a>
+              </li>
+              <li><a href="#">Eliminar especialidad</a></li>
+            </ul>
 
-                    <li class="menu-title" onclick="toggleSubmenu('profesionales')">DATOS PERSONALES</li>
-                    <ul class="submenu" id="profesionales">
-                        <li><a href="view_data_administrator.html">Ver mis datos</a></li>
-                        <li><a href="update_administrator.html">Modificar mis datos</a></li>
-                        <li><a href="new_password.html">Cambiar contraseña</a></li>
-                    </ul>
-                    
-                    <li class="logout"><a href="index.html">CERRAR SESIÓN</a></li>
-                </ul>
-            </nav>
+            <li class="menu-title" onclick="toggleSubmenu('profesionales')">
+              DATOS PERSONALES
+            </li>
+            <ul class="submenu" id="profesionales">
+              <li><a href="view_data_administrator.html">Ver mis datos</a></li>
+              <li>
+                <a href="update_administrator.html">Modificar mis datos</a>
+              </li>
+              <li><a href="new_password.html">Cambiar contraseña</a></li>
+            </ul>
+
+            <li class="logout"><a href="index.html">CERRAR SESIÓN</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="div__main">
+        <div class="div__welcome">
+          <p>Bienvenido a Tu Portal,</p>
+          <p>NOMBRE</p>
         </div>
-
-        <div class="div__main">
-            <div class="div__welcome">
-                <p>Bienvenido a Tu Portal, </p>
-                <p>NOMBRE</p>
-            </div>
-        </div>
+      </div>
     </main>
     <footer>
-        <div class="div__footer"> 
-            <div class="div__img">
-                <img src="../img/dontar_clinica_medica.png">
-            </div>
-            <div class="div__contacto">
-                <p>Por cualquier consulta comuníquese </p> 
-                <div class="div__telephone">
-                    <i class="material-icons">phone</i>
-                    <p>(0291) 4548919</p>  
-                </div>
-                <div class="div__email">
-                    <i class="material-icons">email</i>
-                    <p>admportal@crodiagnostico.com.ar</p> 
-                </div>
-            </div>
-            <div class="div__extra">
-                <p>© Powered by Netmed Solutions S.A.</p>
-                <p>V.22.3.1</p>
-            </div>
+      <div class="div__footer">
+        <div class="div__img">
+          <img src="../img/dontar_clinica_medica.png" />
         </div>
+        <div class="div__contacto">
+          <p>Por cualquier consulta comuníquese</p>
+          <div class="div__telephone">
+            <i class="material-icons">phone</i>
+            <p>(0291) 4548919</p>
+          </div>
+          <div class="div__email">
+            <i class="material-icons">email</i>
+            <p>admportal@crodiagnostico.com.ar</p>
+          </div>
+        </div>
+        <div class="div__extra">
+          <p>© Powered by Netmed Solutions S.A.</p>
+          <p>V.22.3.1</p>
+        </div>
+      </div>
     </footer>
-</body>
+  </body>
 </html>
 
 <script>
-    function toggleSubmenu(id) {
-        let submenu = document.getElementById(id);
-        submenu.style.display = submenu.style.display === "block" ? "none" : "block";
+  function toggleSubmenu(id) {
+    let submenu = document.getElementById(id);
+    submenu.style.display =
+      submenu.style.display === "block" ? "none" : "block";
 
-        // Rotar la flecha del título del menú
-        let menuTitle = submenu.previousElementSibling;
-        menuTitle.classList.toggle("open");
-    }
+    // Rotar la flecha del título del menú
+    let menuTitle = submenu.previousElementSibling;
+    menuTitle.classList.toggle("open");
+  }
 </script>
 
-
 <script>
-    function toggleMenu() {
-        document.querySelector('.div__sidebar').classList.toggle('open');
-    }
+  function toggleMenu() {
+    document.querySelector(".div__sidebar").classList.toggle("open");
+  }
 </script>

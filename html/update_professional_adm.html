@@ -5,6 +5,7 @@
         <title> DATOS PERSONALES - DONTAR </title>
         <link rel='icon' type='image/png' href='../img/dontar_clinica_medica.png'>
         <link rel="stylesheet" href="../css/style_view_data.css">
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     </head>
     
     <body>
@@ -24,31 +25,28 @@
             <div class="div__search">
                 <label for="dni">Ingrese el DNI</label>
                 <input class="input__dni" id="dni" type="text">
-                <button onclick="buscarProfesional()">Buscar</button>
+                <button type="click" id="button_search">Buscar</button>
             </div>
             
             <div class="div__personal_data" id="div__personal_data" style="display: none;">
-                <div id="datosProfesional" style="display: none;">
+                <form id="datosProfesional" style="display: none;">
                     <h3>Datos del Profesional</h3>
                     <label for="nombre">Nombre:</label>
                     <input type="text" id="nombre" />
-        
+                    
                     <label for="apellido">Apellido:</label>
                     <input type="text" id="apellido" />
         
                     <label for="matricula">Matricula:</label>
-                    <input type="date" id="matricula" />
-        
-                    <label for="especialidad">Especialidad:</label>
-                    <input type="text" id="especialidad" />
-        
+                    <input type="text" id="matricula" />
+
                     <label for="email">Correo Electrónico:</label>
                     <input type="email" id="email" />
         
                     <div class="div__update">
-                        <button onclick="guardarDatos()">ACTUALIZAR</button>
+                        <button type="submit" id="button-update">ACTUALIZAR</button>
                     </div>
-                </div>
+                </form>
         
                 <div id="mensajeError" style="color: red; display: none;">
                     <p>Paciente no encontrado.</p>
@@ -58,18 +56,19 @@
     
     </body>
     
+    <script src="../js/axiosConfig.js"></script>
+    <script src="../js/updateProfessionalAdm.js"></script>
 </html>
 
 
-<script>
-    // Lista de profesionales predeterminada
+<!-- <script>
+
     const profesionales = [
         {
             dni: '12345678',
             nombre: 'Juan',
             apellido: 'Pérez',
             matricula: '1980-05-15',
-            especialidad: 'OSDE',
             email: 'juan.perez@example.com'
         },
         {
@@ -77,12 +76,11 @@
             nombre: 'María',
             apellido: 'López',
             matricula: '1990-09-25',
-            especialidad: 'IOMA',
             email: 'maria.lopez@example.com'
         }
     ];
 
-    // Función para buscar el profesional
+
     function buscarProfesional() {
         const dni = document.getElementById('dni').value;
         const profesional = profesionales.find(p => p.dni === dni);
@@ -94,7 +92,6 @@
             document.getElementById('nombre').value = profesional.nombre;
             document.getElementById('apellido').value = profesional.apellido;
             document.getElementById('matricula').value = profesional.matricula;
-            document.getElementById('especialidad').value = profesional.especialidad;
             document.getElementById('email').value = profesional.email;
 
             div__personal_data.style.display = 'block'
@@ -107,7 +104,7 @@
         }
     }
 
-    // Función para guardar los cambios
+
     function guardarDatos() {
         const dni = document.getElementById('dni').value;
         const pacienteIndex = profesionales.findIndex(p => p.dni === dni);
@@ -118,7 +115,6 @@
                 nombre: document.getElementById('nombre').value,
                 apellido: document.getElementById('apellido').value,
                 matricula: document.getElementById('matricula').value,
-                especialidad: document.getElementById('especialidad').value,
                 email: document.getElementById('email').value
             };
             alert('Datos guardados correctamente.');
@@ -126,4 +122,4 @@
             alert('Profesional no encontrado.');
         }
     }
-</script>
+</script> -->

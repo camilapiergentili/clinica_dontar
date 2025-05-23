@@ -1,73 +1,63 @@
 <!DOCTYPE html>
 <html lang='es-AR'>
-    <head>
-        <meta charset='utf-8'>
-        <title> INICIAR SESION - DONTAR </title>
-        <link rel='icon' type='image/png' href='../img/dontar_clinica_medica.png'>
-        <link rel="stylesheet" href="../css/style_login.css">
-    </head>
-    
-    <body>
-        <header>
 
-            <div class="logo">
-                <a href="../index.html">
-                    <img src="../img/dontar_clinica_medica.png" alt="Dontar">
-                </a>
+<head>
+    <meta charset='utf-8'>
+    <title> INICIAR SESION - DONTAR </title>
+    <link rel='icon' type='image/png' href='../img/dontar_clinica_medica.png'>
+    <link rel="stylesheet" href="../css/style_login.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+</head>
+
+<body>
+    <header>
+
+        <div class="logo">
+            <a href="../index.html">
+                <img src="../img/dontar_clinica_medica.png" alt="Dontar">
+            </a>
+        </div>
+
+    </header>
+
+    <main>
+        <div class="div__container" id="div__iniciar_sesion">
+            <p>Iniciar sesión</p>
+            <form id="login" action="#" method="POST">
+                <div class="div__email">
+                    <input type="email" class="input__email" data-type="email" name="username" value=""
+                        aria-required="true" placeholder="Correo electrónico" aria-label="Correo electrónico">
+                </div>
+
+                <div class="div__password">
+                    <input type="password" class="input__password" data-type="password" name="password" value=""
+                        aria-required="true" placeholder="Contraseña" aria-label="Contraseña">
+                </div>
+
+                <button type="submit" class="iniciar_sesion"> INICIAR SESION </button>
+            </form>
+
+            <a href="forgot_password.html" target="_blank" class="a__olvidar_contraseña">¿Olvidaste tu contraseña?</a>
+
+            <div class="div__remember">
+                <input type="checkbox" id="remember" name="remember">
+                <label for="remember"> RECORDARME </label>
             </div>
 
-        </header>
-
-        <main>
-            <div class="div__container" id="div__iniciar_sesion">
-                <p>Iniciar sesión</p>
-                <form action="#">
-                    <div class="div__email">
-                        <input type="text" class="input__email" data-type="email" name="email" value="" aria-required="true" placeholder="Correo electrónico" aria-label="Correo electrónico">
-                    </div>
-    
-                    <div class="div__password">
-                        <input type="password" class="input__password" data-type="password" name="password" value="" aria-required="true" placeholder="Contraseña" aria-label="Contraseña">
-                    </div>
-
-                    <div class="div__submit" id="button__iniciar_sesion">
-                        <a href="profile_patient.html"> INICIAR SESION </a>
-                    </div>
-                </form>
-                
-                <a class="a__olvidar_contraseña" onclick="mostrarAlerta()">¿Olvidaste tu contraseña?</a>
-
-                <div id="alert">
-                    SU CONTRASEÑA FUE RESETEADA CON SU NUMERO DE DNI
-                    <button id="cerrar" onclick="cerrarAlerta()">X</button>
-                </div>
-
-                <div class="div__remember">
-                    <input type="checkbox" id="remember" name="remember">  
-                    <label for="remember"> RECORDARME </label>
-                </div>  
-
-                <div class="div__register">
-                    <p> ¿Primera vez en Dontar? <a href="register_patient.html"> Registrate </a></p>
-                </div>
-
-                <div class="div__proteccion">
-                    <p> Esta pagina esta protegida por Google reCAPTCHA para comprobar que no eres un robot.
-                        <a href="https://developers.google.com/recaptcha?hl=es-419"> Mas info.</a>
-                    </p>
-                </div>
+            <div class="div__register">
+                <p> ¿Primera vez en Dontar? <a href="register_patient.html"> Registrate </a></p>
             </div>
-        </main>
-    </body>
-    
+
+            <div class="div__proteccion">
+                <p> Esta pagina esta protegida por Google reCAPTCHA para comprobar que no eres un robot.
+                    <a href="https://developers.google.com/recaptcha?hl=es-419"> Mas info.</a>
+                </p>
+            </div>
+        </div>
+    </main>
+</body>
+
+<script src="../js/login.js"></script>
+
 </html>
-
-<script>
-    function mostrarAlerta() {
-        let alerta = document.getElementById("alert");
-        alerta.style.display = "block";
-    }
-    function cerrarAlerta() {
-        document.getElementById("alert").style.display = "none";
-    }
-</script>

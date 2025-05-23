@@ -5,6 +5,7 @@
     <title> PROFESIONAL - DONTAR </title>
     <link rel='icon' type='image/png' href='../img/dontar_clinica_medica.png'>
     <link rel="stylesheet" href="../css/style_show_data.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
     <header>
@@ -17,29 +18,28 @@
 
     </header>
     <main>
-        <div class="container">
+        <div class="container" id="buscarProfesionalById">
             <h1>Buscar Profesional</h1>
             <label for="dni">Ingrese DNI:</label>
             <input type="text" id="dni" oninput="buscarProfesional()">
             
-            <div id="resultado">
-                <label for="nombre">Nombre</label>
-                <input type="text" id="nombre" disabled>
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" disabled>
 
-                <label for="apellido">Apellido</label>
-                <input type="text" id="apellido" disabled>
+            <label for="apellido">Apellido</label>
+            <input type="text" id="apellido" disabled>
 
-                <label for="matricula">Matricula</label>
-                <input type="text" id="matricula" disabled>
+            <label for="matricula">Matricula</label>
+            <input type="text" id="matricula" disabled>
 
-                <label for="especialidades">especialidades</label>
-                <input type="text" id="especialidades" disabled>
+            <label for="especialidades">Especialidades</label>
+            <input type="text" id="especialidades" disabled>
 
-                <label for="email">Correo Electronico</label>
-                <input type="email" id="email" disabled>
-            </div>
+            <label for="email">Correo Electronico</label>
+            <input type="email" id="email" disabled>
+
             
-            <button id="eliminarProfesional" onclick="eliminarProfesional()">ELIMINAR</button>
+            <button type="click" id="eliminarProfesional" onclick="eliminarProfesional()">ELIMINAR</button>
 
             <div id="alert">
                 Profesional eliminado correctamente
@@ -47,7 +47,12 @@
         </div>
     </main>    
 </body>
+<script src="../js/axiosConfig.js"></script>
+<script src="../js/deleteProfessional.js"></script>
+
 </html>
+
+<!-- 
 <script>
     const profesionales = {
     "12345678": {
@@ -108,4 +113,4 @@ function limpiarCampos() {
     document.getElementById("email").value = "";
     document.getElementById("especialidades").value = "";
 }
-</script>
+</script> -->
