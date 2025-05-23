@@ -5,6 +5,7 @@
     <title> PROFESIONALES - DONTAR</title>
     <link rel='icon' type='image/png' href='../img/dontar_clinica_medica.png'>
     <link rel='stylesheet' href='../css/style_view_data.css'>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
     <header>
@@ -23,7 +24,7 @@
         <div class="div__search">
             <label for="dni">Ingrese el DNI</label>
             <input class="input__dni" id="dni" type="text">
-            <button onclick="buscarProfesional()">Buscar</button>
+            <button type="click" id="find-professional">Buscar</button>
         </div>
         
         <div class="div__personal_data">
@@ -54,27 +55,7 @@
         </div>
     </main>
 </body>
-</html>
 
-<script>
-    const profesionales = {
-        "45889159": { nombre: "BRUNO MARTIN", apellido: "DAHUA", email: "dahuabruno@gmail.com", matricula: "21470", especialidad: "Cardiologo" },
-        "12345678": { nombre: "JUAN", apellido: "PEREZ", email: "juanperez@gmail.com", matricula: "45896", especialidad: "Neurologo" }
-    };
-    
-    function buscarProfesional() {
-        const dni = document.getElementById('dni').value;
-        const datos = profesionales[dni];
-        
-        if (datos) {
-            document.getElementById('first_name').value = datos.nombre;
-            document.getElementById('last_name').value = datos.apellido;
-            document.getElementById('email').value = datos.email;
-            
-            document.getElementById('matricula').value = datos.matricula;
-            document.getElementById('especialidad').value = datos.especialidad;
-        } else {
-            alert('Profesional no encontrado');
-        }
-    }
-</script>
+<script src="../js/axiosConfig.js"></script>
+<script src="../js/viewProfesionalByDni.js"></script>
+</html>

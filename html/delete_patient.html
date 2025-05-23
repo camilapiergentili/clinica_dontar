@@ -30,11 +30,9 @@
                 <input type="text" id="apellido" disabled>
 
                 <label for="fecha_nacimiento">Fecha de Nacimiento</label>
-                <div class="div__birthdate">
-                    <input type="text" id="dia" disabled>
-                    <input type="text" id="mes" disabled>
-                    <input type="text" id="año" disabled>
-                </div>    
+               <div class="div__birthdate">
+                    <input id="date_of_birth" type="date" readonly>
+                </div>  
 
                 <label for="obra_social">Obra Social</label>
                 <input type="text" id="obra_social" disabled>
@@ -46,7 +44,7 @@
                 <input type="email" id="email" disabled>
             </div>
             
-            <button id="eliminarPatient" onclick="eliminarProfesional()">ELIMINAR</button>
+            <button id="eliminarPatient" tipe="click">ELIMINAR</button>
 
             <div id="alert">
                 Paciente eliminado correctamente

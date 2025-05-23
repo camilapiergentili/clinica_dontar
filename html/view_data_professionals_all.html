@@ -5,6 +5,7 @@
     <title> PROFESIONALES - DONTAR</title>
     <link rel='icon' type='image/png' href='../img/dontar_clinica_medica.png'>
     <link rel='stylesheet' href='../css/style_view_data.css'>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
     <header>
@@ -20,7 +21,7 @@
             <p>Lista de Profesionales</p>
         </div>
         
-        <div  class="div__personal_data_all">
+        <div class="div__personal_data_all">
             <table>
                 <thead>
                     <tr>
@@ -39,9 +40,13 @@
         
     </main>
 </body>
+
+<script src="../js/axiosConfig.js"></script>
+<script src="../js/listAllProfessionals.js"></script>
+
 </html>
 
-<script>
+<!-- <script>
     document.addEventListener('DOMContentLoaded', () => {
         const profesionales = [
             { dni: "45889159", nombre: "BRUNO MARTIN", apellido: "DAHUA", email: "dahuabruno@gmail.com", matricula: "03/01/2005", especialidad: "IOSFA" },
@@ -65,4 +70,4 @@
             tableBody.appendChild(row);
         });
     });
-</script>
+</script> -->

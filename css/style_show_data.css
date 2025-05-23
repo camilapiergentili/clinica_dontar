@@ -58,7 +58,7 @@ header {
 /* ======= DIV PRINCIPAL ======= */
 .container {
     background: var(--color-blanco);
-    padding: 20px;
+    padding: 30px;
     border-radius: 8px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     width: 100%;

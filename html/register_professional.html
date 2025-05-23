@@ -5,6 +5,7 @@
         <title> REGISTRAR - DONTAR </title>
         <link rel='icon' type='image/png' href='../img/dontar_clinica_medica.png'>
         <link rel="stylesheet" href="../css/style_login.css">
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     </head>
     
     <body>
@@ -26,14 +27,14 @@
             </div>
 
             <div class="div__container" id="div__datos">
-                <form action="#" method="post">
+                <form id="form_professional" action="#" method="post">
                     <div>
                         <div class="div__fullname">
                             <div class="div__nombre">
-                                <input type="text" class="input__firstname" data-type="text" name="firstname" value="" aria-required="true" placeholder="Nombre" aria-label="Nombre">
+                                <input type="text" class="input__firstname" data-type="text" name="firstName" value="" aria-required="true" placeholder="Nombre" aria-label="Nombre">
                             </div>
                             <div class="div__apellido">
-                                <input type="text" class="input__lastname" data-type="text" name="lastname" value="" aria-required="true" placeholder="Apellido" aria-label="Apellido">
+                                <input type="text" class="input__lastname" data-type="text" name="lastName" value="" aria-required="true" placeholder="Apellido" aria-label="Apellido">
                             </div>
                         </div>
                         
@@ -49,13 +50,9 @@
                             <div>
                                 <p>Especialidad</p>
                             </div>
-                            <div>
 
-                            </div>
-                            <select aria-label="Especialidad" name="speciality" title="Especialidad">
-                                <option value="Cardiologo">Cargiologo</option>
-                                <option value="Dentista">Dentista</option>
-                                <option value="Ginecologo">Ginecologo</option>
+                            <select id="select_speciality" aria-label="Especialidad" name="idSpecialityDtoList" title="Especialidad">
+                                <option value="">Selecciona una especialidad</option>
                             </select>
                         </div>
 
@@ -64,7 +61,7 @@
                         </div>
 
                         <div class="div__email">
-                            <input type="email" class="input__email" name="email" value="" aria-required="true" placeholder="Email" aria-label="Email">
+                            <input type="email" class="input__email" name="username" value="" aria-required="true" placeholder="Email" aria-label="Email">
                         </div>
 
                         <div class="div__password">
@@ -72,16 +69,19 @@
                         </div>
 
                         <div class="div__password_confirm">
-                            <input type="password" class="input__password_confirm" name="password_confirm" value="" aria-required="true" placeholder="Confirmar Contraseña" aria-label="Confirm Password">
+                            <input type="password" class="input__password_confirm" name="confirmPassword" value="" aria-required="true" placeholder="Confirmar Contraseña" aria-label="Confirm Password">
                         </div>
                     </div>
 
-                    <div class="div__submit" id="button__register_professional">
-                        <a href="schedule.html"> CONTINUAR </a>
-                    </div>
+                    <button type="submit" class="div__submit" id="button__register_professional">
+                         CONTINUAR 
+                    </button>
+
                 </form>
             </div>
         </main>
     </body>
-    
+
+    <script src="../js/axiosConfig.js"></script>
+    <script src="../js/registerProfessional.js"></script>
 </html>

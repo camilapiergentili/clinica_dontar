@@ -25,7 +25,6 @@ body {
     background-color: var(--color-blanco);
     overflow: auto;
     justify-content: flex-start;
-
     background: url('../img/clinica.png') no-repeat center center fixed;
     background-size: cover;
 }
@@ -52,7 +51,10 @@ header {
 }
 
 /* ======= DIV Es facil y rapido ======= */
-.div__crea_cuenta, .div__register, .div__schedule, .div__information {
+.div__crea_cuenta,
+.div__register,
+.div__schedule,
+.div__information {
     background-color: var(--color-blanco);
     padding: 10px;
     border-radius: 12px;
@@ -62,16 +64,22 @@ header {
     font-family: Arial, sans-serif;
 }
 
-.div__crea_cuenta p:first-child, .div__register p:first-child, .div__schedule p:first-child, .div__information p:first-child {
+.div__crea_cuenta p:first-child,
+.div__register p:first-child,
+.div__schedule p:first-child,
+.div__information p:first-child {
     font-size: 16px;
     color: var(--color-informativo);
 }
 
-.div__crea_cuenta p:last-child, .div__register p:last-child, .div__schedule p:last-child, .div__information p:last-child {
+.div__crea_cuenta p:last-child,
+.div__register p:last-child,
+.div__schedule p:last-child,
+.div__information p:last-child {
     font-size: 22px;
     font-weight: bold;
     color: var(--color-gris-intenso);
-    margin-bottom: 2px;   
+    margin-bottom: 2px;
 }
 
 /* ======= DIV Ingresar datos, en login(iniciar_sesion), r_patient(crea_cuenta) y r_professional (datos) ======= */
@@ -81,7 +89,7 @@ header {
     border-radius: 10px;
     width: 400px;
     text-align: center;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4); 
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4);
     margin: 10px;
 }
 
@@ -92,7 +100,8 @@ header {
     text-align: center;
 }
 
-.div__nacimiento, .div__speciality {
+.div__nacimiento,
+.div__speciality {
     color: var(--color-gris);
     margin-bottom: 20px;
 }
@@ -100,6 +109,16 @@ header {
 .div__speciality select {
     width: 100px;
 }
+
+.iniciar_sesion {
+    width: 85%;
+    margin: 10px;
+    padding: 10px;
+    background-color: var(--color-principal);
+    color: #ddd;
+    border-radius: 5px;
+}
+
 
 /* ======= INPUTS ======= */
 [class^="input__"] {
@@ -111,13 +130,8 @@ header {
     font-size: 16px;
 }
 
+
 /* ======= BUTTONS ======= */
-.div__submit {
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-    gap: 10px;
-}
 
 [id^="button__"] {
     background-color: var(--color-principal);
@@ -130,21 +144,83 @@ header {
     width: 100%;
 }
 
-#button__iniciar_sesion a, #button__change_password a, #button__register_patient a, #button__register_professional a, #button__register_speciality a, #button__add_schedule a {
+#button__iniciar_sesion a,
+#button__change_password a,
+#button__register_patient,
+#button__register_professional,
+#button__register_speciality,
+#button__add_schedule {
     color: var(--color-blanco);
     text-decoration: none;
     display: block;
-    width: 100%; 
-    height: 100%; 
-    text-align: center; 
-    line-height: 40px; 
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 40px;
 }
 
-.a__olvidar_contraseña, .a__tienes_cuenta {
-    display: block; 
+.a__olvidar_contraseña,
+.a__tienes_cuenta {
+    display: block;
     margin-top: 20px;
     text-align: center;
 }
+
+#select_speciality {
+    width: 80%;
+    padding: 8px 12px;
+    border-radius: 4px;
+    border: 1px solid var(--color-gris);
+    font-size: 16px;
+}
+
+/* 
+#modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal__input {
+    border-radius: 5px;
+    border: 1px solid var(--color-gris);
+    padding: 8px;
+    margin: 10px;
+    background-color: var(--color-principal-transparente);
+}
+
+
+.modal__h2 {
+    color: var(--color-blanco);
+    font-size: 22px;
+}
+
+.hidden__content {
+    background-color: var(--color-principal);
+    padding: 30px;
+    border-radius: 10px;
+    height: 150px;
+    width: 400px;
+}
+
+.botones {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.botones__item{
+    background-color: var(--color-gris-intenso);
+    border-radius: 8px;
+    color: var(--color-gris);
+    padding: 10px;
+} */
 
 
 /* ======= DIV Clikeable recordar contraseña ======= */
@@ -197,7 +273,8 @@ table {
     background-color: var(--color-blanco);
 }
 
-th, td {
+th,
+td {
     border: 1px solid #ddd;
     padding: 10px;
     text-align: center;
@@ -234,6 +311,7 @@ input[type="time"] {
     border-radius: 5px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
 }
+
 #cerrar {
     margin-left: 15px;
     background-color: var(--color-blanco);
@@ -242,6 +320,7 @@ input[type="time"] {
     cursor: pointer;
     font-weight: bold;
 }
+
 #cerrar:hover {
     color: var(--color-rojo-oscuro);
 }
@@ -250,8 +329,16 @@ input[type="time"] {
 
 /* ======= MEDIA QUERIES ======= */
 @media (max-width: 768px) {
-    .div__crea_cuenta, .div__register, .div__schedule, .div__information,
-    .div__iniciar_sesion, .div__datos, .div__register_speciality, .div__add_schedule, .div__personal_data {
+
+    .div__crea_cuenta,
+    .div__register,
+    .div__schedule,
+    .div__information,
+    .div__iniciar_sesion,
+    .div__datos,
+    .div__register_speciality,
+    .div__add_schedule,
+    .div__personal_data {
         width: 90%;
         padding: 10px;
         margin: 10px;
