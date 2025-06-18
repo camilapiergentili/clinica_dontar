@@ -201,6 +201,48 @@ input {
     width: 90%;
 }
 
+
+/*ICONO TACHO DE BASURA*/
+
+.especialidad-nombre {
+    display: flex;
+    justify-content:space-around;  /* Esto separa los elementos */
+    align-items: center;
+    padding: 10px  12px;  /* Espacio entre el borde de la celda y el contenido */
+    min-width: 300px; /* Podés ajustarlo según tu tabla */
+}
+
+.speciality-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.nombre-texto {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex-grow: 1;
+}
+
+.btn-delete {
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.btn-delete i {
+    font-size: 1.2em;
+    color: #333;
+}
+
+.btn-delete:hover i {
+    color: red;
+}
+
+
 /* ======= RESPONSIVE DESIGN ======= */
 @media (max-width: 768px) {
     .div__information, .div__personal_data {

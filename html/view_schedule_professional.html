@@ -2,11 +2,14 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>AGENDA PROFESIONAL - DONTAR</title>
+    <title>AGENDA PROFESIONAL</title>
     <link rel='icon' type='image/png' href='../img/dontar_clinica_medica.png'>
     <link rel="stylesheet" href="../css/style_view_schedule.css">
+    <link rel="stylesheet" href="../css/style_warning.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
+    
     <header>
         <div class="logo">
             <a href="../index.html">
@@ -14,14 +17,13 @@
             </a>
         </div>
     </header>
+
     <main>
         <div class="div__select">
             <h1>Agenda profesional</h1>
             <label for="profesional">Seleccione un profesional:</label>
             <select id="profesional">
-                <option value="">Seleccione...</option>
-                <option value="Dr. Pérez">Dr. Pérez</option>
-                <option value="Dra. Gómez">Dra. Gómez</option>
+                <option class="option-professional" value="">Seleccione...</option>
             </select>
         </div>
         <div class="div__tabla" style="display: none;">
@@ -31,54 +33,21 @@
                     <th>Horario</th>
                 </tr>
                 <tbody id="horarios-body"></tbody>
+
             </table>
+            
+            <div id="warning"></div>
         </div>
+
+        <div class="div__button">
+            <button type="click" id="button-delete-schedule" style="display: none;">Eliminar</button>
+            <button type="click" id="button-add-schedule" style="display: none;">Agregar</button>
+        </div>
+
     </main>
 </body>
+
+
+<script src="../js/axios-config.js"></script>
+<script src="../js/view-schedule-professional.js"></script>
 </html>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const schedules = {
-            "Dr. Pérez": {
-                "Lunes": "08:00 - 12:00, 16:00 - 19:00",
-                "Martes": "-",
-                "Miércoles": "09:00 - 13:00",
-                "Jueves": "-",
-                "Viernes": "14:00 - 18:00"
-            },
-            "Dra. Gómez": {
-                "Lunes": "10:00 - 14:00",
-                "Martes": "16:00 - 20:00",
-                "Miércoles": "-",
-                "Jueves": "08:00 - 12:00",
-                "Viernes": "09:00 - 12:00"
-            }
-        };
-
-        const select = document.getElementById("profesional");
-        const tableDiv = document.querySelector(".div__tabla");
-        const tableBody = document.getElementById("horarios-body");
-
-        tableDiv.style.display = "none";
-
-        function updateSchedule(professional) {
-            tableBody.innerHTML = "";
-            const schedule = schedules[professional];
-            for (const [day, hours] of Object.entries(schedule)) {
-                const row = document.createElement("tr");
-                row.innerHTML = `<td>${day}</td><td class="${hours !== '-' ? 'available' : ''}">${hours}</td>`;
-                tableBody.appendChild(row);
-            }
-            tableDiv.style.display = "block";
-        }
-
-        select.addEventListener("change", function() {
-            if (this.value) {
-                updateSchedule(this.value);
-            } else {
-                tableDiv.style.display = "none";
-            }
-        });
-    });
-</script>

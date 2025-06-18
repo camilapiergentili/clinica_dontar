@@ -28,6 +28,7 @@ function buscarProfessionalPorDni() {
       document.getElementById("div__personal_data").style.display = "none";
       document.getElementById("mensajeError").style.display = "block";
       document.getElementById("datosProfesional").style.display = "none";
+      alert(JSON.stringify(err.response.data));
 
     }
 
@@ -53,15 +54,15 @@ function update() {
       username: document.getElementById("email").value
     }
 
-    await api.put(`/administrator-professional/update-data-professional/${id}`, professionalActualizado)
-    .then(response => {
+    try{
+      await api.put(`professional/update?id=${id}`, professionalActualizado);
       alert("Profesional modificado con exito ");
-    })
-    .catch(err => {
+
+    }
+    catch(err)  {
       alert(JSON.stringify(err.response.data));
-    })
-
-
+    }
+    
   });
 }
 

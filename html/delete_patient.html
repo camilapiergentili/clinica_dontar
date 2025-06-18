@@ -5,6 +5,7 @@
     <title> PACIENTE - DONTAR </title>
     <link rel='icon' type='image/png' href='../img/dontar_clinica_medica.png'>
     <link rel="stylesheet" href="../css/style_show_data.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
     <header>
@@ -20,108 +21,40 @@
         <div class="container">
             <h1>Buscar Paciente</h1>
             <label for="dni">Ingrese DNI:</label>
-            <input type="text" id="dni" oninput="buscarProfesional()">
+            <input type="text" id="dni">
             
-            <div id="resultado">
-                <label for="nombre">Nombre</label>
-                <input type="text" id="nombre" disabled>
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" disabled>
 
-                <label for="apellido">Apellido</label>
-                <input type="text" id="apellido" disabled>
+            <label for="apellido">Apellido</label>
+            <input type="text" id="apellido" disabled>
 
-                <label for="fecha_nacimiento">Fecha de Nacimiento</label>
-               <div class="div__birthdate">
-                    <input id="date_of_birth" type="date" readonly>
-                </div>  
+            <label for="date_of_birth">Fecha de Nacimiento</label>
+                
+            <div class="div__birthdate">
+                <input id="date_of_birth" type="date" readonly>
+            </div>  
 
-                <label for="obra_social">Obra Social</label>
-                <input type="text" id="obra_social" disabled>
+            <label for="obra_social">Obra Social</label>
+            <input type="text" id="obra_social" disabled>
 
-                <label for="telefono">Telefono</label>
-                <input type="text" id="telefono" disabled>
+            <label for="telefono">Telefono</label>
+            <input type="text" id="telefono" disabled>
 
-                <label for="email">Correo Electronico</label>
-                <input type="email" id="email" disabled>
-            </div>
-            
-            <button id="eliminarPatient" tipe="click">ELIMINAR</button>
+            <label for="email">Correo Electronico</label>
+            <input type="email" id="email" disabled>
 
+            <button id="eliminarPatient" type="click">ELIMINAR</button>
+                
             <div id="alert">
                 Paciente eliminado correctamente
-            </div>
+            </div>        
         </div>
     </main>    
 </body>
+
+<script src="../js/axios-config.js"></script>
+<script src="../js/delete-patient-adm.js"></script>
+
 </html>
-<script>
-    // Base de datos simulada de pacientes
-const pacientes = {
-    "12345678": {
-        nombre: "Juan",
-        apellido: "Pérez",
-        obra_social: "IOSFA",
-        correo: "juanperez@mail.com",
-        telefono: "2932405452",
-        fecha_nacimiento: "03/01/2005"
-    },
-    "87654321": {
-        nombre: "Alberto",
-        apellido: "Juarez",
-        obra_social: "DIBA",
-        correo: "albertJu@mail.com",
-        telefono: "2932405452",
-        fecha_nacimiento: "15/07/1990"
-    }
-};
 
-// Función para buscar el paciente por DNI
-function buscarProfesional() {
-    const dni = document.getElementById("dni").value;
-    const paciente = pacientes[dni];
-
-    if (paciente) {
-        document.getElementById("nombre").value = paciente.nombre;
-        document.getElementById("apellido").value = paciente.apellido;
-        document.getElementById("obra_social").value = paciente.obra_social;
-        document.getElementById("email").value = paciente.correo;
-        document.getElementById("telefono").value = paciente.telefono;
-
-        // Separar la fecha de nacimiento (Día, Mes, Año)
-        const fecha = paciente.fecha_nacimiento.split("/");
-        document.getElementById("dia").value = fecha[0];
-        document.getElementById("mes").value = fecha[1];
-        document.getElementById("año").value = fecha[2];
-    } else {
-        limpiarCampos();
-    }
-
-    document.getElementById("eliminarPatient").addEventListener("click", function() {
-            document.getElementById("alert").style.display = "block";
-            setTimeout(() => {
-                window.location.href = "profile_administrator.html";
-            }, 2000);
-        });
-
-        document.getElementById("cerrar").addEventListener("click", function() {
-            document.getElementById("alert").style.display = "none";
-        });
-}
-
-// Función para eliminar un paciente
-function eliminarProfesional() {
-    const dni = document.getElementById("dni").value;
-}
-
-// Función para limpiar los campos cuando no hay coincidencias
-function limpiarCampos() {
-    document.getElementById("nombre").value = "";
-    document.getElementById("apellido").value = "";
-    document.getElementById("obra_social").value = "";
-    document.getElementById("email").value = "";
-    document.getElementById("telefono").value = "";
-    document.getElementById("dia").value = "";
-    document.getElementById("mes").value = "";
-    document.getElementById("año").value = "";
-}
-
-</script>

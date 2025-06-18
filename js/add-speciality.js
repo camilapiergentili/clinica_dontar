@@ -13,12 +13,12 @@ document.getElementById("div__register_speciality").addEventListener("submit", f
 
     api.post('administrator-speciality/add-speciality', data)
     .then(res => {
-        alert("Especialidad agregada con exito");
+        alert("La especialidad " + nameSpeciality + " fue agregada con éxito");
         document.querySelector(".input__speciality").value = '';
 
     })
     .catch(err => {
-        alert("Hubo un error");
+        alert(JSON.stringify(err.response.data));
     });
 
 })

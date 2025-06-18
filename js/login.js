@@ -33,6 +33,7 @@ document.getElementById("login").addEventListener("submit", function (event) {
 
             // Guardamos el token en localStorage
             localStorage.setItem("token", token);
+            localStorage.setItem("role", role);
 
             // Redirigimos según el rol
             if (role === "PACIENTE") {
@@ -46,7 +47,7 @@ document.getElementById("login").addEventListener("submit", function (event) {
             }
         })
         .catch(error => {
-            alert("Hubo un error al iniciar sesión. Inténtalo de nuevo.");
+            alert(JSON.stringify(error.response.data));
         });
 });
 

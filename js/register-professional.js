@@ -22,9 +22,10 @@ function cargarSpecialities() {
 }
 
 
-const form = document.getElementById("form_professional");
 
 function formularioProfessional() {
+    
+    const form = document.getElementById("form_professional");
 
     form.addEventListener("submit", async (event) => {
     event.preventDefault();

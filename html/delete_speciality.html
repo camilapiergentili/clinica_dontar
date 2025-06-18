@@ -4,10 +4,45 @@
         <meta charset='utf-8'>
         <title> DATOS PERSONALES - DONTAR </title>
         <link rel='icon' type='image/png' href='../img/dontar_clinica_medica.png'>
+        <link rel='stylesheet' href='../css/style_view_data.css'>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     </head>
     
     <body>
         
+        <header>
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="../img/dontar_clinica_medica.png" alt="Dontar">
+                </a>
+            </div>
+        </header>
+        
+        <main>
+            <div class="div__information">
+                <p>Lista de especialidades</p>
+            </div>
+        
+            <div  class="div__especialidad_data_all">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Especialidades</th>
+                        </tr>
+                    </thead>
+                    
+                    <tbody id="especialidades-body">
+
+                    </tbody>
+                </table>
+            </div>
+        
+        </main>
+        
     </body>
+
+<script src="../js/axios-config.js"></script>
+<script src="../js/delete-speciality.js"></script>
     
 </html>

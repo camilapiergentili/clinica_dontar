@@ -5,6 +5,7 @@
         <title> DATOS PERSONALES - DONTAR </title>
         <link rel='icon' type='image/png' href='../img/dontar_clinica_medica.png'>
         <link rel="stylesheet" href="../css/style_view_data.css">
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     </head>
     
     <body>
@@ -17,67 +18,40 @@
         </header>
         <main>
             <div class="div__personal_data">
-                <div id="div__personal_data">
+                <form id="div__personal_data">
                     <h3>Datos del Paciente</h3>
-                    <label for="nombre">Nombre:</label>
-                    <input type="text" id="nombre" />
+
+                    <label for="dni">Nombre:</label>
+                    <input type="text" id="dni" />
+
+                    <label for="first-name">Nombre:</label>
+                    <input type="text" id="first-name" />
         
-                    <label for="apellido">Apellido:</label>
-                    <input type="text" id="apellido" />
+                    <label for="last-name">Apellido:</label>
+                    <input type="text" id="last-name" />
         
-                    <label for="fechaNacimiento">Fecha de Nacimiento:</label>
-                    <input type="date" id="fechaNacimiento" />
+                    <label for="date-of-birth">Fecha de Nacimiento:</label>
+                    <input type="date" id="date-of-birth" />
         
-                    <label for="obraSocial">Obra Social:</label>
-                    <input type="text" id="obraSocial" />
+                    <label for="obra-social">Obra Social:</label>
+                    <input type="text" id="obra-social" />
         
-                    <label for="telefono">Teléfono:</label>
-                    <input type="tel" id="telefono" />
+                    <label for="phone">Teléfono:</label>
+                    <input type="tel" id="phone" />
         
                     <label for="email">Correo Electrónico:</label>
                     <input type="email" id="email" />
         
                     <div class="div__update">
-                        <button onclick="guardarDatos()">ACTUALIZAR</button>
+                        <button id="button-update" type="submit">ACTUALIZAR</button>
                     </div>
-                </div>
+                </form>
             </div>
         </main>
     </body>
     
+    <script src="../js/axios-config.js"></script>
+    <script src="../js/update-patient.js"></script>
+
 </html>
 
-<script>
-    // Simulación de un único paciente cargado en la lista
-    const paciente = {
-            dni: '12345678',
-            nombre: 'Juan',
-            apellido: 'Pérez',
-            fechaNacimiento: '1980-05-15',
-            obraSocial: 'OSDE',
-            telefono: '1123456789',
-            email: 'juan.perez@example.com'
-        };
-
-    // Función para cargar automáticamente los datos del paciente en el formulario
-    function cargarDatosPaciente() {
-        document.getElementById('nombre').value = paciente.nombre;
-        document.getElementById('apellido').value = paciente.apellido;
-        document.getElementById('fechaNacimiento').value = paciente.fechaNacimiento;
-        document.getElementById('obraSocial').value = paciente.obraSocial;
-        document.getElementById('telefono').value = paciente.telefono;
-        document.getElementById('email').value = paciente.email;
-    }
-
-    // Función para guardar los cambios
-    function guardarDatos() {
-        paciente.nombre = document.getElementById('nombre').value;
-        paciente.apellido = document.getElementById('apellido').value;
-        paciente.email = document.getElementById('email').value;
-        
-        alert('Datos actualizados correctamente.');
-    }
-
-    // Cargar automáticamente los datos al abrir la página
-    window.onload = cargarDatosPaciente;
-</script>

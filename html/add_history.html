@@ -5,6 +5,7 @@
     <title> HISTORIAL MEDICO - DONTAR </title>
     <link rel='icon' type='image/png' href='../img/dontar_clinica_medica.png'>
     <link rel="stylesheet" href="../css/style_show_data.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
     <header>
@@ -34,6 +35,11 @@
                 
                 <label for="fecha">Fecha:</label>
                 <input type="date" id="fecha" name="fecha" required>
+
+                <label for="profesional">Profesional:</label>
+                <select id="profesional">
+                    <option class="option-professional" value=""></option>
+                </select>
                 
                 <label for="historial">Historial Médico:</label>
                 <textarea id="historial" name="historial" rows="4" required></textarea>
@@ -44,22 +50,8 @@
     </main>
     
 
-    <script>
-        document.getElementById('dni').addEventListener('blur', function() {
-            // Simulacion de búsqueda en base de datos
-            const pacientes = {
-                '12345678': { nombre: 'Juan', apellido: 'Pérez', obraSocial: 'OSDE' },
-                '87654321': { nombre: 'María', apellido: 'Gómez', obraSocial: 'Swiss Medical' }
-            };
-            const dni = this.value;
-            if (pacientes[dni]) {
-                document.getElementById('nombre').value = pacientes[dni].nombre;
-                document.getElementById('apellido').value = pacientes[dni].apellido;
-                document.getElementById('obraSocial').value = pacientes[dni].obraSocial;
-            } else {
-                alert('Paciente no encontrado');
-            }
-        });
-    </script>
 </body>
+<script src="../js/axios-config.js"></script>
+<script src="../js/add-history.js"></script>
+
 </html>

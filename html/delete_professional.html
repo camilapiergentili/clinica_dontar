@@ -21,7 +21,7 @@
         <div class="container" id="buscarProfesionalById">
             <h1>Buscar Profesional</h1>
             <label for="dni">Ingrese DNI:</label>
-            <input type="text" id="dni" oninput="buscarProfesional()">
+            <input type="text" id="dni">
             
             <label for="nombre">Nombre</label>
             <input type="text" id="nombre" disabled>
@@ -39,7 +39,7 @@
             <input type="email" id="email" disabled>
 
             
-            <button type="click" id="eliminarProfesional" onclick="eliminarProfesional()">ELIMINAR</button>
+            <button type="click" id="eliminarProfesional">ELIMINAR</button>
 
             <div id="alert">
                 Profesional eliminado correctamente
@@ -47,70 +47,7 @@
         </div>
     </main>    
 </body>
-<script src="../js/axiosConfig.js"></script>
-<script src="../js/deleteProfessional.js"></script>
+<script src="../js/axios-config.js"></script>
+<script src="../js/delete-professional.js"></script>
 
 </html>
-
-<!-- 
-<script>
-    const profesionales = {
-    "12345678": {
-        nombre: "Juan",
-        apellido: "Pérez",
-        matricula: "MP1234",
-        correo: "juanperez@mail.com",
-        especialidades: ["Cardiología", "Medicina General"]
-    },
-    "87654321": {
-        nombre: "Ana",
-        apellido: "Gómez",
-        matricula: "MP5678",
-        correo: "anagomez@mail.com",
-        especialidades: ["Dermatología"]
-    }
-};
-
-// Función para buscar el profesional por DNI
-function buscarProfesional() {
-    const dni = document.getElementById("dni").value;
-    const profesional = profesionales[dni];
-
-    if (profesional) {
-        document.getElementById("nombre").value = profesional.nombre;
-        document.getElementById("apellido").value = profesional.apellido;
-        document.getElementById("matricula").value = profesional.matricula;
-        document.getElementById("email").value = profesional.correo;
-
-        // Manejar múltiples especialidades
-        document.getElementById("especialidades").value = profesional.especialidades.join(", ");
-    } else {
-        limpiarCampos();
-    }
-
-    document.getElementById("eliminarProfesional").addEventListener("click", function() {
-            document.getElementById("alert").style.display = "block";
-            setTimeout(() => {
-                window.location.href = "profile_administrator.html";
-            }, 2000);
-        });
-
-        document.getElementById("cerrar").addEventListener("click", function() {
-            document.getElementById("alert").style.display = "none";
-        });
-}
-
-// Función para eliminar un profesional
-function eliminarProfesional() {
-    const dni = document.getElementById("dni").value;
-}
-
-// Limpia los campos cuando no hay coincidencias
-function limpiarCampos() {
-    document.getElementById("nombre").value = "";
-    document.getElementById("apellido").value = "";
-    document.getElementById("matricula").value = "";
-    document.getElementById("email").value = "";
-    document.getElementById("especialidades").value = "";
-}
-</script> -->

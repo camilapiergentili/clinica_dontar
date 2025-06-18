@@ -5,6 +5,7 @@
     <title> PROFESIONALES - DONTAR</title>
     <link rel='icon' type='image/png' href='../img/dontar_clinica_medica.png'>
     <link rel='stylesheet' href='../css/style_view_data.css'>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
     <header>
@@ -36,27 +37,8 @@
         
     </main>
 </body>
+
+<script src="../js/axios-config.js"></script>
+<script src="../js/all-professional-for-patient.js"></script>
 </html>
 
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const profesionales = [
-            { nombre: "BRUNO MARTIN", apellido: "DAHUA",  especialidad: "IOSFA" },
-            { nombre: "JUAN", apellido: "PEREZ", especialidad: "OSDE" },
-            { nombre: "MARIA", apellido: "LOPEZ",  especialidad: "PAMI" },
-            { nombre: "CARLOS", apellido: "GOMEZ", especialidad: "SWISS MEDICAL" },
-            { nombre: "ANA", apellido: "TORRES", especialidad: "MEDIFE" }
-        ];
-        
-        const tableBody = document.getElementById('profesionales-body');
-        profesionales.forEach(profesional => {
-            const row = document.createElement('tr');
-            row.innerHTML = `
-                <td>${profesional.nombre}</td>
-                <td>${profesional.apellido}</td>
-                <td>${profesional.especialidad}</td>
-            `;
-            tableBody.appendChild(row);
-        });
-    });
-</script>

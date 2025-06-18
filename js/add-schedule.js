@@ -1,5 +1,6 @@
 function getSchedule() {
   const agenda = [];
+
   const diasSemanaMap = {
     Lunes: "MONDAY",
     Martes: "TUESDAY",
@@ -32,6 +33,14 @@ function getSchedule() {
   return agenda;
 }
 
+function clearAllInputs() {
+  const startTime = document.querySelectorAll(".hora-inicio");
+  const endTime = document.querySelectorAll(".hora-fin");
+
+  startTime.forEach((input) => input.value = '');
+  endTime.forEach((input) => input.value = '');
+}
+
 function scheduleProfessional() {
   const professionalId = localStorage.getItem("idProfessional");
   const id = Number(professionalId);
@@ -54,11 +63,12 @@ function scheduleProfessional() {
           agendaProfessional,
         );
         alert("Agenda agregada con exito");
+        clearAllInputs();
+        
 
-        window.location.href =
-          "/clinica_dontar/html/profile_administrator.html";
       } catch (err) {
         alert("Error " + JSON.stringify(err.response.data));
+        clearAllInputs();
       }
     });
 }

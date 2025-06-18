@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link rel="stylesheet" href="../css/style_show_data.css">
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
     <header>
@@ -23,23 +24,21 @@
             <h1>Reservar Turno Médico</h1>
 
             <label for="dni">DNI:</label>
-            <input type="text" id="dni" placeholder="Ingrese su DNI" oninput="buscarPaciente()">
+            <input type="text" id="dni" placeholder="Ingrese su DNI">
             
             <label for="nombre">Nombre</label>
             <input type="text" id="nombre" disabled>
+
             <label for="apellido">Apellido</label>
             <input type="text" id="apellido" disabled>
 
             <label for="especialidad">Especialidad:</label>
-            <select id="especialidad" onchange="cargarProfesionales()">
+            <select id="especialidad">
                 <option value="">Selecciona una especialidad</option>
-                <option value="cardiologia">Cardiología</option>
-                <option value="dermatologia">Dermatología</option>
-                <option value="pediatria">Pediatría</option>
             </select>
 
             <label for="profesional">Profesional:</label>
-            <select id="profesional" onchange="configurarCalendario()" disabled>
+            <select id="profesional" disabled>
                 <option value="">Selecciona un profesional</option>
             </select>
 
@@ -64,146 +63,7 @@
     </main>
 
 </body>
-</html>
+<script src="../js/axios-config.js"></script>
+<script src="../js/sacar-turno-administrador.js"></script>
 
-    <script>
-        const pacientes = {
-                '12345678': { nombre: 'Juan', apellido: 'Pérez' },
-                '87654321': { nombre: 'María', apellido: 'Gómez' }
-            };
-
-        function buscarPaciente() {
-            let dni = document.getElementById("dni").value;
-            document.getElementById("nombre").value = pacientes[dni].nombre || "";
-            document.getElementById("apellido").value = pacientes[dni].apellido || "";            
-        }
-        document.getElementById("confirmarTurno").addEventListener("click", function() {
-            document.getElementById("alert").style.display = "block";
-            setTimeout(() => {
-                window.location.href = "profile_administrator.html";
-            }, 2000);
-        });
-
-        document.getElementById("cerrar").addEventListener("click", function() {
-            document.getElementById("alert").style.display = "none";
-        });
-    </script>
-    <script>
-        // Base de datos simulada de profesionales con días y horarios
-        const profesionales = {
-            cardiologia: [
-                { nombre: "Dr. Pérez", dias: [1, 3, 5], horarioInicio: "09:00", horarioFin: "12:00" },
-                { nombre: "Dra. Gómez", dias: [2, 4], horarioInicio: "10:00", horarioFin: "13:00" }
-            ],
-            dermatologia: [
-                { nombre: "Dr. López", dias: [1, 5], horarioInicio: "08:00", horarioFin: "11:00" },
-                { nombre: "Dra. Fernández", dias: [3], horarioInicio: "14:00", horarioFin: "17:00" }
-            ],
-            pediatria: [
-                { nombre: "Dr. Ramírez", dias: [2, 4], horarioInicio: "09:30", horarioFin: "12:30" }
-            ]
-        };
-
-        function cargarProfesionales() {
-            const especialidad = document.getElementById("especialidad").value;
-            const selectProfesional = document.getElementById("profesional");
-            selectProfesional.innerHTML = '<option value="">Selecciona un profesional</option>';
-
-            if (especialidad) {
-                profesionales[especialidad].forEach(prof => {
-                    const option = document.createElement("option");
-                    option.value = prof.nombre;
-                    option.textContent = prof.nombre;
-                    selectProfesional.appendChild(option);
-                });
-                selectProfesional.disabled = false;
-            } else {
-                selectProfesional.disabled = true;
-            }
-            document.getElementById("fecha").disabled = true;
-            document.getElementById("hora").disabled = true;
-        }
-
-        function configurarCalendario() {
-            const especialidad = document.getElementById("especialidad").value;
-            const profesionalSeleccionado = document.getElementById("profesional").value;
-            const inputFecha = document.getElementById("fecha");
-
-            if (profesionalSeleccionado) {
-                const profesional = profesionales[especialidad].find(p => p.nombre === profesionalSeleccionado);
-                const diasValidos = profesional.dias;
-
-                flatpickr(inputFecha, {
-                    enable: obtenerFechasDisponibles(diasValidos, 30), // Días habilitados en el próximo mes
-                    dateFormat: "Y-m-d",
-                    onChange: function(selectedDates) {
-                        cargarHoras(selectedDates[0]);
-                    }
-                });
-
-                inputFecha.disabled = false;
-            } else {
-                inputFecha.disabled = true;
-            }
-            document.getElementById("hora").disabled = true;
-        }
-
-        function obtenerFechasDisponibles(diasValidos, diasAdelante) {
-            let fechas = [];
-            let hoy = new Date();
-
-            for (let i = 0; i < diasAdelante; i++) {
-                let nuevaFecha = new Date();
-                nuevaFecha.setDate(hoy.getDate() + i);
-
-                if (diasValidos.includes(nuevaFecha.getDay())) {
-                    fechas.push(nuevaFecha);
-                }
-            }
-            return fechas;
-        }
-
-        function cargarHoras(fechaSeleccionada) {
-            const especialidad = document.getElementById("especialidad").value;
-            const profesionalSeleccionado = document.getElementById("profesional").value;
-            const selectHora = document.getElementById("hora");
-            selectHora.innerHTML = '<option value="">Selecciona una hora</option>';
-
-            if (fechaSeleccionada) {
-                const profesional = profesionales[especialidad].find(p => p.nombre === profesionalSeleccionado);
-                const horasDisponibles = generarHoras(profesional.horarioInicio, profesional.horarioFin, 15);
-
-                horasDisponibles.forEach(hora => {
-                    const option = document.createElement("option");
-                    option.value = hora;
-                    option.textContent = hora;
-                    selectHora.appendChild(option);
-                });
-                selectHora.disabled = false;
-            } else {
-                selectHora.disabled = true;
-            }
-        }
-
-        function generarHoras(horaInicio, horaFin, intervalo) {
-            let horas = [];
-            let [hora, minuto] = horaInicio.split(":").map(Number);
-            const [horaFinal, minutoFinal] = horaFin.split(":").map(Number);
-
-            while (hora < horaFinal || (hora === horaFinal && minuto <= minutoFinal)) {
-                let horaStr = hora.toString().padStart(2, '0');
-                let minutoStr = minuto.toString().padStart(2, '0');
-                horas.push(`${horaStr}:${minutoStr}`);
-
-                minuto += intervalo;
-                if (minuto >= 60) {
-                    minuto -= 60;
-                    hora += 1;
-                }
-            }
-            return horas;
-        }
-    </script>
-
-</body>
 </html>

@@ -47,7 +47,6 @@ document.getElementById("container__register").addEventListener("submit", functi
         .catch(err => {
             if (err.response && err.response.data) {
                 alert("Error: " + JSON.stringify(err.response.data));
-                limpiarCampos();
             } else {
                 console.error("Error desconocido:", err);
                 alert("Error inesperado");

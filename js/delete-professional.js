@@ -17,6 +17,7 @@ function findProfessionalById() {
             const response = await api.get(`administrator-professional/find-by-dni/${dni}`);
             const data = response.data;
             localStorage.setItem("idProfesional", data.id);
+
             nombreInput.value = data.firstName;
             apellidoInput.value = data.lastName;
             matriculaInput.value = data.matricula;
@@ -45,10 +46,16 @@ function deleteProfesional() {
 
         const id = localStorage.getItem("idProfesional");
 
+        if(!id){
+            alert("Primero debe buscar un profesional por Dni.")
+            return;
+        }
+
         try{
             await api.delete(`administrator-professional/delete-professional/${id}`);
             alert("Profesional eliminado con exito");
             limpiarCampos();
+            localStorage.removeItem("idProfesinal")
         }
         catch(err) {
             alert(JSON.stringify(err.response.data));

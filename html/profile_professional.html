@@ -6,6 +6,7 @@
         <link rel='icon' type='image/png' href='../img/dontar_clinica_medica.png'>
         <link rel="stylesheet" href="../css/style_profile.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     </head>
     
     <body>
@@ -50,7 +51,7 @@
                         <ul class="submenu" id="profesionales">
                             <li><a href="view_data_patient_by_dni.html">Ver Paciente</a></li>
                             <li><a href="view_data_patients_all.html">Ver pacientes</a></li>
-                            <li><a href="cargar_historial.html">Cargar historial medico</a></li>
+                            <li><a href="add_history.html">Cargar historial medico</a></li>
                             <li><a href="view_historial_patient.html">Ver historial medico</a></li>
                         </ul>
     
@@ -62,7 +63,7 @@
             <div class="div__main">
                 <div class="div__welcome">
                     <p>Bienvenido a Tu Portal, </p>
-                    <p>NOMBRE</p>
+                    <p id="name-professional"></p>
                     <p>Todo en un mismo lugar, la comodidad al alcance de tu mano, fácil y práctico</p>
                 </div>
                 <div class="div__advise">
@@ -99,7 +100,8 @@
             </div>
         </footer>
     </body>
-    
+    <script src="../js/axios-config.js"></script>
+    <script src="../js/profile-professional.js"></script>
 </html>
 
 

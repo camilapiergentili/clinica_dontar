@@ -6,6 +6,7 @@
     <link rel='icon' type='image/png' href='../img/dontar_clinica_medica.png'>
     <link rel="stylesheet" href="../css/style_profile.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
     <header>
@@ -52,7 +53,7 @@
                         <li><a href="view_specialities_all.html">Ver especialidades</a></li>
                     </ul>
 
-                    <li class="logout"><a href="index.html">CERRAR SESIÓN</a></li>
+                    <li class="logout"><a href="../index.html">CERRAR SESIÓN</a></li>
                 </ul>
             </nav>
         </div>
@@ -60,7 +61,7 @@
         <div class="div__main">
             <div class="div__welcome">
                 <p>Bienvenido a Tu Portal, </p>
-                <p>NOMBRE</p>
+                <p id="nombre-patient"></p>
                 <p>Todo en un mismo lugar, la comodidad al alcance de tu mano, fácil y práctico</p>
             </div>
             <div class="div__advise">
@@ -98,6 +99,9 @@
         </div>
     </footer>
 </body>
+
+<script src="../js/axios-config.js"></script>
+<script src="../js/profile-patient.js"></script>
 </html>
 
 
