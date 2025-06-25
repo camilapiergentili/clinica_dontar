@@ -7,7 +7,7 @@ function findPatientById() {
         const dni = dniInput.value;
 
         try{
-            const response = await api.get(`patient/find-by-dni/${dni}`);
+            const response = await api.get(`patients/${dni}`);
             const data = response.data;
 
     
@@ -37,8 +37,6 @@ function deletePatient() {
         event.preventDefault();
 
         const id = localStorage.getItem("idPatient");
-
-        console.log("el id es: ", id);
         
         if(!id){
             alert("Primero debe buscar un paciente por Dni.")
@@ -46,7 +44,7 @@ function deletePatient() {
         }
 
         try{
-            await api.delete(`patient/delete?id=${id}`);
+            await api.delete(`patients/delete?id=${id}`);
             alert("Paciente eliminado con éxito");
             limpiarCampos();
 

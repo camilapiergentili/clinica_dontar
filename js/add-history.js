@@ -8,7 +8,7 @@ async function findPatient() {
             return;
         }
 
-        const response = await api.get(`patient/find-by-dni/${patientDni}`);
+        const response = await api.get(`patients/${patientDni}`);
         const data = response.data;
         localStorage.setItem("idPatient", data.id)
         
@@ -28,7 +28,7 @@ async function findPatient() {
 
 async function selectProfessional() {
     try{
-        const response = await api.get("professional/all-professionals");
+        const response = await api.get("professionals/");
         const data = response.data;
 
         const professionals = document.getElementById("profesional");

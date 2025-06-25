@@ -11,7 +11,7 @@ document.getElementById("div__register_speciality").addEventListener("submit", f
         nameSpeciality: nameSpeciality
     }
 
-    api.post('administrator-speciality/add-speciality', data)
+    api.post('specialities/add', data)
     .then(res => {
         alert("La especialidad " + nameSpeciality + " fue agregada con éxito");
         document.querySelector(".input__speciality").value = '';

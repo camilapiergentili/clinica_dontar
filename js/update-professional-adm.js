@@ -7,7 +7,7 @@ function buscarProfessionalPorDni() {
     const dni = document.getElementById("dni").value;
 
     try {
-      const response = await api.get(`administrator-professional/find-by-dni/${dni}`);
+      const response = await api.get(`administrator-professional/${dni}`);
       const data = response.data;
 
       localStorage.setItem("idProfessional", data.id);
@@ -55,7 +55,7 @@ function update() {
     }
 
     try{
-      await api.put(`professional/update?id=${id}`, professionalActualizado);
+      await api.put(`professionals/update?id=${id}`, professionalActualizado);
       alert("Profesional modificado con exito ");
 
     }

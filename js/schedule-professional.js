@@ -12,10 +12,10 @@ async function getAppointmentProfessional() {
     };
 
     try{
-        const response = await api.get("professional/my-profile");
+        const response = await api.get("professionals/my-profile");
         const idProfesional = response.data.id;
 
-        const responseSchedule = await api.get(`professional/getSchedule/${idProfesional}`);
+        const responseSchedule = await api.get(`professionals/getSchedule/${idProfesional}`);
         const schedule = responseSchedule.data;
 
         schedule.forEach(agenda => {

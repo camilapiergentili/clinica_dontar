@@ -7,7 +7,7 @@ function getPatientById() {
         const dni = dniPatient.value;
     
         try{
-            const response = await api.get(`patient/find-by-dni/${dni}`);
+            const response = await api.get(`patients/${dni}`);
             const data = response.data;
 
             document.getElementById("nombre").value = data.firstName;
@@ -24,7 +24,7 @@ function getPatientById() {
 async function getSpeciality() {
 
     try{
-        const response = await api.get("administrator-speciality/get-all");
+        const response = await api.get("specialities/");
         const data = response.data;
 
         const selectSpecialities = document.getElementById("especialidad");
@@ -53,7 +53,7 @@ function getProfessionalForSpeciality() {
         selectProfessional.disabled = true;
 
         try{
-            const response = await api.get(`professional/speciality/${IdSpeciality}`);
+            const response = await api.get(`professionals/speciality/${IdSpeciality}`);
             const data = response.data;
 
             data.forEach(profesional => {

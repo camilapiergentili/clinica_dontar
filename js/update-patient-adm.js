@@ -9,7 +9,7 @@ function findPatientByDni() {
 
         try{
 
-            const response = await api.get(`patient/find-by-dni/${dni}`);
+            const response = await api.get(`patients/${dni}`);
             const data = response.data;
             localStorage.setItem("idPatient", data.id);
 
@@ -55,7 +55,7 @@ function update() {
         }
 
         try{
-            await api.put(`patient/update?id=${id}`, patientUpdate);
+            await api.put(`patients/update?id=${id}`, patientUpdate);
             alert("Paciente modificado con éxito");
 
         }

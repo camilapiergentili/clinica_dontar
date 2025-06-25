@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", async () => {
 
     try{
-        const response = await api.get("patient/my-profile");
+        const response = await api.get("patients/my-profile");
         const data = response.data;
 
         const birthDate = new Date(data.dateOfBirth);

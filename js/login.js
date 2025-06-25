@@ -20,22 +20,17 @@ document.getElementById("login").addEventListener("submit", function (event) {
         method: 'post',
         url: 'http://localhost:8081/auth/login',
         data: data,
-        headers: {
-            'Content-Type': 'application/json',
-        },
-
-        withCredentials: true
     })
         .then(res => {
 
             const token = res.data.token;
             const role = res.data.role;
 
-            // Guardamos el token en localStorage
+            // Guardo el token en localStorage
             localStorage.setItem("token", token);
             localStorage.setItem("role", role);
 
-            // Redirigimos según el rol
+            // Se redirige según el rol
             if (role === "PACIENTE") {
                 window.location.href = "/clinica_dontar/html/profile_patient.html"; // Redirigir al perfil del paciente
             } else if (role === "PROFESIONAL") {

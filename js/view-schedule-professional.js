@@ -1,5 +1,5 @@
-function loadProfessionals() {
-    api.get("professional/all-professionals")
+async function loadProfessionals() {
+    await api.get("professionals/")
     .then(response => {
         const professionals = response.data;
     
@@ -38,7 +38,7 @@ function schedule() {
         if(!idProfesional) return;
 
         try{
-            const response = await api.get(`professional/getSchedule/${idProfesional}`);
+            const response = await api.get(`professionals/getSchedule/${idProfesional}`);
             const schedule = response.data;
             
             document.getElementById("horarios-body").innerHTML = '';
@@ -146,7 +146,7 @@ function deleteSchedule() {
         const idProfesional = document.getElementById("profesional").value;
 
         try{
-            await api.delete(`administrator-schedule/delete/${idProfesional}/${idSchedule}`);
+            await api.delete(`schedule/delete/${idProfesional}/${idSchedule}`);
 
             selectRow.remove();
 
