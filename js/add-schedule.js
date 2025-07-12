@@ -59,7 +59,7 @@ function scheduleProfessional() {
 
       try {
         const response = await api.post(
-          `administrator-schedule/add-schedule/${id}`,
+          `schedule/${id}`,
           agendaProfessional,
         );
         alert("Agenda agregada con exito");

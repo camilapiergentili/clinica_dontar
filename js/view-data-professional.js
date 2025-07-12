@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", async () => {
 
     try{
-        const response = await api.get("/professional/my-profile");
+        const response = await api.get("/professionals/my-profile");
         const data = response.data;
 
         document.getElementById("first_name").value = data.firstName;

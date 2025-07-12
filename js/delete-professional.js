@@ -14,7 +14,7 @@ function findProfessionalById() {
 
         try{
             
-            const response = await api.get(`administrator-professional/find-by-dni/${dni}`);
+            const response = await api.get(`administrator-professional/${dni}`);
             const data = response.data;
             localStorage.setItem("idProfesional", data.id);
 
@@ -52,7 +52,7 @@ function deleteProfesional() {
         }
 
         try{
-            await api.delete(`administrator-professional/delete-professional/${id}`);
+            await api.delete(`administrator-professional/delete/${id}`);
             alert("Profesional eliminado con exito");
             limpiarCampos();
             localStorage.removeItem("idProfesinal")

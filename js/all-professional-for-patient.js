@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", async () => {
 
     try{
-        const response = await api.get("professional/all-professionals");
+        const response = await api.get("professionals/");
         const professionals = response.data;
 
         const tableBody = document.getElementById("profesionales-body");

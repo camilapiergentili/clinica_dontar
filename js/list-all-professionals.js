@@ -1,7 +1,7 @@
-document.addEventListener("DOMContentLoaded", (event) => {
+document.addEventListener("DOMContentLoaded", async (event) => {
     event.preventDefault();
 
-    api.get("/professional/all-professionals")
+    await api.get("/professionals/")
     .then(response => {
         const professionals = response.data;
 

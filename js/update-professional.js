@@ -2,7 +2,7 @@ async function myProfile() {
 
     try{
 
-        const response = await api.get("/professional/my-profile");
+        const response = await api.get("/professionals/my-profile");
         const data = response.data;
 
         document.getElementById("first_name").value = data.firstName;
@@ -35,7 +35,7 @@ function update() {
         }
 
         try{
-            await api.put("professional/update", datosModificados);
+            await api.put("professionals/update", datosModificados);
             alert("Datos modificados con exito");
         }
         catch(err) {

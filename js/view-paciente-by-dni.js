@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const phoneInput = document.getElementById("phone");
 
         try {
-            const response = await api.get(`patient/find-by-dni/${dni}`);
+            const response = await api.get(`patients/${dni}`);
             const data = response.data;
 
             firstnameInput.value = data.firstName;
@@ -31,8 +31,6 @@ document.addEventListener("DOMContentLoaded", () => {
             alert(JSON.stringify(err.response.data));
             limpiarCampos();
         }
-
-
     });
 })
 

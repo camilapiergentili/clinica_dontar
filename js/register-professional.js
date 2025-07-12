@@ -1,7 +1,7 @@
 
 function cargarSpecialities() {
 
-    api.get('administrator-speciality/get-all')
+    api.get('specialities/')
     .then(response => {
         const specialities = response.data;
 
@@ -51,7 +51,7 @@ function formularioProfessional() {
     }
     
     try{
-        const response = await api.post('administrator-professional/register-professional', data);
+        const response = await api.post('administrator-professional/register', data);
         const idProfesional = response.data.id;
 
         localStorage.setItem("idProfessional", idProfesional);

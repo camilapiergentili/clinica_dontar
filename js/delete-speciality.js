@@ -1,6 +1,6 @@
-function findSpeciality(){
+async function findSpeciality(){
 
-    api.get('administrator-speciality/get-all')
+    await api.get('specialities/')
     .then(response => {
         const specialities = response.data;
 

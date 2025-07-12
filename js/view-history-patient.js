@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
             tBody.innerHTML = ""; 
 
             if(data.length === 0) {
-                const patient = await api.get(`patient/find-by-dni/${dniPatient}`);
+                const patient = await api.get(`patient/${dniPatient}`);
                 const fullName = patient.data.firstName + " " + patient.data.lastName;
                 document.getElementById("nombrePaciente").textContent = fullName;
                 mostrarAdvertencia("El paciente " + fullName +  " no cuenta con registros medicos");

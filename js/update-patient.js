@@ -1,7 +1,7 @@
 async function myProfile() {
     
     try{
-        const response = await api.get("patient/my-profile");
+        const response = await api.get("patients/my-profile");
         const data = response.data;
 
         document.getElementById("dni").value = data.dni;
@@ -38,7 +38,7 @@ function updatePatient() {
         };
 
         try{
-            await api.put("patient/update", updatedPatient);
+            await api.put("patients/update", updatedPatient);
             alert("Cambios guardados");
         }
         catch(err) {

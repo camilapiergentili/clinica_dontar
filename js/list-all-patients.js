@@ -1,8 +1,8 @@
-document.addEventListener("DOMContentLoaded", (event) => {
+document.addEventListener("DOMContentLoaded", async (event) => {
 
     event.preventDefault();
 
-    api.get("/patient/get-all")
+    await api.get("/patients/")
     .then(response => {
         const patients = response.data;
 

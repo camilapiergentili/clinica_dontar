@@ -1,7 +1,7 @@
 
-function cargarEspecialidades() {
+async function cargarEspecialidades() {
 
-    api.get('administrator-speciality/get-all')
+    await api.get('specialities/')
         .then(response => {
             const specialities = response.data;
 
@@ -33,7 +33,7 @@ function cargarEspecialidades() {
 
 function mostrarProfesionalPorId() {
 
-    document.getElementById("especialidad").addEventListener("change", function () {
+    document.getElementById("especialidad").addEventListener("change", async function () {
         const specialityId = this.value;
 
         const selectProfessional = document.getElementById("profesional");
@@ -42,7 +42,7 @@ function mostrarProfesionalPorId() {
 
         if (!specialityId) return;
 
-        api.get(`/professional/speciality/${specialityId}`)
+        await api.get(`/professionals/speciality/${specialityId}`)
             .then(res => {
                 const professionals = res.data;
                 professionals.forEach(professional => {
@@ -65,7 +65,7 @@ function mostrarProfesionalPorId() {
 }
 
 function selectDayAppointment() {
-    document.getElementById("profesional").addEventListener("change", function () {
+    document.getElementById("profesional").addEventListener("change", async function () {
 
         const idProfesional = this.value;
         const selectDate = document.getElementById("fecha");
@@ -74,7 +74,7 @@ function selectDayAppointment() {
 
         if(!idProfesional) return;
 
-        api.get(`appointment/date/${idProfesional}`)
+        await api.get(`appointment/date/${idProfesional}`)
         .then(response => {
             const fechas = response.data;
             fechas.forEach(fecha => {
@@ -97,7 +97,7 @@ function selectDayAppointment() {
 }
 
 function selectTimeAppointment() {
-    document.getElementById("fecha").addEventListener("change", function() {
+    document.getElementById("fecha").addEventListener("change", async function() {
         const fecha = this.value;
         const idProfesional = document.getElementById("profesional").value;
         const selectTime = document.getElementById("hora");
@@ -106,7 +106,7 @@ function selectTimeAppointment() {
 
         if(!idProfesional || !fecha) return;
 
-        api.get(`appointment/available/${idProfesional}?date=${fecha}`)
+        await api.get(`appointment/available/${idProfesional}?date=${fecha}`)
         .then(res => {
             const horarios = res.data;
             horarios.forEach(time => {
