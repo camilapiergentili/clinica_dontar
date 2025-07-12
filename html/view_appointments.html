@@ -1,107 +1,102 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title> TURNOS - DONTAR </title>
-    <link rel='icon' type='image/png' href='../img/dontar_clinica_medica.png'>
-    <link rel="stylesheet" href="../css/style_view_appointments.css">
+  <meta charset="UTF-8">
+  <title>TURNOS - DONTAR</title>
+  <link rel='icon' type='image/png' href='../img/dontar_clinica_medica.png'>
+  <link rel="stylesheet" href="../css/style_view_appointments.css">
 </head>
 <body>
-    <header>    
-        <div class="logo">
-            <a href="../index.html">
-                <img src="../img/dontar_clinica_medica.png" alt="Dontar">
-            </a>
-        </div>
-    </header>
-    
-    <div class="div__calendar_container">
-        <h1>Calendario de Turnos</h1>
-        
-        <div class="div__month_controls">
-            <button onclick="changeMonth(-1)">Anterior</button>
-            <h2 id="currentMonth"></h2>
-            <button onclick="changeMonth(1)">Siguiente</button>
-        </div>
+  <header>
+    <div class="logo">
+      <a href="../index.html">
+        <img src="../img/dontar_clinica_medica.png" alt="Dontar">
+      </a>
+    </div>
+  </header>
 
-        <div class="div__weekdays">
-            <div>Dom</div><div>Lun</div><div>Mar</div><div>Mié</div><div>Jue</div><div>Vie</div><div>Sáb</div>
-        </div>
-        <div class="div__calendar" id="calendar"></div>
+  <div class="tabla_container">
+    <h1>Turnos semanales</h1>
+
+    <div class="navegacion_semanal">
+      <button onclick="cambiarSemana(-1)">← Semana anterior</button>
+      <span id="rangoSemana"></span>
+      <button onclick="cambiarSemana(1)">Semana siguiente →</button>
     </div>
 
-    <div class="div__schedule" id="schedule">
-        <button onclick="closeSchedule()">Cerrar</button>
-    </div>
+    <table id="tablaTurnos">
+      <thead id="theadTurnos"></thead>
+      <tbody id="tbodyTurnos"></tbody>
+    </table>
+  </div>
 
-    <script>
-        const scheduleData = {
-            "2025-02-26": [{ time: "09:00", available: true }, { time: "10:00", available: false, patient: "Juan Pérez" }, { time: "11:00", available: true }],
-            "2025-03-15": [{ time: "09:00", available: false, patient: "María Gómez" }, { time: "10:00", available: true }, { time: "11:00", available: false, patient: "Carlos López" }]
-        };
+  <script>
+    const horarios = ["09:00", "10:00", "11:00"];
 
-        let currentDate = new Date();
-        let currentMonth = currentDate.getMonth();
-        let currentYear = currentDate.getFullYear();
+    const scheduleData = {
+      "2025-07-07": { "09:00": "Juan", "10:00": null, "11:00": "Ana" },
+      "2025-07-08": { "09:00": null, "10:00": "Lucía", "11:00": null },
+      "2025-07-09": { "09:00": "Pedro", "10:00": null, "11:00": null },
+      "2025-07-10": { "09:00": null, "10:00": null, "11:00": "Ramiro" },
+      "2025-07-11": { "09:00": "Nadia", "10:00": "Luis", "11:00": null }
+    };
 
-        const monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+    let offsetSemanal = 0;
 
-        function generateCalendar() {
-            document.getElementById("currentMonth").textContent = `${monthNames[currentMonth]} ${currentYear}`;
-            const calendar = document.getElementById("calendar");
-            calendar.innerHTML = "";
+    function obtenerLunesDesdeHoy(offset) {
+      const hoy = new Date();
+      const diaActual = hoy.getDay(); 
+      const diferencia = diaActual === 0 ? -6 : 1 - diaActual;
+      hoy.setDate(hoy.getDate() + diferencia + offset * 7);
+      return hoy;
+    }
 
-            let firstDay = new Date(currentYear, currentMonth, 1).getDay();
-            let daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+    function generarFechasSemana(offset) {
+      const lunes = obtenerLunesDesdeHoy(offset);
+      const fechas = [];
 
-            for (let i = 0; i < firstDay; i++) {
-                const emptyCell = document.createElement("div");
-                emptyCell.classList.add("div__empty_day");
-                calendar.appendChild(emptyCell);
-            }
+      for (let i = 0; i < 7; i++) {
+        const dia = new Date(lunes);
+        dia.setDate(lunes.getDate() + i);
+        const iso = dia.toISOString().split("T")[0];
+        const label = dia.toLocaleDateString("es-AR", { weekday: "short", day: "2-digit", month: "2-digit" });
+        const diaSemana = dia.getDay(); // 0 = domingo, 6 = sábado
+        fechas.push({ iso, label, diaSemana });
+      }
 
-            for (let i = 1; i <= daysInMonth; i++) {
-                const day = document.createElement("div");
-                day.classList.add("div__day");
-                day.textContent = i;
-                day.onclick = () => showSchedule(`${currentYear}-${(currentMonth + 1).toString().padStart(2, '0')}-${i.toString().padStart(2, '0')}`);
-                calendar.appendChild(day);
-            }
-        }
+      return fechas;
+    }
 
-        function changeMonth(direction) {
-            currentMonth += direction;
-            if (currentMonth < 0) {
-                currentMonth = 11;
-                currentYear--;
-            } else if (currentMonth > 11) {
-                currentMonth = 0;
-                currentYear++;
-            }
-            generateCalendar();
-        }
+    function renderTablaTurnos() {
+      const fechas = generarFechasSemana(offsetSemanal);
+      const thead = document.getElementById("theadTurnos");
+      const tbody = document.getElementById("tbodyTurnos");
+      const rangoSemana = document.getElementById("rangoSemana");
 
-        function showSchedule(date) {
-            const scheduleDiv = document.getElementById("schedule");
-            scheduleDiv.innerHTML = `<button onclick="closeSchedule()">Cerrar</button><h3>Turnos para ${date}</h3>`;
-            const schedule = scheduleData[date] || [];
-            if (schedule.length === 0) {
-                scheduleDiv.innerHTML += "<p>No hay turnos registrados.</p>";
-            } else {
-                schedule.forEach(slot => {
-                    const status = slot.available ? "Disponible" : `Ocupado - ${slot.patient}`;
-                    const statusClass = slot.available ? "div__available" : "div__unavailable";
-                    scheduleDiv.innerHTML += `<p class="${statusClass}">${slot.time} - ${status}</p>`;
-                });
-            }
-            scheduleDiv.style.display = "block";
-        }
+      rangoSemana.textContent = `${fechas[0].label} al ${fechas[6].label}`;
 
-        function closeSchedule() {
-            document.getElementById("schedule").style.display = "none";
-        }
+      thead.innerHTML = "<tr><th>Horario</th>" + fechas.map(f => `<th>${f.label}</th>`).join("") + "</tr>";
 
-        generateCalendar();
-    </script>
+      tbody.innerHTML = "";
+      horarios.forEach(hora => {
+        const fila = document.createElement("tr");
+        fila.innerHTML = `<td><strong>${hora}</strong></td>` +
+          fechas.map(f => {
+            const paciente = scheduleData[f.iso]?.[hora];
+            const esFinDeSemana = f.diaSemana === 0 || f.diaSemana === 6;
+            const clase = esFinDeSemana ? "cerrado" : (paciente ? "ocupado" : "disponible");
+            return `<td class="${clase}">${paciente ?? ""}</td>`;
+          }).join("");
+        tbody.appendChild(fila);
+      });
+    }
+
+    function cambiarSemana(delta) {
+      offsetSemanal += delta;
+      renderTablaTurnos();
+    }
+
+    renderTablaTurnos();
+  </script>
 </body>
 </html>
