@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>TURNOS - DONTAR</title>
+  <link rel='icon' type='image/png' href='../img/dontar_clinica_medica.png'>
+  <link rel="stylesheet" href="../css/style_view_appointments.css">
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <a href="../index.html">
+        <img src="../img/dontar_clinica_medica.png" alt="Dontar">
+      </a>
+    </div>
+  </header>
+
+  <div class="tabla_container">
+    <h1>Turnos semanales</h1>
+
+    <div class="navegacion_semanal">
+      <button class="semana_anterior">← Semana anterior</button>
+      <span id="rangoSemana"></span>
+      <button class="semana_siguiente">Semana siguiente →</button>
+    </div>
+
+    <table id="tablaTurnos">
+      <thead id="theadTurnos"></thead>
+      <tbody id="tbodyTurnos"></tbody>
+    </table>
+  </div>
+</body>
+
+  <script src="../js/axios-config.js"></script>
+  <script src="../js/table-appointment-professional.js"></script>
+</html>
