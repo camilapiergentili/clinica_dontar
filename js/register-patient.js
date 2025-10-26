@@ -32,7 +32,7 @@ document.getElementById("container__register").addEventListener("submit", functi
 
     axios({
         method: 'post',
-        url: 'http://localhost:8081/patients/register',
+        url: 'http://clinicadontar.com/patients/register',
         data: data,
     })
         .then(res => {

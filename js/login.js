@@ -18,7 +18,7 @@ document.getElementById("login").addEventListener("submit", function (event) {
     
     axios({
         method: 'post',
-        url: 'http://localhost:8081/auth/login',
+        url: 'http://clinicadontar.com/auth/login',
         data: data,
     })
         .then(res => {
