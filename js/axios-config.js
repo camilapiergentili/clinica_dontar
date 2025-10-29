@@ -1,7 +1,11 @@
 
 
 const api = axios.create({
+<<<<<<< HEAD
     baseURL: 'http://vps-5315501-x.dattaweb.com:8081',
+=======
+    baseURL: 'http://clinicadontar.com/',
+>>>>>>> 65622dad3d23d28f000e919250cf6b9e1902773f
     withCredentials: true,  // Esto asegura que se envíen las cookies de sesión si es necesario
 });
 

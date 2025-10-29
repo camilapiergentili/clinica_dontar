@@ -22,7 +22,7 @@ document.getElementById("forgot-password").addEventListener("submit", function (
 
     axios({
         method: 'put',
-        url: 'http://localhost:8081/auth/forgot-password',
+        url: 'http://clinicadontar.com/auth/forgot-password',
         data: data,
     })
         .then(res => {
