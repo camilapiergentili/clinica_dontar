@@ -1,7 +1,7 @@
 
 
 const api = axios.create({
-    baseURL: 'http://localhost:8081',
+    baseURL: 'http://vps-5315501-x.dattaweb.com:8081',
     withCredentials: true,  // Esto asegura que se envíen las cookies de sesión si es necesario
 });
 
