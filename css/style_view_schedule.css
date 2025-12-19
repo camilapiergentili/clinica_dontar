@@ -82,6 +82,38 @@ th {
     font-weight: bold;
 }
 
+.div__button{
+    display: flex;
+    justify-content: flex-end;
+}
+
+#button-delete-schedule, #button-add-schedule {
+    border: 2px solid var(--color-gris-claro);
+    border-radius: 8px;
+    padding: 10px;
+    margin-top: 15px;
+    margin: 5px;
+    background-color: var(--color-blanco);
+    color: var(--color-principal);
+    cursor: pointer;
+    
+}
+
+#button-delete-schedule:hover, #button-add-schedule:hover{
+    background-color: var(--color-principal-transparente);
+}
+
+.option-professional, #profesional {
+    border: 1px solid var(--color-gris-intenso);
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.selected {
+    background-color: var(--color-principal-transparente);
+    cursor: pointer;
+}
+
 
 /* ======= MEDIA QUERIES ======= */
 @media (max-width: 768px) {

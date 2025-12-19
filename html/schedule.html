@@ -31,7 +31,6 @@
                             <tr>
                                 <th>Día</th>
                                 <th>Horarios</th>
-                                <th>Acción</th>
                             </tr>
                         </thead>
                         <tbody id="horariosTable">
@@ -41,8 +40,6 @@
                                     <td>
                                         <input type="time" class="hora-inicio"> - <input type="time" class="hora-fin">
                                     </td>
-                                
-                                <td><button onclick="agregarHorario(this)">+</button></td>
                             </tr>
                              
                             <tr>
@@ -50,28 +47,28 @@
                                 <td>
                                     <input type="time" class="hora-inicio"> - <input type="time" class="hora-fin">
                                 </td>
-                                <td><button onclick="agregarHorario(this)">+</button></td>
+                               
                             </tr>
                             <tr>
                                 <td>Miércoles</td>
                                 <td>
                                     <input type="time" class="hora-inicio"> - <input type="time" class="hora-fin">
                                 </td>
-                                <td><button onclick="agregarHorario(this)">+</button></td>
+                               
                             </tr>
                             <tr>
                                 <td>Jueves</td>
                                 <td>
                                     <input type="time" class="hora-inicio"> - <input type="time" class="hora-fin">
                                 </td>
-                                <td><button onclick="agregarHorario(this)">+</button></td>
+                                
                             </tr>
                             <tr>
                                 <td>Viernes</td>
                                 <td>
                                     <input type="time" class="hora-inicio"> - <input type="time" class="hora-fin">
                                 </td>
-                                <td><button onclick="agregarHorario(this)">+</button></td>
+                               
                             </tr>
                         </tbody>
                     </table>
@@ -82,18 +79,7 @@
         </main>
     </body>
 
-    <script src="../js/axiosConfig.js"></script>
-    <script src="../js/addSchedule.js"></script>
+<script src="../js/axios-config.js"></script>
+<script src="../js/add-schedule.js"></script>
 
 </html>
-
-<script>
-    function agregarHorario(btn) {
-        let td = btn.parentNode.previousElementSibling;
-        let nuevoHorario = document.createElement("div");
-        nuevoHorario.innerHTML = `<input type="time"> - <input type="time"> <button onclick="this.parentNode.remove()">🗑</button>`;
-        td.appendChild(nuevoHorario);
-    }
-
-
-</script>

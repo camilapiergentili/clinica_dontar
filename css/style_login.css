@@ -114,9 +114,15 @@ header {
     width: 85%;
     margin: 10px;
     padding: 10px;
-    background-color: var(--color-principal);
-    color: #ddd;
+    background-color: var(--color-principal-transparente);
+    color: var(--color-blanco);
+    margin: none;
     border-radius: 5px;
+    cursor: pointer;
+}
+
+.iniciar_sesion:hover {
+    background-color: var(--color-principal);
 }
 
 
@@ -145,7 +151,7 @@ header {
 }
 
 #button__iniciar_sesion a,
-#button__change_password a,
+#button__change_password,
 #button__register_patient,
 #button__register_professional,
 #button__register_speciality,

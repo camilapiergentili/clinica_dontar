@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded",  () => {
         const especialidad = document.getElementById("especialidad");
         
         try{
-            const response = await api.get(`administrator-professional/find-by-dni/${dni}`);
+            const response = await api.get(`administrator-professional/${dni}`);
             const data = response.data;
             
             name.value = data.firstName;

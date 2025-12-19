@@ -5,6 +5,7 @@
         <title> DATOS PERSONALES - DONTAR </title>
         <link rel='icon' type='image/png' href='../img/dontar_clinica_medica.png'>
         <link rel="stylesheet" href="../css/style_view_data.css">
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     </head>
     
     <body>
@@ -24,11 +25,11 @@
             <div class="div__search">
                 <label for="dni">Ingrese el DNI</label>
                 <input class="input__dni" id="dni" type="text">
-                <button onclick="buscarPaciente()">Buscar</button>
+                <button type="click" id="button-search">Buscar</button>
             </div>
             
             <div class="div__personal_data" id="div__personal_data" style="display: none;">
-                <div id="datosPaciente" style="display: none;">
+                <form id="datosPaciente" style="display: none;">
                     <h3>Datos del Paciente</h3>
                     <label for="nombre">Nombre:</label>
                     <input type="text" id="nombre" />
@@ -49,9 +50,9 @@
                     <input type="email" id="email" />
         
                     <div class="div__update">
-                        <button onclick="guardarDatos()">ACTUALIZAR</button>
+                        <button type="submit" id="button-update">ACTUALIZAR</button>
                     </div>
-                </div>
+                </form>
         
                 <div id="mensajeError" style="color: red; display: none;">
                     <p>Paciente no encontrado.</p>
@@ -60,76 +61,8 @@
         </main>
     
     </body>
+
+<script src="../js/axios-config.js"></script>
+<script src="../js/update-patient-adm.js"></script>
     
 </html>
-
-<script>
-    // Lista de pacientes predeterminada
-    const pacientes = [
-        {
-            dni: '12345678',
-            nombre: 'Juan',
-            apellido: 'Pérez',
-            fechaNacimiento: '1980-05-15',
-            obraSocial: 'OSDE',
-            telefono: '1123456789',
-            email: 'juan.perez@example.com'
-        },
-        {
-            dni: '23456789',
-            nombre: 'María',
-            apellido: 'López',
-            fechaNacimiento: '1990-09-25',
-            obraSocial: 'IOMA',
-            telefono: '1123456790',
-            email: 'maria.lopez@example.com'
-        }
-    ];
-
-    // Función para buscar el paciente
-    function buscarPaciente() {
-        const dni = document.getElementById('dni').value;
-        const paciente = pacientes.find(p => p.dni === dni);
-        const mensajeError = document.getElementById('mensajeError');
-        const datosPaciente = document.getElementById('datosPaciente');
-        const div__personal_data = document.getElementById('div__personal_data')
-
-        if (paciente) {
-            document.getElementById('nombre').value = paciente.nombre;
-            document.getElementById('apellido').value = paciente.apellido;
-            document.getElementById('fechaNacimiento').value = paciente.fechaNacimiento;
-            document.getElementById('obraSocial').value = paciente.obraSocial;
-            document.getElementById('telefono').value = paciente.telefono;
-            document.getElementById('email').value = paciente.email;
-
-            div__personal_data.style.display = 'block'
-            datosPaciente.style.display = 'block';
-            mensajeError.style.display = 'none';
-        } else {
-            div__personal_data.style.display = 'none'
-            datosPaciente.style.display = 'none';
-            mensajeError.style.display = 'block';
-        }
-    }
-
-    // Función para guardar los cambios
-    function guardarDatos() {
-        const dni = document.getElementById('dni').value;
-        const pacienteIndex = pacientes.findIndex(p => p.dni === dni);
-
-        if (pacienteIndex !== -1) {
-            pacientes[pacienteIndex] = {
-                dni,
-                nombre: document.getElementById('nombre').value,
-                apellido: document.getElementById('apellido').value,
-                fechaNacimiento: document.getElementById('fechaNacimiento').value,
-                obraSocial: document.getElementById('obraSocial').value,
-                telefono: document.getElementById('telefono').value,
-                email: document.getElementById('email').value
-            };
-            alert('Datos guardados correctamente.');
-        } else {
-            alert('Paciente no encontrado.');
-        }
-    }
-</script>

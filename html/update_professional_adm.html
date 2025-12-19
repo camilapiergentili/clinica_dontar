@@ -56,70 +56,7 @@
     
     </body>
     
-    <script src="../js/axiosConfig.js"></script>
-    <script src="../js/updateProfessionalAdm.js"></script>
+<script src="../js/axios-config.js"></script>
+<script src="../js/update-professional-adm.js"></script>
 </html>
 
-
-<!-- <script>
-
-    const profesionales = [
-        {
-            dni: '12345678',
-            nombre: 'Juan',
-            apellido: 'Pérez',
-            matricula: '1980-05-15',
-            email: 'juan.perez@example.com'
-        },
-        {
-            dni: '23456789',
-            nombre: 'María',
-            apellido: 'López',
-            matricula: '1990-09-25',
-            email: 'maria.lopez@example.com'
-        }
-    ];
-
-
-    function buscarProfesional() {
-        const dni = document.getElementById('dni').value;
-        const profesional = profesionales.find(p => p.dni === dni);
-        const mensajeError = document.getElementById('mensajeError');
-        const datosProfesional = document.getElementById('datosProfesional');
-        const div__personal_data = document.getElementById('div__personal_data')
-
-        if (profesional) {
-            document.getElementById('nombre').value = profesional.nombre;
-            document.getElementById('apellido').value = profesional.apellido;
-            document.getElementById('matricula').value = profesional.matricula;
-            document.getElementById('email').value = profesional.email;
-
-            div__personal_data.style.display = 'block'
-            datosProfesional.style.display = 'block';
-            mensajeError.style.display = 'none';
-        } else {
-            div__personal_data.style.display = 'none'
-            datosProfesional.style.display = 'none';
-            mensajeError.style.display = 'block';
-        }
-    }
-
-
-    function guardarDatos() {
-        const dni = document.getElementById('dni').value;
-        const pacienteIndex = profesionales.findIndex(p => p.dni === dni);
-
-        if (pacienteIndex !== -1) {
-            profesionales[pacienteIndex] = {
-                dni,
-                nombre: document.getElementById('nombre').value,
-                apellido: document.getElementById('apellido').value,
-                matricula: document.getElementById('matricula').value,
-                email: document.getElementById('email').value
-            };
-            alert('Datos guardados correctamente.');
-        } else {
-            alert('Profesional no encontrado.');
-        }
-    }
-</script> -->

@@ -5,6 +5,8 @@
     <title> HISTORIAL MEDICO - DONTAR </title>
     <link rel='icon' type='image/png' href='../img/dontar_clinica_medica.png'>
     <link rel="stylesheet" href="../css/style_view_historial.css">
+    <link rel="stylesheet" href="../css/style_warning.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
     <header>
@@ -19,9 +21,9 @@
         <div class="container">
             <h2>Consulta de Historial Médico</h2>
             
-            <label for="dni">Ingrese DNI del paciente:</label>
+            <label for="dni">Dni paciente</label>
             <input type="text" id="dni" name="dni" required>
-            <button onclick="buscarHistorial()">Buscar</button>
+            <button type="click" id="btn-find">Buscar</button>
 
             <div id="resultado" class="hidden">
                 <h3>Historial Médico de <span id="nombrePaciente"></span></h3>
@@ -30,17 +32,27 @@
                         <tr>
                             <th>Fecha</th>
                             <th>Historial</th>
+                            <th>Profesional</th>
                         </tr>
                     </thead>
                     <tbody id="historial-body">
                     </tbody>
                 </table>
+                
+                <div id="warning"></div>
                 <button class="close-btn" onclick="cerrarHistorial()">Cerrar</button>
             </div>
         </div>
     </main>
 
-    <script>
+</body>
+
+
+<script src="../js/axios-config.js"></script>
+<script src="../js/view-history-patient.js"></script>
+</html>
+
+    <!-- <script>
         function buscarHistorial() {
             const dni = document.getElementById('dni').value;
             const pacientes = {
@@ -78,7 +90,4 @@
             document.getElementById('resultado').classList.add('hidden');
             document.getElementById('dni').value = '';
         }
-    </script>
-
-</body>
-</html>
+    </script> -->

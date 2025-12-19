@@ -1,7 +1,7 @@
 
 
 const api = axios.create({
-    baseURL: 'http://localhost:8081',
+    baseURL:'https://clinicadontar.com',
     withCredentials: true,  // Esto asegura que se envíen las cookies de sesión si es necesario
 });
 

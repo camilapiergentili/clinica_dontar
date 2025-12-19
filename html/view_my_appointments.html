@@ -5,6 +5,7 @@
     <title> TURNOS - DONTAR </title>
     <link rel='icon' type='image/png' href='../img/dontar_clinica_medica.png'>
     <link rel="stylesheet" href="../css/style_view_my_appointments.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
 
@@ -26,31 +27,18 @@
                         <th>Hora</th>
                         <th>Especialidad</th>
                         <th>Profesional</th>
+                        <th>Estado</th>
                     </tr>
                 </thead>
                 <tbody id="turnos-body">
                 </tbody>
             </table>
+
+            <div id="warning"></div>
         </div>
     </main>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const turnos = [
-                { dia: "Lunes 26 de Febrero", hora: "10:00", especialidad: "Cardiología", profesional: "Dr. Juan Pérez" },
-                { dia: "Miércoles 28 de Febrero", hora: "15:30", especialidad: "Dermatología", profesional: "Dra. María Gómez" },
-                { dia: "Viernes 1 de Marzo", hora: "08:45", especialidad: "Oftalmología", profesional: "Dr. Ricardo López" }
-            ];
-
-            const turnosBody = document.getElementById("turnos-body");
-
-            turnos.forEach(turno => {
-                const row = document.createElement("tr");
-                row.innerHTML = `<td>${turno.dia}</td><td>${turno.hora}</td><td>${turno.especialidad}</td><td>${turno.profesional}</td>`;
-                turnosBody.appendChild(row);
-            });
-        });
-    </script>
-
 </body>
+
+<script src="../js/axios-config.js"></script>
+<script src="../js/view-my-appointment.js"></script>
 </html>

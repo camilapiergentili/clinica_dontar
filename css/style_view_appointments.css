@@ -50,129 +50,60 @@ header {
     padding-top: 10px;
 }
 
-/* ======= MAIN ======= */
-main {
-    margin: 20px auto;
-    width: 60%;
-    background: var(--color-blanco);
+.tabla_container {
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-/* ======= DIV CALENDARIO ======= */
-.div__calendar_container {
-    background: var(--color-blanco);
-    padding: 20px;
-    margin: 20px auto;
-    width: 90%;
-    max-width: 600px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* ======= MES ======= */
-.div__month_controls {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px;
-}
-
-.div__month_controls button {
-    background: var(--color-principal);
-    color: var(--color-blanco);
-    border: none;
-    padding: 10px 15px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background 0.3s;
-}
-
-.div__month_controls button:hover {
-    background: var(--color-principal);
-}
-
-/* ======= DIAS DE LA SEMANA ======= */
-.div__weekdays {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    font-weight: bold;
-    background: var(--color-principal);
-    color: var(--color-blanco);
-    padding: 10px 0;
-    border-radius: 5px;
-}
-
-.div__weekdays div {
     text-align: center;
 }
 
-/* ======= CALENDARIO ======= */
-.div__calendar {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 5px;
+.navegacion_semanal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 20px;
+}
+
+.navegacion_semanal button {
+    padding: 8px 16px;
+    cursor: pointer;
+    background-color: var(--color-principal-transparente);
+}
+
+.navegacion_semanal span {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
     margin-top: 10px;
 }
 
-/* ======= DIA VACIO ======= */
-.div__empty_day {
-    height: 40px;
-}
-
-/* ======= DIAS ======= */
-.div__day {
-    background: var(--color-blanco);
+th, td {
+    border: 1px solid #ccc;
     padding: 10px;
-    border-radius: 5px;
     text-align: center;
+    background-color: var(--color-principal);
+}
+
+th {
+    background-color: var(--color-principal);
+}
+
+.disponible {
+    background-color: lightgreen;
     cursor: pointer;
-    transition: background 0.3s;
-    border: 1px solid #ddd;
 }
 
-.div__day:hover {
-    background: var(--color-principal-transparente);
-    color: var(--color-blanco);
-}
-
-/* ======= DIV TURNOS ======= */
-.div__schedule {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%;
-    max-width: 400px;
-    background: var(--color-blanco);
-    padding: 20px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
-}
-
-.div__schedule button {
-    background: var(--color-principal);
-    color: var(--color-blanco);
-    border: none;
-    padding: 10px 15px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background 0.3s;
-}
-
-.div__schedule button:hover {
-    background: var(--color-rojo);
-}
-
-/* ======= ESTILOS PARA TURNOS DISPONIBLES Y OCUPADOS ======= */
-.div__available {
-    color: var(--color-verde);
+.ocupado {
+    background-color: lightcoral;
+    color: white;
     font-weight: bold;
 }
 
-.div__unavailable {
-    color: var(--color-rojo);
-    font-weight: bold;
+.cerrado {
+  background-color: #e0e0e0; 
+  color: #888;              
+  font-style: italic;
 }

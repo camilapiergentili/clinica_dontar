@@ -32,24 +32,17 @@ document.getElementById("container__register").addEventListener("submit", functi
 
     axios({
         method: 'post',
-        url: 'http://localhost:8081/patient/register',
+        url: 'http://clinicadontar.com/patients/register',
         data: data,
-        headers: {
-            'Content-Type': 'application/json',
-        },
-
-        withCredentials: true
     })
         .then(res => {
             alert("Usted se registro correctamente");
-            window.location.href= "/clinica_dontar/html/profile_administrator.html";
+            window.location.href= "/clinica_dontar/html/login.html";
         })
         .catch(err => {
             if (err.response && err.response.data) {
                 alert("Error: " + JSON.stringify(err.response.data));
-                limpiarCampos();
             } else {
-                console.error("Error desconocido:", err);
                 alert("Error inesperado");
             }
         });

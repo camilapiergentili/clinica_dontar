@@ -1,11 +1,12 @@
-function findPatientByDni() {
-    const button_dni = document.getElementById("dni");
+document.addEventListener("DOMContentLoaded", () => {
 
-    button_dni.addEventListener("change", async (event) => {
-        event.defaultPrevented();
 
-        const dni = button_dni.value;
+    const button = document.getElementById("button-patient");
 
+    button.addEventListener("click", async (event) => {
+        event.preventDefault();
+
+        const dni = document.getElementById("dni").value;
         const firstnameInput = document.getElementById("first_name");
         const lastnameInput = document.getElementById("last_name");
         const usernameInput = document.getElementById("email");
@@ -13,12 +14,10 @@ function findPatientByDni() {
         const obraSocialInput = document.getElementById("obra_social");
         const phoneInput = document.getElementById("phone");
 
-        try{
-            
-            const response = await api.get(`patient/find-by-dni/${dni}`);
+        try {
+            const response = await api.get(`patients/${dni}`);
             const data = response.data;
 
-            
             firstnameInput.value = data.firstName;
             lastnameInput.value = data.lastName;
             usernameInput.value = data.username;
@@ -26,19 +25,22 @@ function findPatientByDni() {
             obraSocialInput.value = data.obraSocial;
             phoneInput.value = data.phone;
 
+            
         }
-        catch(err) {
+        catch (err) {
             alert(JSON.stringify(err.response.data));
+            limpiarCampos();
         }
-
     });
-}
+})
 
-/*terminar*/
-function deletePatient() {
-    document.getElementById("eliminarPatient").addEventListener("click", (event) => {
-        event.preventDefault();
+function limpiarCampos() {
+    document.getElementById("dni").value = "";
+    document.getElementById("first_name").value = "";
+    document.getElementById("last_name").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("date_of_birth").value = "";
+    document.getElementById("obra_social").value = "";
+    document.getElementById("phone").value = "";
 
-        api.delete()
-    })
 }

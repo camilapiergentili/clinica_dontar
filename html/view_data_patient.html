@@ -6,6 +6,7 @@
     <link rel='icon' type='image/png' href='../img/dontar_clinica_medica.png'>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="../css/style_view_data.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 
 <body>
@@ -25,43 +26,46 @@
         <div class="div__personal_data">
             <div class="div__field">
                 <label for="first_name">Nombre</label>
-                <input id="first_name" class="input__first_name" type="text" value="BRUNO MARTIN" readonly>
+                <input id="first_name" class="input__first_name" type="text" value="" readonly>
             </div>
 
             <div class="div__field">
                 <label for="last_name">Apellido</label>
-                <input id="last_name" class="input__last_name" type="text" value="DAHUA" readonly>
+                <input id="last_name" class="input__last_name" type="text" value="" readonly>
             </div>
 
             <div class="div__field">
                 <label for="dni">DNI</label>
-                <input id="dni" type="text" value="45889159" readonly>
+                <input id="dni" type="text" value="" readonly>
             </div>
 
             <div class="div__field">
                 <label for="email">Correo Electrónico</label>
-                <input id="email" class="input__email" type="email" value="dahuabruno@gmail.com" readonly>
+                <input id="email" class="input__email" type="email" value="" readonly>
             </div>
 
             <div class="div__field">
                 <label>Fecha de Nacimiento</label>
                 <div class="div__birthdate">
-                    <input type="text" value="03" readonly>
-                    <input type="text" value="01" readonly>
-                    <input type="text" value="2005" readonly>
+                    <input id="day" type="text" value="" readonly>
+                    <input id="month" type="text" value="" readonly>
+                    <input id="year" type="text" value="" readonly>
                 </div>
             </div>
 
             <div class="div__field">
                 <label for="obra_social">Obra Social</label>
-                <input id="obra_social" class="input__obra_social" type="text" value="IOSFA" readonly>
+                <input id="obra_social" class="input__obra_social" type="text" value="" readonly>
             </div>
 
             <div class="div__field">
                 <label for="telephone">Teléfono</label>
-                <input id="telephone" class="input__telephone" type="text" value="2932405452" readonly>
+                <input id="telephone" class="input__telephone" type="text" value="" readonly>
             </div>
         </div>
     </main>
 </body>
+
+<script src="../js/axios-config.js"></script>
+<script src="../js/view-data-patient.js"></script>
 </html>

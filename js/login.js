@@ -18,35 +18,31 @@ document.getElementById("login").addEventListener("submit", function (event) {
     
     axios({
         method: 'post',
-        url: 'http://localhost:8081/auth/login',
+        url: 'http://turnosmedicos.railway.internal/auth/login ',
         data: data,
-        headers: {
-            'Content-Type': 'application/json',
-        },
-
-        withCredentials: true
     })
         .then(res => {
 
             const token = res.data.token;
             const role = res.data.role;
 
-            // Guardamos el token en localStorage
+            // Guardo el token en localStorage
             localStorage.setItem("token", token);
+            localStorage.setItem("role", role);
 
-            // Redirigimos según el rol
+            // Se redirige según el rol
             if (role === "PACIENTE") {
-                window.location.href = "/clinica_dontar/html/profile_patient.html"; // Redirigir al perfil del paciente
+                window.location.href = "/html/profile_patient.html"; // Redirigir al perfil del paciente
             } else if (role === "PROFESIONAL") {
-                window.location.href = "/clinica_dontar/html/profile_professional.html"; // Redirigir al perfil profesional
+                window.location.href = "/html/profile_professional.html"; // Redirigir al perfil profesional
             } else if (role === "ADMINISTRADOR") {
-                window.location.href = "/clinica_dontar/html/profile_administrator.html";  // Redirigir al perfil del administrador
+                window.location.href = "/html/profile_administrator.html";  // Redirigir al perfil del administrador
             } else {
                 alert("Rol no reconocido. Por favor, contacta al soporte.");
             }
         })
         .catch(error => {
-            alert("Hubo un error al iniciar sesión. Inténtalo de nuevo.");
+            alert(JSON.stringify(error.response.data));
         });
 });
 

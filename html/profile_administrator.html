@@ -41,10 +41,10 @@
       <div class="div__sidebar">
         <nav>
           <ul>
-            <li class="menu-title" onclick="toggleSubmenu('turnos')">
+            <li class="menu-title" onclick="toggleSubmenu('profesional')">
               PROFESIONALES
             </li>
-            <ul class="submenu" id="turnos">
+            <ul class="submenu" id="profesional">
               <li><a href="register_professional.html">Dar de alta</a></li>
               <li>
                 <a href="update_professional_adm.html">Actualizar datos</a>
@@ -69,45 +69,60 @@
               <li><a href="view_data_patients_all.html">Ver pacientes</a></li>
             </ul>
 
-            <li class="menu-title" onclick="toggleSubmenu('datos')">AGENDA</li>
-            <ul class="submenu" id="datos">
-              <li><a href="#">Crear turnos</a></li>
-              <li><a href="#">Eliminar turnos</a></li>
+            <li class="menu-title" onclick="toggleSubmenu('agenda')">AGENDA</li>
+            <ul class="submenu" id="agenda">
               <li>
-                <a href="view_schedule_professional.html"
-                  >Ver agenda de un profesional</a
-                >
+                <a href="view_schedule_professional.html">Ver agenda de un profesional</a>
               </li>
-              <li>
-                <a href="sacar_turno_administrator.html">Asignar turno</a>
-              </li>
+              
             </ul>
+            
+            <li class="menu-title" onclick="toggleSubmenu('turnos')">TURNOS</li>
+            <ul class="submenu" id="turnos">
 
+              <li>
+                <a href="sacar_turno_administrator.html">Dar turno</a>
+              </li>
+
+            </ul>
+            
             <li class="menu-title" onclick="toggleSubmenu('especialidades')">
               ESPECIALIDADES
             </li>
+
             <ul class="submenu" id="especialidades">
+
               <li>
                 <a href="register_especiality.html">Crear especialidad</a>
               </li>
+
               <li>
                 <a href="view_specialities_all.html">Ver especialidades</a>
               </li>
-              <li><a href="#">Eliminar especialidad</a></li>
+
+              <li>
+                <a href="delete_speciality.html">Eliminar especialidad</a>
+              </li>
             </ul>
 
-            <li class="menu-title" onclick="toggleSubmenu('profesionales')">
+            <li class="menu-title" onclick="toggleSubmenu('datos')">
               DATOS PERSONALES
             </li>
-            <ul class="submenu" id="profesionales">
-              <li><a href="view_data_administrator.html">Ver mis datos</a></li>
+            <ul class="submenu" id="datos">
+              <li>
+                <a href="view_data_administrator.html">Ver mis datos</a>
+              </li>
+
               <li>
                 <a href="update_administrator.html">Modificar mis datos</a>
               </li>
-              <li><a href="new_password.html">Cambiar contraseña</a></li>
+
+              <li>
+                <a href="new_password.html">Cambiar contraseña</a>
+              </li>
             </ul>
 
-            <li class="logout"><a href="index.html">CERRAR SESIÓN</a></li>
+            <li class="logout"><a href="../index.html">CERRAR SESIÓN</a></li>
           </ul>
         </nav>
       </div>
@@ -115,32 +130,41 @@
       <div class="div__main">
         <div class="div__welcome">
           <p>Bienvenido a Tu Portal,</p>
-          <p>NOMBRE</p>
+          <p class="name-clinic"></p>
         </div>
       </div>
+
     </main>
+
     <footer>
       <div class="div__footer">
         <div class="div__img">
           <img src="../img/dontar_clinica_medica.png" />
         </div>
+
         <div class="div__contacto">
           <p>Por cualquier consulta comuníquese</p>
+
           <div class="div__telephone">
             <i class="material-icons">phone</i>
             <p>(0291) 4548919</p>
           </div>
+
           <div class="div__email">
             <i class="material-icons">email</i>
             <p>admportal@crodiagnostico.com.ar</p>
           </div>
+
         </div>
+
         <div class="div__extra">
           <p>© Powered by Netmed Solutions S.A.</p>
           <p>V.22.3.1</p>
         </div>
+
       </div>
     </footer>
+    
   </body>
 </html>
 

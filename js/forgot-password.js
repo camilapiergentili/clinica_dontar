@@ -22,14 +22,8 @@ document.getElementById("forgot-password").addEventListener("submit", function (
 
     axios({
         method: 'put',
-        url: 'http://localhost:8081/auth/forgot-password',
+        url: 'http://clinicadontar.com/auth/forgot-password',
         data: data,
-        headers: {
-            'Content-Type': 'application/json',
-        },
-
-        withCredentials: true
-
     })
         .then(res => {
             alert("Su contraseña ha sido modificada con su número de dni");
