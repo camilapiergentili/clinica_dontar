@@ -18,7 +18,7 @@ document.getElementById("login").addEventListener("submit", function (event) {
     
     axios({
         method: 'post',
-        url: 'http://clinicadontar.com/auth/login',
+        url: 'http://turnosmedicos.railway.internal/auth/login ',
         data: data,
     })
         .then(res => {
@@ -32,11 +32,11 @@ document.getElementById("login").addEventListener("submit", function (event) {
 
             // Se redirige según el rol
             if (role === "PACIENTE") {
-                window.location.href = "/clinica_dontar/html/profile_patient.html"; // Redirigir al perfil del paciente
+                window.location.href = "/html/profile_patient.html"; // Redirigir al perfil del paciente
             } else if (role === "PROFESIONAL") {
-                window.location.href = "/clinica_dontar/html/profile_professional.html"; // Redirigir al perfil profesional
+                window.location.href = "/html/profile_professional.html"; // Redirigir al perfil profesional
             } else if (role === "ADMINISTRADOR") {
-                window.location.href = "/clinica_dontar/html/profile_administrator.html";  // Redirigir al perfil del administrador
+                window.location.href = "/html/profile_administrator.html";  // Redirigir al perfil del administrador
             } else {
                 alert("Rol no reconocido. Por favor, contacta al soporte.");
             }
