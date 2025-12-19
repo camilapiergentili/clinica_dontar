@@ -18,7 +18,7 @@ document.getElementById("login").addEventListener("submit", function (event) {
     
     axios({
         method: 'post',
-        url: 'http://turnosmedicos.railway.internal/auth/login ',
+        url: 'https://turnosmedicos-production.up.railway.app/auth/login',
         data: data,
     })
         .then(res => {
